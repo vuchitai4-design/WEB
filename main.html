@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hệ Quản Trị CSDL - Lớp 11T1</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700;800&family=Teko:wght@700;800&display=swap" rel="stylesheet">
+
+    <!-- Liên kết CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- CON TRỎ CHUỘT HÌNH TRÒN XANH MỜ BLUR (AURA GLOW) -->
+    <div class="cursor-follower" id="cursor-follower"></div>
+
+    <!-- VỆT SÁNG NỀN FIX CỐ ĐỊNH XUYÊN SUỐT CÁC PHẦN -->
+    <div class="global-glow glow-top-left"></div>
+    <div class="global-glow glow-bottom-right"></div>
+
+    <!-- SLIDE 1: TRANG CHỦ / TIÊU ĐỀ BÀI HỌC -->
+    <section class="slide">
+        <div class="lop-11T1-text animate-item">LỚP 11T1</div>
+        
+        <div class="bai12-box animate-item">
+            <span class="bai12-text">BÀI 12</span>
+            <div class="handle top-left"></div>
+            <div class="handle bottom-right"></div>
+            <svg class="cursor-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 3L10.07 19.97L12.58 12.58L19.97 10.07L3 3Z" fill="#C6F8FF" stroke="#000" stroke-width="0.5"/>
+            </svg>
+        </div>
+
+        <div class="tieu-de animate-item">
+            <span class="tieu-de-text1">HỆ QUẢN TRỊ CSDL</span>
+            <span class="tieu-de-text2">VÀ HỆ CSDL</span>
+        </div>
+
+        <div class="danh-sach-thanh-vien animate-item">
+            <div class="thanh-vien-item">VŨ CHÍ TÀI</div>
+            <div class="thanh-vien-item">TRẦN MINH TIẾN</div>
+            <div class="thanh-vien-item">TRẦN MINH THƯ</div>
+            <div class="thanh-vien-item">TRẦN PHẠM QUỲNH NHƯ</div>
+        </div>
+
+        <div class="footer-phai animate-item">
+            <span class="design-by">DESIGN BY THƯ TRẦN</span>
+            <span class="design-by">CODE BY VC TÈO</span>
+        </div>
+    </section>
+
+    <!-- SLIDE 2: MEMBERS OF GROUP -->
+    <section class="slide">
+        <h1 class="group-title animate-item">MEMBERS OF GROUP</h1>
+
+        <div class="members-container animate-item">
+            <div class="member-card">
+                <div class="member-photo-wrapper">
+                    <img src="1.png" alt="Vũ Chí Tài" class="member-photo">
+                </div>
+                <div class="member-badge">
+                    <div class="member-name">VŨ CHÍ TÀI</div>
+                    <div class="member-role">
+                        <span>Lập Trình Web</span>
+                        <span>Thuyết Trình</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="member-card">
+                <div class="member-photo-wrapper">
+                    <img src="2.png" alt="Trần Minh Tiến" class="member-photo">
+                </div>
+                <div class="member-badge">
+                    <div class="member-name">TRẦN MINH TIẾN</div>
+                    <div class="member-role">
+                        <span>Thuyết Trình</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="member-card">
+                <div class="member-photo-wrapper">
+                    <img src="3.png" alt="Trần Minh Thư" class="member-photo">
+                </div>
+                <div class="member-badge">
+                    <div class="member-name">TRẦN MINH THƯ</div>
+                    <div class="member-role">
+                        <span>Thiết Kế Slide</span>
+                        <span>Lọc Thông Tin</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="member-card">
+                <div class="member-photo-wrapper">
+                    <img src="4.png" alt="Trần Phạm Quỳnh Như" class="member-photo">
+                </div>
+                <div class="member-badge">
+                    <div class="member-name">TRẦN PHẠM QUỲNH NHƯ</div>
+                    <div class="member-role">
+                        <span>Kiểm Tra Nội Dung</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 3: YÊU CẦU CỦA CSDL -->
+    <section class="slide">
+        <div class="question-wrapper">
+            <div class="question-left animate-item">
+                <div class="question-tag">// QUESTION 01</div>
+                <h2 class="question-text word-by-word">
+                    Theo bạn, 1 phần mềm hỗ trợ làm việc với các CSDL cần thực hiện được những yêu cầu nào? 
+                </h2>
+            </div>
+
+            <div class="question-right animate-item" id="result-stage">
+                <div class="robot-puller" id="robot-puller">
+                    <div class="robot-speech" id="robot-speech">
+                        <span>Bấm vào đây để</span>
+                        <strong>XEM KẾT QUẢ</strong>
+                    </div>
+                    
+                    <div class="full-robot">
+                        <svg viewBox="0 0 160 160" class="robot-svg">
+                            <line x1="60" y1="20" x2="60" y2="8" stroke="#4cfdff" stroke-width="2.5"/>
+                            <circle cx="60" cy="6" r="4" fill="#c6f8ff"/>
+                            <rect x="38" y="20" width="44" height="32" rx="10" fill="#122536" stroke="#4cfdff" stroke-width="2.5"/>
+                            <rect x="44" y="28" width="32" height="14" rx="6" fill="#000" stroke="#4cfdff" stroke-width="1.5"/>
+                            <circle cx="52" cy="35" r="3.5" fill="#c6f8ff"/>
+                            <circle cx="68" cy="35" r="3.5" fill="#c6f8ff"/>
+                            <path d="M52 46 Q60 50 68 46" stroke="#4cfdff" stroke-width="2" fill="none" stroke-linecap="round"/>
+                            <rect x="54" y="52" width="12" height="6" rx="2" fill="#4cfdff"/>
+                            <path d="M32 58 L88 58 L82 100 L38 100 Z" fill="#122536" stroke="#4cfdff" stroke-width="2.5"/>
+                            <circle cx="60" cy="78" r="8" fill="#000" stroke="#4cfdff" stroke-width="1.5"/>
+                            <polygon points="60,73 65,81 55,81" fill="#c6f8ff"/>
+
+                            <g class="arms-normal">
+                                <g class="robot-arm arm-left">
+                                    <line x1="32" y1="62" x2="16" y2="80" stroke="#4cfdff" stroke-width="4" stroke-linecap="round"/>
+                                    <circle cx="14" cy="82" r="4.5" fill="#c6f8ff"/>
+                                </g>
+                                <g class="robot-arm arm-right">
+                                    <line x1="88" y1="62" x2="104" y2="80" stroke="#4cfdff" stroke-width="4" stroke-linecap="round"/>
+                                    <circle cx="106" cy="82" r="4.5" fill="#c6f8ff"/>
+                                </g>
+                            </g>
+
+                            <g class="arms-pulling">
+                                <path d="M80 65 Q120 75 155 82" stroke="#4cfdff" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+                                <circle cx="157" cy="82" r="5" fill="#c6f8ff"/>
+                                <path d="M80 75 Q120 88 155 96" stroke="#4cfdff" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+                                <circle cx="157" cy="96" r="5" fill="#c6f8ff"/>
+                            </g>
+
+                            <rect x="42" y="100" width="36" height="8" rx="3" fill="#1e3a52"/>
+                            <g class="robot-leg leg-left">
+                                <line x1="48" y1="108" x2="48" y2="140" stroke="#4cfdff" stroke-width="4.5" stroke-linecap="round"/>
+                                <path d="M38 140 L54 140 L56 148 L36 148 Z" fill="#c6f8ff"/>
+                            </g>
+                            <g class="robot-leg leg-right">
+                                <line x1="72" y1="108" x2="72" y2="140" stroke="#4cfdff" stroke-width="4.5" stroke-linecap="round"/>
+                                <path d="M62 140 L78 140 L80 148 L60 148 Z" fill="#c6f8ff"/>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="requirements-list" id="requirements-list">
+                    <div class="req-card step-1" id="card-1">
+                        <span class="req-num">01</span>
+                        <div class="req-info">
+                            <h3>TẠO LẬP CSDL</h3>
+                            <p>Cung cấp công cụ tạo lập CSDL.</p>
+                        </div>
+                    </div>
+
+                    <div class="req-card step-2" id="card-2">
+                        <span class="req-num">02</span>
+                        <div class="req-info">
+                            <h3>CẬP NHẬT DỮ LIỆU</h3>
+                            <p>Cập nhật dữ liệu và tự động kiểm tra tính đúng đắn của dữ liệu.</p>
+                        </div>
+                    </div>
+
+                    <div class="req-card step-3" id="card-3">
+                        <span class="req-num">03</span>
+                        <div class="req-info">
+                            <h3>TRUY XUẤT DỮ LIỆU</h3>
+                            <p>Hỗ trợ truy xuất dữ liệu.</p>
+                        </div>
+                    </div>
+
+                    <div class="req-card step-4" id="card-4">
+                        <span class="req-num">04</span>
+                        <div class="req-info">
+                            <h3>GIAO DIỆN XEM DỮ LIỆU</h3>
+                            <p>Cung cấp giao diện để ai cũng có thể xem nội dung của các bảng dữ liệu một cách dễ dàng.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 4: HỆ QUẢN TRỊ CSDL LÀ GÌ? -->
+    <section class="slide slide-qtcsdl">
+        <div class="bg-decor bg-server-left animate-morph-bg">
+            <svg viewBox="0 0 100 120" class="db-svg-icon">
+                <ellipse cx="50" cy="20" rx="40" ry="14" fill="#0d1b2a" stroke="#4cfdff" stroke-width="2"/>
+                <path d="M10 20 v40 c0 8 18 14 40 14 s40 -6 40 -14 v-40" fill="#0d1b2a" stroke="#4cfdff" stroke-width="2"/>
+                <ellipse cx="50" cy="60" rx="40" ry="14" fill="#0d1b2a" stroke="#4cfdff" stroke-width="2"/>
+                <path d="M10 60 v40 c0 8 18 14 40 14 s40 -6 40 -14 v-40" fill="#0d1b2a" stroke="#4cfdff" stroke-width="2"/>
+                <ellipse cx="50" cy="100" rx="40" ry="14" fill="#0d1b2a" stroke="#4cfdff" stroke-width="2"/>
+            </svg>
+            <div class="sql-floating-badge">SQL</div>
+        </div>
+
+        <div class="bg-decor bg-monitor-center animate-morph-bg">
+            <svg viewBox="0 0 200 150" class="monitor-svg-icon">
+                <rect x="20" y="15" width="160" height="105" rx="10" fill="rgba(13,27,42,0.4)" stroke="rgba(76,253,255,0.2)" stroke-width="2"/>
+                <path d="M75 55 L55 75 L75 95 M125 55 L145 75 L125 95 M105 45 L95 105" stroke="rgba(76,253,255,0.3)" stroke-width="3" stroke-linecap="round" fill="none"/>
+                <path d="M85 120 L115 120 L120 138 L80 138 Z" fill="rgba(76,253,255,0.2)"/>
+            </svg>
+        </div>
+
+        <div class="bg-decor bg-server-right animate-morph-bg">
+            <svg viewBox="0 0 100 140" class="db-svg-stack">
+                <ellipse cx="50" cy="25" rx="42" ry="15" fill="#081018" stroke="rgba(76,253,255,0.35)" stroke-width="2"/>
+                <path d="M8 25 v40 c0 9 19 16 42 16 s42 -7 42 -16 v-40" fill="#081018" stroke="rgba(76,253,255,0.35)" stroke-width="2"/>
+                <ellipse cx="50" cy="65" rx="42" ry="15" fill="#081018" stroke="rgba(76,253,255,0.35)" stroke-width="2"/>
+                <path d="M8 65 v40 c0 9 19 16 42 16 s42 -7 42 -16 v-40" fill="#081018" stroke="rgba(76,253,255,0.35)" stroke-width="2"/>
+                <ellipse cx="50" cy="105" rx="42" ry="15" fill="#081018" stroke="rgba(76,253,255,0.35)" stroke-width="2"/>
+            </svg>
+        </div>
+
+        <div class="qtcsdl-wrapper">
+            <div class="qtcsdl-header morph-item">
+                <span class="qtcsdl-tag">// KHÁI NIỆM & ĐỊNH NGHĨA</span>
+                <h2 class="qtcsdl-title">HỆ QUẢN TRỊ CSDL LÀ GÌ ?</h2>
+            </div>
+
+            <div class="qtcsdl-grid">
+                <div class="qtcsdl-desc morph-item">
+                    <p>
+                        Để hỗ trợ làm việc với các CSDL, người ta đã xây dựng những phần mềm chuyên dụng gọi là 
+                        <strong class="highlight-kw">HỆ QUẢN TRỊ CƠ SỞ DỮ LIỆU</strong> (Database management systems) 
+                        được gọi tắt là <span class="cyan-kw">"QTCSDL"</span> với các nhóm chức năng chính như:
+                    </p>
+                </div>
+
+                <div class="qtcsdl-features morph-item">
+                    <div class="feature-card">
+                        <span class="f-num">1.</span>
+                        <span class="f-text">Chức năng định nghĩa dữ liệu</span>
+                    </div>
+                    <div class="feature-card">
+                        <span class="f-num">2.</span>
+                        <span class="f-text">Chức năng cập nhật và truy xuất dữ liệu</span>
+                    </div>
+                    <div class="feature-card">
+                        <span class="f-num">3.</span>
+                        <span class="f-text">Chức năng bảo mật, an toàn CSDL</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 5: NHÓM TÍNH NĂNG HỆ QTCSDL -->
+    <section class="slide slide-tinhnang">
+        <div class="tinhnang-wrapper">
+            <div class="tinhnang-header morph-item">
+                <span class="tinhnang-tag">// FEATURE OF DATABASE MANAGEMENT SYSTEM</span>
+                <h2 class="tinhnang-title">NHÓM TÍNH NĂNG HỆ QTCSDL</h2>
+            </div>
+
+            <div class="tinhnang-grid morph-item">
+                <div class="tinhnang-card card-ddl">
+                    <div class="card-glow-bar"></div>
+                    <div class="card-top-meta">
+                        <span class="card-badge">01 // DEFINE</span>
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="#4cfdff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                <polyline points="10 9 9 9 8 9"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                    
+                    <h3 class="card-h3">NHÓM CHỨC NĂNG ĐỊNH NGHĨA DỮ LIỆU</h3>
+                    
+                    <ul class="custom-feature-list">
+                        <li>
+                            <span class="bullet-num">01</span>
+                            <span class="bullet-text">Khai báo với tên gọi xác định, 1 hệ QTCSDL có thể quản trị nhiều CSDL khác.</span>
+                        </li>
+                        <li>
+                            <span class="bullet-num">02</span>
+                            <span class="bullet-text">Tạo lập, sửa đổi kiến trúc bên trong CSDL.</span>
+                        </li>
+                        <li>
+                            <span class="bullet-num">03</span>
+                            <span class="bullet-text">Nhiều hệ QTCSDL cho phép cài đặt các ràng buộc bảo toàn dữ liệu để kiểm soát đúng đắn hơn.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="tinhnang-card card-dml">
+                    <div class="card-glow-bar"></div>
+                    <div class="card-top-meta">
+                        <span class="card-badge">02 // DATA ACCESS</span>
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="#4cfdff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                <polyline points="11 8 11 11 14 11"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                    
+                    <h3 class="card-h3">NHÓM CHỨC NĂNG CẬP NHẬT, TRUY XUẤT DỮ LIỆU</h3>
+                    
+                    <ul class="custom-feature-list">
+                        <li>
+                            <span class="bullet-num">01</span>
+                            <span class="bullet-text">Cập nhật dữ liệu vào CSDL sau khi khởi tạo.</span>
+                        </li>
+                        <li>
+                            <span class="bullet-num">02</span>
+                            <span class="bullet-text">Truy xuất dữ liệu theo từng tiêu chí, mục đích khác nhau.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="tinhnang-card card-sec">
+                    <div class="card-glow-bar"></div>
+                    <div class="card-top-meta">
+                        <span class="card-badge">03 // SECURITY</span>
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="#4cfdff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    
+                    <h3 class="card-h3">NHÓM CHỨC NĂNG BẢO MẬT, AN TOÀN CSDL</h3>
+                    
+                    <ul class="custom-feature-list">
+                        <li>
+                            <span class="bullet-num">01</span>
+                            <span class="bullet-text">Hệ QTCSDL chỉ cung cấp dữ liệu cho người có thẩm quyền nhất định.</span>
+                        </li>
+                        <li>
+                            <span class="bullet-num">02</span>
+                            <span class="bullet-text">Hệ QTCSDL có chức năng kiểm soát các thay đổi để đảm bảo tính nhất quán của dữ liệu.</span>
+                        </li>
+                        <li>
+                            <span class="bullet-num">03</span>
+                            <span class="bullet-text">Hệ QTCSDL có chức năng sao lưu lại dữ liệu phòng sự cố gây mất dữ liệu.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 6: TỔNG QUAN VỀ HỆ QTCSDL (ĐÃ CHUẨN HÓA CLASS NAMES) -->
+    <section class="slide slide-overview" id="slide-overview">
+        <div class="overview-container">
+            
+            <div class="overview-header">
+                <span class="overview-tech-tag">// CORE CONCEPT / KHÁI NIỆM TỔNG QUAN</span>
+                <h2 class="overview-slide-title">TỔNG QUAN VỀ HỆ QTCSDL</h2>
+                <div class="overview-header-line"></div>
+            </div>
+
+            <div class="overview-grid">
+                <div class="tong-quan-card">
+                    <div class="overview-card-corner top-left"></div>
+                    <div class="overview-card-corner bottom-right"></div>
+                    
+                    <div class="overview-card-header">
+                        <div class="overview-card-badge">01</div>
+                        <div class="overview-card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="overview-card-body">
+                        <p class="overview-card-text">
+                            Hệ QTCSDL là phần mềm cung cấp phương thức để <strong>lưu trữ</strong>, <strong>cập nhật</strong> và <strong>truy xuất dữ liệu</strong> của CSDL, bảo mật và an toàn dữ liệu.
+                        </p>
+                    </div>
+
+                    <div class="overview-card-status">
+                        <span class="overview-status-dot"></span> SYSTEM CORE
+                    </div>
+                </div>
+
+                <div class="tong-quan-card">
+                    <div class="overview-card-corner top-left"></div>
+                    <div class="overview-card-corner bottom-right"></div>
+
+                    <div class="overview-card-header">
+                        <div class="overview-card-badge">02</div>
+                        <div class="overview-card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="16 18 22 12 16 6"></polyline>
+                                <polyline points="8 6 2 12 8 18"></polyline>
+                                <line x1="12" y1="2" x2="12" y2="22" stroke-dasharray="2 2"></line>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="overview-card-body">
+                        <p class="overview-card-text">
+                            Hệ QTCSDL cũng cung cấp <strong>giao diện lập trình ứng dụng</strong> cho các nhà phát triển ứng dụng và người dùng.
+                        </p>
+                    </div>
+
+                    <div class="overview-card-status">
+                        <span class="overview-status-dot"></span> API INTERFACE
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SLIDE 7: QUESTION 02 -->
+    <section class="slide" id="slide-question-2">
+        <div class="slide-container">
+            <div class="q2-grid">
+                <div class="q2-main-panel">
+                    <div class="q2-terminal-header">
+                        <div class="q2-terminal-dots">
+                            <span class="q2-dot red"></span>
+                            <span class="q2-dot yellow"></span>
+                            <span class="q2-dot green"></span>
+                        </div>
+                        <span class="q2-terminal-title">SYSTEM_QUERY\QUESTION_02.EXE</span>
+                    </div>
+
+                    <div class="q2-terminal-body">
+                        <div class="q2-question-box">
+                            <span class="q2-prompt-symbol">&gt;</span>
+                            <p class="q2-question-text">
+                                Khi lên mạng tra cứu điểm thi vào 10, thông thường trên màn hình chỉ yêu cầu nhập vài dữ liệu tối thiểu. VD sau khi nhập SBD gần như ngay lập tức em nhận được đầy đủ thông tin như họ tên, trường lớp, điểm thi cùng kết quả xét tuyển. Vậy ngoài CSDL điểm thi, hệ thống tra cứu trực tuyến cần có những gì để có thể cung cấp cho em thông tin như vậy?
+                            </p>
+                        </div>
+
+                        <div class="q2-action-area">
+                            <button id="btn-reveal-ans-2" class="q2-hud-btn" onclick="toggleQ2Answer()">
+                                <span class="q2-btn-text">❖ DECRYPT ANSWER / XEM CÂU TRẢ LỜI</span>
+                            </button>
+                        </div>
+
+                        <div id="q2-answer-output" class="q2-answer-output">
+                            <div class="q2-ans-header">
+                                <span class="q2-ans-badge">✔ DECRYPTED_OUTPUT</span>
+                                <span class="q2-ans-status">STATUS: 200_SUCCESS</span>
+                            </div>
+                            <div class="q2-ans-body">
+                                <span class="q2-prompt-symbol">&gt;</span>
+                                <p class="q2-ans-text">
+                                    Đã có một <strong>phần mềm tổ chức giao tiếp với người dùng</strong> (tra cứu điểm thi) làm <strong>cầu nối</strong> giữa người dùng với CSDL điểm thi.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="q2-side-panel">
+                    <div class="q2-badge-box">
+                        <span class="q2-subtitle">//QUESTION_02</span>
+                        <h2 class="q2-title">QUESTION 2</h2>
+                        <div class="q2-glow-bar"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 8: CÁC MÔ HÌNH CSDL BASIC -->
+    <section class="slide slide-mohinh" id="slide-mohinh">
+        <div class="mohinh-container">
+            <div class="mohinh-header animate-mohinh">
+                <span class="mohinh-tag">// DATABASE ARCHITECTURE / KIẾN TRÚC CSDL</span>
+                <h1 class="mohinh-title">CÁC MÔ HÌNH CSDL CƠ BẢN</h1>
+            </div>
+
+            <div class="mohinh-grid">
+                <div class="model-card card-single-tier animate-mohinh">
+                    <div class="card-glow-top"></div>
+                    <div class="card-hud-corner top-left"></div>
+                    <div class="card-hud-corner bottom-right"></div>
+                    
+                    <div class="model-card-header">
+                        <span class="model-badge">MODEL 01</span>
+                        <span class="model-type">// LOCAL / TẬP TRUNG</span>
+                    </div>
+
+                    <div class="svg-wrapper">
+                        <svg viewBox="0 0 520 230" class="model-svg">
+                            <defs>
+                                <marker id="arrow-cyan-1" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                    <path d="M 0 1.5 L 9 5 L 0 8.5 Z" fill="#4cfdff" />
+                                </marker>
+                            </defs>
+
+                            <rect x="135" y="22" width="365" height="186" rx="12" fill="rgba(76,253,255,0.03)" stroke="rgba(76,253,255,0.28)" stroke-width="1.5" stroke-dasharray="6,4"/>
+
+                            <g class="node-group">
+                                <circle cx="55" cy="115" r="32" fill="rgba(10, 25, 40, 0.85)" stroke="#4cfdff" stroke-width="2"/>
+                                <circle cx="55" cy="103" r="9" fill="none" stroke="#4cfdff" stroke-width="2"/>
+                                <path d="M 40 128 C 40 118, 70 118, 70 128" fill="none" stroke="#4cfdff" stroke-width="2"/>
+                                <text x="55" y="165" class="node-title">USER</text>
+                            </g>
+
+                            <path d="M 92 105 L 152 105" class="path-base" marker-end="url(#arrow-cyan-1)"/>
+                            <path d="M 92 105 L 152 105" class="path-flow"/>
+                            <path d="M 152 125 L 92 125" class="path-base" marker-end="url(#arrow-cyan-1)"/>
+                            <path d="M 152 125 L 92 125" class="path-flow"/>
+
+                            <g class="node-group">
+                                <rect x="160" y="72" width="125" height="86" rx="10" fill="rgba(15, 32, 50, 0.9)" stroke="#4cfdff" stroke-width="2"/>
+                                <rect x="170" y="82" width="105" height="12" rx="3" fill="rgba(76, 253, 255, 0.2)"/>
+                                <circle cx="177" cy="88" r="2.5" fill="#ff5f56"/>
+                                <circle cx="185" cy="88" r="2.5" fill="#ffbd2e"/>
+                                <circle cx="193" cy="88" r="2.5" fill="#27c93f"/>
+                                <text x="222" y="122" class="node-title-inner">CLIENT APP</text>
+                                <text x="222" y="140" class="node-sub-inner">(GIAO DIỆN & XỬ LÝ)</text>
+                            </g>
+
+                            <path d="M 290 98 Q 355 45 408 92" class="path-base" marker-end="url(#arrow-cyan-1)"/>
+                            <path d="M 290 98 Q 355 45 408 92" class="path-flow"/>
+                            <path d="M 408 128 Q 355 178 290 128" class="path-base" marker-end="url(#arrow-cyan-1)"/>
+                            <path d="M 408 128 Q 355 178 290 128" class="path-flow"/>
+                            
+                            <text x="352" y="50" class="label-tech">HỆ QTCSDL</text>
+                            <text x="352" y="195" class="label-tech">HỆ QTCSDL</text>
+
+                            <g class="node-group">
+                                <ellipse cx="450" cy="80" rx="36" ry="12" fill="rgba(15, 32, 50, 0.9)" stroke="#4cfdff" stroke-width="2"/>
+                                <path d="M 414 80 L 414 140 C 414 152, 486 152, 486 140 L 486 80" fill="rgba(15, 32, 50, 0.9)" stroke="#4cfdff" stroke-width="2"/>
+                                <ellipse cx="450" cy="110" rx="36" ry="12" fill="none" stroke="rgba(76,253,255,0.4)" stroke-width="1.5" stroke-dasharray="3,3"/>
+                                <ellipse cx="450" cy="140" rx="36" ry="12" fill="none" stroke="#4cfdff" stroke-width="2"/>
+                                <text x="450" y="115" class="node-title-inner">CSDL</text>
+                            </g>
+                        </svg>
+                    </div>
+
+                    <div class="model-info-footer">
+                        <h3 class="model-caption">MÔ HÌNH SINGLE-TIER ARCHITECTURE</h3>
+                        <p class="model-desc">Giao diện, ứng dụng xử lý và Hệ QTCSDL cùng được cài đặt & chạy trực tiếp trên <strong>1 máy tính duy nhất</strong>.</p>
+                    </div>
+                </div>
+
+                <div class="model-card card-client-server animate-mohinh">
+                    <div class="card-glow-top"></div>
+                    <div class="card-hud-corner top-left"></div>
+                    <div class="card-hud-corner bottom-right"></div>
+                    
+                    <div class="model-card-header">
+                        <span class="model-badge">MODEL 02</span>
+                        <span class="model-type">// NETWORK / KHÁCH - CHỦ</span>
+                    </div>
+
+                    <div class="svg-wrapper">
+                        <svg viewBox="0 0 520 235" class="model-svg">
+                            <defs>
+                                <marker id="arrow-cyan-cs" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                    <path d="M 0 1.5 L 9 5 L 0 8.5 Z" fill="#4cfdff" />
+                                </marker>
+                            </defs>
+
+                            <g class="node-group">
+                                <circle cx="35" cy="55" r="22" fill="rgba(10, 25, 40, 0.85)" stroke="#4cfdff" stroke-width="1.8"/>
+                                <circle cx="35" cy="48" r="6" fill="none" stroke="#4cfdff" stroke-width="1.8"/>
+                                <path d="M 24 65 C 24 57, 46 57, 46 65" fill="none" stroke="#4cfdff" stroke-width="1.8"/>
+                                <text x="35" y="90" class="node-sub-inner" fill="#4cfdff" font-weight="700">USER 01</text>
+                            </g>
+
+                            <path d="M 58 49 L 88 49" class="path-base" marker-end="url(#arrow-cyan-cs)"/>
+                            <path d="M 58 49 L 88 49" class="path-flow"/>
+                            <path d="M 88 61 L 58 61" class="path-base" marker-end="url(#arrow-cyan-cs)"/>
+                            <path d="M 88 61 L 58 61" class="path-flow"/>
+
+                            <g class="node-group">
+                                <rect x="90" y="28" width="95" height="55" rx="8" fill="rgba(15, 32, 50, 0.9)" stroke="#4cfdff" stroke-width="1.8"/>
+                                <rect x="96" y="35" width="83" height="10" rx="2" fill="rgba(76, 253, 255, 0.2)"/>
+                                <circle cx="102" cy="40" r="2" fill="#ff5f56"/>
+                                <circle cx="108" cy="40" r="2" fill="#ffbd2e"/>
+                                <circle cx="114" cy="40" r="2" fill="#27c93f"/>
+                                <text x="137.5" y="60" class="node-title-inner" font-size="11">CLIENT 01</text>
+                                <text x="137.5" y="73" class="node-sub-inner" font-size="9">(APP CLIENT)</text>
+                            </g>
+
+                            <g class="node-group">
+                                <circle cx="35" cy="155" r="22" fill="rgba(10, 25, 40, 0.85)" stroke="#4cfdff" stroke-width="1.8"/>
+                                <circle cx="35" cy="148" r="6" fill="none" stroke="#4cfdff" stroke-width="1.8"/>
+                                <path d="M 24 165 C 24 157, 46 157, 46 165" fill="none" stroke="#4cfdff" stroke-width="1.8"/>
+                                <text x="35" y="190" class="node-sub-inner" fill="#4cfdff" font-weight="700">USER 02</text>
+                            </g>
+
+                            <path d="M 58 149 L 88 149" class="path-base" marker-end="url(#arrow-cyan-cs)"/>
+                            <path d="M 58 149 L 88 149" class="path-flow"/>
+                            <path d="M 88 161 L 58 161" class="path-base" marker-end="url(#arrow-cyan-cs)"/>
+                            <path d="M 88 161 L 58 161" class="path-flow"/>
+
+                            <g class="node-group">
+                                <rect x="90" y="128" width="95" height="55" rx="8" fill="rgba(15, 32, 50, 0.9)" stroke="#4cfdff" stroke-width="1.8"/>
+                                <rect x="96" y="135" width="83" height="10" rx="2" fill="rgba(76, 253, 255, 0.2)"/>
+                                <circle cx="102" cy="140" r="2" fill="#ff5f56"/>
+                                <circle cx="108" cy="140" r="2" fill="#ffbd2e"/>
+                                <circle cx="114" cy="140" r="2" fill="#27c93f"/>
+                                <text x="137.5" y="160" class="node-title-inner" font-size="11">CLIENT 02</text>
+                                <text x="137.5" y="173" class="node-sub-inner" font-size="9">(APP CLIENT)</text>
+                            </g>
+
+                            <g class="node-group">
+                                <rect x="218" y="62" width="112" height="85" rx="16" fill="rgba(10, 25, 45, 0.85)" stroke="#4cfdff" stroke-dasharray="4,3" stroke-width="1.8"/>
+                                <path d="M 256 87 a 10 10 0 0 1 18 -4 a 9 9 0 0 1 16 3 a 8 8 0 0 1 -2 16 h -32 a 8 8 0 0 1 0 -15 z" fill="rgba(76, 253, 255, 0.2)" stroke="#4cfdff" stroke-width="1.2"/>
+                                <text x="274" y="115" class="node-title" font-size="11">NETWORK</text>
+                                <text x="274" y="129" class="node-sub-inner" font-size="8.5">(INTERNET / LAN)</text>
+                            </g>
+
+                            <path d="M 185 50 L 218 78" class="path-base" marker-end="url(#arrow-cyan-cs)"/>
+                            <path d="M 185 50 L 218 78" class="path-flow"/>
+                            <path d="M 218 88 L 185 60" class="path-base" marker-end="url(#arrow-cyan-cs)"/>
+                            <path d="M 218 88 L 185 60" class="path-flow"/>
+
+                            <path d="M 185 160 L 218 132" class="path-base" marker-end="url(#arrow-cyan-cs)"/>
+                            <path d="M 185 160 L 218 132" class="path-flow"/>
+                            <path d="M 218 122 L 185 150" class="path-base" marker-end="url(#arrow-cyan-cs)"/>
+                            <path d="M 218 122 L 185 150" class="path-flow"/>
+
+                            <path d="M 330 80 L 380 80" class="path-base" marker-end="url(#arrow-cyan-cs)"/>
+                            <path d="M 330 80 L 380 80" class="path-flow"/>
+                            <text x="355" y="73" class="node-sub-inner" font-size="8.5" fill="#4cfdff">REQUEST</text>
+
+                            <path d="M 380 128 L 330 128" class="path-base" marker-end="url(#arrow-cyan-cs)"/>
+                            <path d="M 380 128 L 330 128" class="path-flow"/>
+                            <text x="355" y="141" class="node-sub-inner" font-size="8.5" fill="#4cfdff">RESPONSE</text>
+
+                            <g class="node-group">
+                                <rect x="380" y="20" width="128" height="190" rx="10" fill="rgba(15, 32, 50, 0.95)" stroke="#4cfdff" stroke-width="2"/>
+                                <rect x="390" y="28" width="108" height="22" rx="4" fill="rgba(76, 253, 255, 0.15)" stroke="rgba(76, 253, 255, 0.4)" stroke-width="1"/>
+                                <text x="444" y="43" class="node-title-inner" font-size="11">SERVER</text>
+
+                                <rect x="390" y="58" width="108" height="142" rx="8" fill="rgba(76, 253, 255, 0.03)" stroke="#4cfdff" stroke-width="1.2" stroke-dasharray="4,3"/>
+                                
+                                <text x="444" y="78" class="label-tech" font-size="11" font-weight="bold">HỆ QTCSDL</text>
+
+                                <path d="M 444 84 L 444 104" class="path-base" marker-end="url(#arrow-cyan-cs)"/>
+                                <path d="M 444 84 L 444 104" class="path-flow"/>
+
+                                <g>
+                                    <ellipse cx="444" cy="120" rx="30" ry="8.5" fill="rgba(76, 253, 255, 0.15)" stroke="#4cfdff" stroke-width="1.2"/>
+                                    <path d="M 414 120 L 414 162 C 414 170, 474 170, 474 162 L 474 120" fill="none" stroke="#4cfdff" stroke-width="1.2"/>
+                                    <ellipse cx="444" cy="141" rx="30" ry="8.5" fill="none" stroke="rgba(76,253,255,0.4)" stroke-width="1" stroke-dasharray="3,3"/>
+                                    <ellipse cx="444" cy="162" rx="30" ry="8.5" fill="none" stroke="#4cfdff" stroke-width="1.2"/>
+                                    <text x="444" y="145" class="node-title-inner" font-size="11">CSDL</text>
+                                </g>
+                            </g>
+                        </svg>
+                    </div>
+
+                    <div class="model-info-footer">
+                        <h3 class="model-caption">MÔ HÌNH CLIENT - SERVER</h3>
+                        <p class="model-desc">Các <strong>Client</strong> gửi yêu cầu qua mạng; <strong>Server CSDL</strong> tập trung thực hiện xử lý và phản hồi kết quả trực tuyến.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 9: PHẦN MỀM ỨNG DỤNG CSDL -->
+    <section class="slide slide-app-csdl" id="slide-app-csdl">
+        <div class="app-slide-container">
+            <div class="app-slide-left">
+                <div class="app-tech-card">
+                    <div class="card-tech-header">
+                        <span class="tech-step-badge">01</span>
+                        <span class="tech-step-title">CÔNG CỤ HỆ QTCSDL</span>
+                    </div>
+                    <p class="card-body-text">
+                        Các hệ QTCSDL cung cấp công cụ 
+                        <span class="code-pill">&lt;giao diện lập trình ứng dụng&gt;</span> 
+                        để người dùng có thể tự viết các phần mềm khách chuyên biệt theo nhu cầu.
+                    </p>
+                </div>
+
+                <div class="app-connector">
+                    <div class="connector-line"></div>
+                    <div class="connector-dot"></div>
+                </div>
+
+                <div class="app-tech-card highlight-card">
+                    <div class="card-tech-header">
+                        <span class="tech-step-badge accent">02</span>
+                        <span class="tech-step-title accent">ĐỊNH NGHĨA</span>
+                    </div>
+                    <p class="card-body-text text-glow">
+                        Những phần mềm khách chuyên biệt được tạo ra đó được gọi là 
+                        <strong>PHẦN MỀM ỨNG DỤNG CSDL</strong>.
+                    </p>
+                </div>
+            </div>
+
+            <div class="app-slide-right">
+                <div class="title-tech-wrapper">
+                    <div class="tech-tag-top">// APPLICATION SOFTWARE</div>
+                    <h2 class="app-main-title">
+                        PHẦN MỀM<br>
+                        ỨNG DỤNG<br>
+                        <span class="title-cyan-purple">CSDL</span>
+                    </h2>
+                    <div class="title-tech-decoration">
+                        <span class="dec-line"></span>
+                        <span class="dec-box"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 10: HỆ CSDL GỒM NHỮNG GÌ -->
+    <section class="slide slide-he-csdl" id="slide-he-csdl">
+        <div class="he-csdl-container">
+            <div class="he-csdl-header">
+                <h2 class="he-csdl-title">HỆ CSDL GỒM NHỮNG GÌ?</h2>
+                <p class="he-csdl-subtitle">Mô hình kiến trúc 3 thành phần cốt lõi của một Hệ Cơ sở dữ liệu</p>
+            </div>
+
+            <div class="he-csdl-pipeline">
+                <div class="pipe-card card-client">
+                    <div class="card-hud-corner top-left"></div>
+                    <div class="card-hud-corner bottom-right"></div>
+                    
+                    <div class="card-badge">TẦNG 01</div>
+                    
+                    <div class="icon-wrapper">
+                        <svg class="pipe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <rect x="2" y="3" width="20" height="14" rx="2"/>
+                            <line x1="8" y1="21" x2="16" y2="21"/>
+                            <line x1="12" y1="17" x2="12" y2="21"/>
+                            <path d="M6 8h12M6 12h7" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+
+                    <div class="card-status-pill">CLIENT / FRONTEND</div>
+                    <h3 class="card-title">PHẦN MỀM ỨNG DỤNG</h3>
+                    
+                    <p class="card-desc">
+                        Giao diện trực quan giúp <strong>người dùng tương tác</strong>, nhập liệu, truy xuất và khai thác dữ liệu dễ dàng.
+                    </p>
+                </div>
+
+                <div class="flow-connector">
+                    <div class="flow-line"></div>
+                    <div class="flow-pulse"></div>
+                    <svg class="flow-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+
+                <div class="pipe-card card-dbms highlight-core">
+                    <div class="card-hud-corner top-left"></div>
+                    <div class="card-hud-corner bottom-right"></div>
+                    
+                    <div class="card-badge accent">TẦNG 02</div>
+                    
+                    <div class="icon-wrapper accent">
+                        <svg class="pipe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <rect x="4" y="4" width="16" height="16" rx="2"/>
+                            <rect x="9" y="9" width="6" height="6"/>
+                            <line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/>
+                            <line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/>
+                            <line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="15" x2="23" y2="15"/>
+                            <line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="15" x2="4" y2="15"/>
+                        </svg>
+                    </div>
+
+                    <div class="card-status-pill accent">CORE ENGINE</div>
+                    <h3 class="card-title">HỆ QUẢN TRỊ CSDL</h3>
+                    
+                    <p class="card-desc">
+                        Phần mềm trung gian chịu trách nhiệm <strong>quản lý, bảo mật, khai thác và xử lý</strong> mọi thao tác CSDL.
+                    </p>
+                </div>
+
+                <div class="flow-connector">
+                    <div class="flow-line"></div>
+                    <div class="flow-pulse"></div>
+                    <svg class="flow-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+
+                <div class="pipe-card card-db">
+                    <div class="card-hud-corner top-left"></div>
+                    <div class="card-hud-corner bottom-right"></div>
+                    
+                    <div class="card-badge">TẦNG 03</div>
+                    
+                    <div class="icon-wrapper">
+                        <svg class="pipe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <ellipse cx="12" cy="5" rx="9" ry="3"/>
+                            <path d="M21 12c0 1.66-4.03 3-9 3s-9-1.34-9-3"/>
+                            <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+                        </svg>
+                    </div>
+
+                    <div class="card-status-pill">DATA STORAGE</div>
+                    <h3 class="card-title">CƠ SỞ DỮ LIỆU (CSDL)</h3>
+                    
+                    <p class="card-desc">
+                        Nơi <strong>lưu trữ dữ liệu tập trung</strong>, được cấu trúc hóa logic và lưu giữ an toàn trên thiết bị nhớ
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- File Script -->
+    <script src="script.js"></script>
+</body>
+</html>

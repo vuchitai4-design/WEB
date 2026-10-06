@@ -1,0 +1,1537 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+    color: #ffffff;
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+    overflow-x: hidden;
+}
+
+.slide {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    scroll-snap-align: start;
+    overflow: hidden;
+    background-color: transparent;
+    z-index: 1;
+}
+
+/* ======================================================= */
+/* 0. CON TRỎ CHUỘT VỆT TRÒN XANH MỜ BLUR */
+.cursor-follower {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 60px;
+    background: rgba(76, 253, 255, 0.35);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 99999;
+    transform: translate(-50%, -50%);
+    filter: blur(12px);
+    transition: width 0.3s ease, height 0.3s ease, background 0.3s ease, filter 0.3s ease;
+    will-change: transform;
+}
+
+body.hover-active .cursor-follower {
+    width: 90px;
+    height: 90px;
+    background: rgba(76, 253, 255, 0.55);
+    filter: blur(16px);
+}
+
+/* ======================================================= */
+/* 1. HIỆU ỨNG ÁNH SÁNG NỀN FIX CỐ ĐỊNH */
+.global-glow {
+    position: fixed;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.glow-top-left {
+    top: -12vw; left: -12vw; width: 48vw; height: 48vw;
+    background: radial-gradient(circle, rgba(76, 215, 255, 0.35) 0%, rgba(15, 75, 130, 0.18) 45%, rgba(0, 0, 0, 0) 70%);
+    filter: blur(45px);
+    animation: pulseGlow 6s ease-in-out infinite alternate;
+}
+
+.glow-bottom-right {
+    bottom: -15vw; right: -15vw; width: 62vw; height: 62vw;
+    background: radial-gradient(circle, rgba(76, 215, 255, 0.3) 0%, rgba(15, 75, 130, 0.18) 50%, rgba(0, 0, 0, 0) 70%);
+    filter: blur(55px);
+    animation: pulseGlow 7s ease-in-out infinite alternate 1s;
+}
+
+@keyframes pulseGlow {
+    0% { transform: scale(1); opacity: 0.8; }
+    100% { transform: scale(1.1); opacity: 1; }
+}
+
+/* ======================================================= */
+/* 2. CHUYỂN ĐỘNG XUẤT HIỆN SLIDE 1 & 2 */
+.animate-item {
+    opacity: 0;
+    transform: translateY(3vw);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.slide.active .lop-11T1-text { opacity: 1; transform: translateY(0); transition-delay: 0.1s; }
+.slide.active .bai12-box     { opacity: 1; transform: translateY(0); transition-delay: 0.25s; }
+.slide.active .tieu-de       { opacity: 1; transform: translateY(0); transition-delay: 0.4s; }
+.slide.active .danh-sach-thanh-vien { opacity: 1; transform: translateY(0); transition-delay: 0.55s; }
+.slide.active .footer-phai   { opacity: 1; transform: translateY(0); transition-delay: 0.7s; }
+
+.slide.active .group-title       { opacity: 1; transform: translateY(0); transition-delay: 0.15s; }
+.slide.active .members-container { opacity: 1; transform: translateX(-50%) translateY(0); transition-delay: 0.35s; }
+
+.slide.active .question-left     { opacity: 1; transform: translateY(0); transition-delay: 0.15s; }
+.slide.active .question-right    { opacity: 1; transform: translateY(0); transition-delay: 0.35s; }
+
+/* ======================================================= */
+/* 3. ĐỊNH DẠNG SLIDE 1 & 2 */
+.lop-11T1-text { position: absolute; top: 3.5vw; right: 7.5vw; text-align: right; font-family: 'Chakra Petch', sans-serif; font-size: 2vw; font-weight: 700; color: #ffffff; transition: color 0.3s, text-shadow 0.3s; cursor: default; }
+.lop-11T1-text:hover { color: #c6f8ff; text-shadow: 0 0 1vw rgba(198, 248, 255, 0.8); }
+
+.bai12-box { position: absolute; top: 2vw; left: 4vw; border: 1px solid #4cfdff; padding: 6.25vw 0.26vw 0vw 0.26vw; display: inline-block; line-height: 0.6; transition: border-color 0.4s, box-shadow 0.4s, transform 0.4s; cursor: pointer; }
+.bai12-box:hover { border-color: #ffffff; box-shadow: 0 0 1.8vw rgba(76, 253, 255, 0.6), inset 0 0 1vw rgba(76, 253, 255, 0.2); transform: translateY(-0.3vw); }
+.bai12-text { font-family: 'Teko', sans-serif; font-size: 21vw; font-weight: 800; color: #c6f8ff; text-transform: uppercase; display: block; letter-spacing: -0.1vw; transition: text-shadow 0.3s; }
+.bai12-box:hover .bai12-text { text-shadow: 0 0 1.2vw rgba(198, 248, 255, 0.9); }
+
+.handle { position: absolute; width: 0.78vw; height: 0.78vw; background-color: #ffffff; transition: transform 0.3s, background-color 0.3s; }
+.bai12-box:hover .handle { background-color: #4cfdff; transform: scale(1.3); }
+.handle.top-left { top: -0.42vw; left: -0.42vw; }
+.handle.bottom-right { bottom: -0.42vw; right: -0.42vw; }
+
+.cursor-icon { position: absolute; bottom: -4.69vw; left: 23vw; width: 8.12vw; height: 5.52vw; animation: floatCursor 3.2s ease-in-out infinite; filter: drop-shadow(0 0 0.5vw rgba(198, 248, 255, 0.5)); }
+@keyframes floatCursor { 0%, 100% { transform: rotate(15deg) translateY(0vw); } 50% { transform: rotate(15deg) translateY(-0.6vw); } }
+
+.tieu-de { position: absolute; top: 25vw; right: 5vw; text-align: right; font-family: 'Consolas', monospace; color: #c6f8ff; cursor: default; }
+.tieu-de-text1, .tieu-de-text2 { display: block; font-size: 6vw; font-weight: 700; letter-spacing: 0.1vw; line-height: 1.15; transition: transform 0.35s ease, text-shadow 0.35s ease; }
+.tieu-de:hover .tieu-de-text1 { transform: translateX(-0.4vw); text-shadow: 0 0 1vw rgba(198, 248, 255, 0.8); }
+.tieu-de:hover .tieu-de-text2 { transform: translateX(-0.8vw); text-shadow: 0 0 1vw rgba(198, 248, 255, 0.8); }
+
+.danh-sach-thanh-vien { position: absolute; bottom: 2.5vw; left: 4vw; display: flex; gap: 0.6vw; }
+.thanh-vien-item { background-color: #c6f8ff; color: #000000; font-family: 'Chakra Petch', sans-serif; font-weight: 700; font-size: 1vw; padding: 0.45vw 1vw; text-transform: uppercase; border-radius: 0.15vw; cursor: pointer; transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.25s, box-shadow 0.25s; }
+.thanh-vien-item:hover { transform: translateY(-0.35vw) scale(1.05); background-color: #ffffff; box-shadow: 0 0.5vw 1.2vw rgba(198, 248, 255, 0.7); }
+
+.footer-phai { position: absolute; bottom: 2.5vw; right: 3.5vw; display: flex; flex-direction: column; align-items: flex-end; gap: 0.4vw; font-family: 'Chakra Petch', sans-serif; }
+.design-by { color: #ffffff; font-size: 1.1vw; font-weight: 700; letter-spacing: 0.05vw; opacity: 0.2; transform: translateY(-3.5vw) translateX(-1.9vw); transition: opacity 0.3s, transform 0.3s; cursor: pointer; }
+.design-by:hover { opacity: 0.85; transform: translateY(-3.7vw) translateX(-1.9vw); text-shadow: 0 0 0.6vw rgba(255, 255, 255, 0.8); }
+
+.group-title { position: absolute; top: 5vw; width: 100%; text-align: center; font-family: 'Teko', sans-serif; font-size: 10vw; font-weight: 800; color: #c6f8ff; letter-spacing: 0.1vw; margin: 0; line-height: 1; text-transform: uppercase; }
+.members-container { position: absolute; bottom: 4vw; left: 50%; transform: translateX(-50%) translateY(3vw); display: flex; justify-content: center; align-items: flex-end; gap: 2.5vw; width: 90vw; height: 35vw; }
+.member-card { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; cursor: pointer; }
+.member-photo-wrapper { position: absolute; bottom: 100%; margin-bottom: 1vw; height: 25vw; display: flex; align-items: flex-end; justify-content: center; pointer-events: none; opacity: 0; transform: translateY(2vw) scale(0.92); filter: blur(5px); transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), filter 0.45s ease; }
+.member-photo { max-height: 100%; width: auto; object-fit: contain; filter: drop-shadow(0 0 1vw rgba(76, 253, 255, 0.2)); transition: filter 0.3s ease; }
+.member-card:hover .member-photo-wrapper { opacity: 1; transform: translateY(0) scale(1); filter: blur(0px); }
+.member-card:hover .member-photo { filter: drop-shadow(0 0 1.5vw rgba(76, 253, 255, 0.6)); }
+
+.member-badge { background-color: #c6f8ff; color: #000000; padding: 0.8vw 1.5vw; border-radius: 0.8vw; text-align: center; min-width: 15vw; transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.3s, box-shadow 0.35s; box-shadow: 0 0.3vw 0.8vw rgba(0, 0, 0, 0.4); }
+.member-name { font-family: 'Chakra Petch', sans-serif; font-weight: 700; font-size: 1.1vw; text-transform: uppercase; letter-spacing: 0.02vw; line-height: 1.2; }
+.member-role { font-family: 'Chakra Petch', sans-serif; font-weight: 600; font-size: 0.85vw; color: #1a1a1a; display: flex; flex-direction: column; gap: 0.2vw; max-height: 0; opacity: 0; margin-top: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease, margin-top 0.3s ease; }
+.member-card:hover .member-badge { background-color: #ffffff; transform: translateY(-0.4vw); box-shadow: 0 0.8vw 2vw rgba(76, 253, 255, 0.6); }
+.member-card:hover .member-role { max-height: 5vw; opacity: 1; margin-top: 0.5vw; }
+
+/* ======================================================= */
+/* 4. ĐỊNH DẠNG SLIDE 3 */
+.question-wrapper { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 88vw; display: grid; grid-template-columns: 1fr 1.1fr; gap: 3vw; align-items: center; }
+.question-tag { font-family: 'Consolas', monospace; font-size: 1.2vw; font-weight: 700; color: #4cfdff; margin-bottom: 1.2vw; }
+.question-text { font-family: 'Chakra Petch', sans-serif; font-size: 2.5vw; font-weight: 700; color: #ffffff; line-height: 1.35; margin: 0 0 1.5vw 0; }
+.word-by-word .word { display: inline-block; opacity: 0; transform: translateY(1.2vw) scale(0.9); filter: blur(4px); transition: opacity 0.25s, transform 0.25s, filter 0.25s; }
+.slide.active .word-by-word .word.show { opacity: 1; transform: translateY(0) scale(1); filter: blur(0px); }
+
+.question-right { position: relative; min-height: 38vw; display: flex; align-items: center; }
+.robot-puller { position: absolute; left: 18vw; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; align-items: center; gap: 1vw; cursor: pointer; z-index: 100; transition: left 0.65s cubic-bezier(0.25, 1, 0.5, 1), top 0.45s ease-in-out, opacity 0.5s ease; }
+.robot-speech { background: rgba(198, 248, 255, 0.1); border: 1.5px solid #4cfdff; border-radius: 2vw; padding: 0.8vw 1.6vw; text-align: center; backdrop-filter: blur(10px); box-shadow: 0 0 1.5vw rgba(76, 253, 255, 0.3); transition: opacity 0.3s, transform 0.3s; }
+.robot-puller:hover .robot-speech { background: rgba(198, 248, 255, 0.25); transform: scale(1.05); }
+.robot-speech span { display: block; font-family: 'Chakra Petch', sans-serif; font-size: 0.85vw; color: #8a9ea8; }
+.robot-speech strong { display: block; font-family: 'Chakra Petch', sans-serif; font-size: 1.3vw; font-weight: 700; color: #c6f8ff; }
+
+.robot-puller.is-exiting {
+    left: 100vw !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transition: left 1.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.8s ease !important;
+}
+
+.robot-puller.is-exiting .leg-left { animation: pullLegLeft 0.18s infinite ease-in-out; transform-origin: 48px 108px; }
+.robot-puller.is-exiting .leg-right { animation: pullLegRight 0.18s infinite ease-in-out; transform-origin: 72px 108px; }
+.full-robot { width: 10vw; height: 12vw; filter: drop-shadow(0 0 1vw rgba(76, 253, 255, 0.6)); transition: transform 0.3s ease; }
+.robot-svg { width: 100%; height: 100%; overflow: visible; }
+.arms-pulling { display: none; }
+.robot-puller.is-pulling .arms-normal { display: none; }
+.robot-puller.is-pulling .arms-pulling { display: block; }
+.robot-puller.is-pulling .full-robot { transform: rotate(-12deg); transform-origin: bottom center; }
+
+@keyframes pullLegLeft { 0%, 100% { transform: rotate(-28deg); } 50% { transform: rotate(28deg); } }
+@keyframes pullLegRight { 0%, 100% { transform: rotate(28deg); } 50% { transform: rotate(-28deg); } }
+.robot-puller.is-pulling .leg-left { animation: pullLegLeft 0.22s infinite ease-in-out; transform-origin: 48px 108px; }
+.robot-puller.is-pulling .leg-right { animation: pullLegRight 0.22s infinite ease-in-out; transform-origin: 72px 108px; }
+
+.requirements-list { position: absolute; top: 50%; left: 0; transform: translateY(-50%); width: 100%; padding-left: 12vw; display: flex; flex-direction: column; gap: 1.5vw; }
+.req-card { background: rgba(198, 248, 255, 0.04); border: 1px solid rgba(76, 253, 255, 0.25); border-radius: 1vw; padding: 1.5vw 2vw; display: flex; align-items: center; gap: 1.5vw; backdrop-filter: blur(10px); opacity: 0; transform: translateX(38vw); transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.35s ease, border-color 0.3s, box-shadow 0.3s; }
+.req-card.step-1 { margin-left: 0vw; }
+.req-card.step-2 { margin-left: 3vw; }
+.req-card.step-3 { margin-left: 6vw; }
+.req-card.step-4 { margin-left: 9vw; }
+.req-card.pulled { opacity: 1; transform: translateX(0); }
+.req-card:hover { border-color: #4cfdff; background: rgba(198, 248, 255, 0.12); box-shadow: 0 0 1.8vw rgba(76, 253, 255, 0.45); }
+.req-num { font-family: 'Teko', sans-serif; font-size: 3.5vw; font-weight: 800; color: #4cfdff; line-height: 1; }
+.req-info h3 { font-family: 'Chakra Petch', sans-serif; font-size: 1.4vw; font-weight: 700; color: #ffffff; margin: 0 0 0.4vw 0; }
+.req-info p { font-family: 'Chakra Petch', sans-serif; font-size: 1vw; color: #8a9ea8; margin: 0; }
+
+/* ======================================================= */
+/* 5. ĐỊNH DẠNG SLIDE 4 (QTCSDL) */
+.slide-qtcsdl { position: relative; overflow: hidden; }
+.bg-decor { position: absolute; pointer-events: none; z-index: 0; transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
+.bg-server-left { top: 15vh; left: 4vw; width: 18vw; opacity: 0.25; filter: blur(1px); }
+.db-svg-icon { width: 100%; height: auto; filter: drop-shadow(0 0 1.5vw rgba(76, 253, 255, 0.3)); }
+.sql-floating-badge { position: absolute; bottom: -1vw; right: -2vw; background: rgba(198, 248, 255, 0.1); border: 1.5px solid #4cfdff; padding: 0.8vw 1.8vw; border-radius: 0.8vw; font-family: 'Teko', sans-serif; font-size: 3vw; font-weight: 800; color: #c6f8ff; backdrop-filter: blur(8px); box-shadow: 0 0 2vw rgba(76, 253, 255, 0.4); transform: rotate(-8deg); }
+.bg-monitor-center { top: 25vh; left: 32vw; width: 36vw; opacity: 0.15; filter: blur(3px); }
+.monitor-svg-icon { width: 100%; height: auto; }
+.bg-server-right { top: 5vh; right: 2vw; width: 22vw; opacity: 0.18; filter: blur(2px); }
+.db-svg-stack { width: 100%; height: auto; }
+
+@keyframes floatBgItem { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-1vw) rotate(1deg); } }
+.slide-qtcsdl.active .bg-server-left { animation: floatBgItem 7s ease-in-out infinite; }
+.slide-qtcsdl.active .bg-server-right { animation: floatBgItem 9s ease-in-out infinite reverse; }
+
+.qtcsdl-wrapper { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 86vw; z-index: 2; }
+.qtcsdl-header { margin-bottom: 2.5vw; }
+.qtcsdl-tag { font-family: 'Consolas', monospace; font-size: 1.2vw; font-weight: 700; color: #4cfdff; letter-spacing: 0.1vw; display: block; margin-bottom: 0.6vw; }
+.qtcsdl-title { font-family: 'Chakra Petch', sans-serif; font-size: 4vw; font-weight: 700; color: #ffffff; margin: 0; line-height: 1.1; text-shadow: 0 0 1.5vw rgba(76, 253, 255, 0.4); }
+.qtcsdl-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 4vw; align-items: center; }
+.qtcsdl-desc { background: rgba(198, 248, 255, 0.03); border-left: 4px solid #4cfdff; border-radius: 0 1vw 1vw 0; padding: 2vw 2.2vw; backdrop-filter: blur(12px); box-shadow: 0 0 2vw rgba(0, 0, 0, 0.5); }
+.qtcsdl-desc p { font-family: 'Chakra Petch', sans-serif; font-size: 1.35vw; line-height: 1.6; color: #d1e8ef; margin: 0; }
+.highlight-kw { color: #ffffff; font-weight: 700; text-shadow: 0 0 0.8vw rgba(255, 255, 255, 0.6); }
+.cyan-kw { color: #4cfdff; font-weight: 700; }
+.qtcsdl-features { display: flex; flex-direction: column; gap: 1.2vw; }
+.feature-card { background: rgba(198, 248, 255, 0.05); border: 1px solid rgba(76, 253, 255, 0.2); border-radius: 0.8vw; padding: 1.2vw 1.6vw; display: flex; align-items: center; gap: 1.2vw; backdrop-filter: blur(10px); transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s, border-color 0.3s, box-shadow 0.3s; }
+.feature-card:hover { transform: translateX(0.6vw); background: rgba(198, 248, 255, 0.12); border-color: #4cfdff; box-shadow: 0 0 1.5vw rgba(76, 253, 255, 0.35); }
+.f-num { font-family: 'Teko', sans-serif; font-size: 2.2vw; font-weight: 800; color: #4cfdff; line-height: 1; }
+.f-text { font-family: 'Chakra Petch', sans-serif; font-size: 1.15vw; font-weight: 600; color: #ffffff; }
+
+.slide-qtcsdl .morph-item { opacity: 0; transform: translateY(3vw) scale(0.97); filter: blur(6px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s ease; }
+.slide-qtcsdl.active .qtcsdl-header   { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); transition-delay: 0.15s; }
+.slide-qtcsdl.active .qtcsdl-desc     { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); transition-delay: 0.3s; }
+.slide-qtcsdl.active .qtcsdl-features { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); transition-delay: 0.45s; }
+.slide-qtcsdl .bg-decor { opacity: 0; transform: scale(0.85); transition: opacity 1s ease, transform 1s cubic-bezier(0.16, 1, 0.3, 1); }
+.slide-qtcsdl.active .bg-server-left  { opacity: 0.25; transform: scale(1); transition-delay: 0.2s; }
+.slide-qtcsdl.active .bg-monitor-center { opacity: 0.15; transform: scale(1); transition-delay: 0.1s; }
+.slide-qtcsdl.active .bg-server-right { opacity: 0.18; transform: scale(1); transition-delay: 0.3s; }
+
+/* ======================================================= */
+/* 6. ĐỊNH DẠNG SLIDE 5 (NHÓM TÍNH NĂNG) */
+.slide-tinhnang { position: relative; overflow: hidden; }
+.tinhnang-wrapper { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 88vw; z-index: 2; display: flex; flex-direction: column; align-items: center; }
+.tinhnang-header { text-align: center; margin-bottom: 3vw; }
+.tinhnang-tag { font-family: 'Consolas', monospace; font-size: 1.1vw; font-weight: 700; color: #4cfdff; letter-spacing: 0.15vw; display: block; margin-bottom: 0.4vw; }
+.tinhnang-title { font-family: 'Chakra Petch', sans-serif; font-size: 4vw; font-weight: 800; color: #c6f8ff; margin: 0; line-height: 1; letter-spacing: 0.08vw; text-shadow: 0 0 2vw rgba(76, 253, 255, 0.45); text-transform: uppercase; }
+.tinhnang-grid { display: flex; justify-content: center; gap: 1.8vw; width: 100%; }
+
+.tinhnang-card { position: relative; flex: 1; background: rgba(5, 18, 30, 0.75); border: 1px solid rgba(76, 253, 255, 0.25); border-radius: 1vw; padding: 2.2vw 1.8vw; display: flex; flex-direction: column; backdrop-filter: blur(12px); box-shadow: 0 1vw 2.5vw rgba(0, 0, 0, 0.6), inset 0 0 1.2vw rgba(76, 253, 255, 0.05); overflow: hidden; transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.4s, box-shadow 0.4s; }
+.card-glow-bar { position: absolute; top: 0; left: 0; width: 100%; height: 0.25vw; background: linear-gradient(90deg, rgba(76, 253, 255, 0.1), #4cfdff, rgba(76, 253, 255, 0.1)); opacity: 0.6; transition: opacity 0.4s ease; }
+.tinhnang-card:hover { transform: translateY(-0.6vw); border-color: #4cfdff; box-shadow: 0 1.2vw 3vw rgba(76, 253, 255, 0.35), inset 0 0 1.5vw rgba(76, 253, 255, 0.12); }
+.tinhnang-card:hover .card-glow-bar { opacity: 1; }
+
+.slide-tinhnang .card-top-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5vw; }
+.slide-tinhnang .card-badge { font-family: 'Consolas', monospace; font-size: 0.85vw; font-weight: 700; color: #4cfdff; background: rgba(76, 253, 255, 0.1); border: 1px solid rgba(76, 253, 255, 0.3); padding: 0.3vw 0.8vw; border-radius: 0.4vw; letter-spacing: 0.05vw; }
+.slide-tinhnang .card-icon { width: 2.2vw; height: 2.2vw; display: flex; align-items: center; justify-content: center; filter: drop-shadow(0 0 0.6vw rgba(76, 253, 255, 0.5)); transition: transform 0.3s ease; }
+.tinhnang-card:hover .card-icon { transform: scale(1.15) rotate(4deg); }
+.slide-tinhnang .card-icon svg { width: 100%; height: 100%; }
+
+.card-h3 { font-family: 'Chakra Petch', sans-serif; font-size: 1.15vw; font-weight: 700; color: #ffffff; text-transform: uppercase; margin: 0 0 1.8vw 0; line-height: 1.35; letter-spacing: 0.02vw; min-height: 3.1vw; display: flex; align-items: center; }
+.custom-feature-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.1vw; }
+.custom-feature-list li { display: flex; align-items: flex-start; gap: 1vw; padding: 0.5vw 0.6vw; border-radius: 0.5vw; transition: background-color 0.25s, transform 0.25s; }
+.custom-feature-list li:hover { background: rgba(198, 248, 255, 0.08); transform: translateX(0.4vw); }
+.bullet-num { font-family: 'Teko', sans-serif; font-size: 1.3vw; font-weight: 800; color: #000000; background: #4cfdff; min-width: 1.6vw; height: 1.6vw; border-radius: 0.3vw; display: flex; align-items: center; justify-content: center; line-height: 1; margin-top: 0.1vw; box-shadow: 0 0 0.8vw rgba(76, 253, 255, 0.6); flex-shrink: 0; }
+.bullet-text { font-family: 'Chakra Petch', sans-serif; font-size: 0.9vw; line-height: 1.55; color: #d1e8ef; }
+
+.slide-tinhnang .morph-item { opacity: 0; transform: translateY(3vw) scale(0.97); filter: blur(6px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s ease; }
+.slide-tinhnang.active .tinhnang-header { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); transition-delay: 0.15s; }
+.slide-tinhnang.active .tinhnang-grid   { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); transition-delay: 0.35s; }
+
+/* ======================================================= */
+/* 7. SLIDE TỔNG QUAN VỀ HỆ QTCSDL (ĐÃ KHẮC PHỤC XUNG ĐỘT) */
+#slide-overview { 
+    width: 100vw; 
+    height: 100vh; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    box-sizing: border-box; 
+    padding: 2vh 4vw; 
+}
+
+#slide-overview .overview-container { 
+    width: 75vw; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+}
+
+#slide-overview .overview-tech-tag { 
+    font-family: 'Consolas', monospace; 
+    font-size: 1.1vw; 
+    color: #00f3ff; 
+    letter-spacing: 0.15vw; 
+    display: block; 
+    text-align: center; 
+}
+
+#slide-overview .overview-slide-title { 
+    font-family: 'Chakra Petch', sans-serif; 
+    font-size: 4.2vw; 
+    font-weight: 800; 
+    color: #ffffff; 
+    text-shadow: 0 0 1.2vw rgba(0, 243, 255, 0.4); 
+    margin: 0.8vh 0 1.5vh 0; 
+    text-align: center; 
+}
+
+#slide-overview .overview-grid { 
+    display: grid; 
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 2vw; 
+    width: 100%; 
+    margin-top: 1vh; 
+}
+
+#slide-overview .tong-quan-card { 
+    position: relative; 
+    background: rgba(10, 20, 32, 0.7); 
+    border: 0.12vw solid rgba(0, 243, 255, 0.3); 
+    border-radius: 0.8vw; 
+    padding: 1.8vw 2vw; 
+    backdrop-filter: blur(12px); 
+    box-shadow: 0 0.8vw 1.8vw rgba(0, 0, 0, 0.5), inset 0 0 1.2vw rgba(0, 243, 255, 0.05); 
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between; 
+    box-sizing: border-box; 
+    opacity: 0; 
+    transform: translateY(20px); 
+}
+
+.slide.active#slide-overview .tong-quan-card:nth-child(1),
+#slide-overview.active .tong-quan-card:nth-child(1) { 
+    animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards; 
+}
+
+.slide.active#slide-overview .tong-quan-card:nth-child(2),
+#slide-overview.active .tong-quan-card:nth-child(2) { 
+    animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards; 
+}
+
+#slide-overview .tong-quan-card:hover { 
+    border-color: #00f3ff; 
+    transform: translateY(-0.4vw); 
+    box-shadow: 0 1vw 2vw rgba(0, 243, 255, 0.25), inset 0 0 1.5vw rgba(0, 243, 255, 0.12); 
+}
+
+#slide-overview .overview-card-corner { 
+    position: absolute; 
+    width: 1vw; 
+    height: 1vw; 
+    border-color: #00f3ff; 
+    border-style: solid; 
+    pointer-events: none; 
+}
+
+#slide-overview .overview-card-corner.top-left { 
+    top: -0.1vw; 
+    left: -0.1vw; 
+    border-width: 0.15vw 0 0 0.15vw; 
+    border-top-left-radius: 0.8vw; 
+}
+
+#slide-overview .overview-card-corner.bottom-right { 
+    bottom: -0.1vw; 
+    right: -0.1vw; 
+    border-width: 0 0.15vw 0.15vw 0; 
+    border-bottom-right-radius: 0.8vw; 
+}
+
+#slide-overview .overview-card-header { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 1.5vh; 
+    border-bottom: 0.08vw solid rgba(0, 243, 255, 0.2); 
+    padding-bottom: 1vh; 
+}
+
+#slide-overview .overview-card-badge { 
+    font-family: 'Chakra Petch', sans-serif; 
+    font-size: 2vw; 
+    font-weight: 800; 
+    letter-spacing: 0.1vw; 
+    color: #00f3ff; 
+    background: rgba(0, 243, 255, 0.12); 
+    padding: 0.4vw 0.9vw; 
+    border-radius: 0.4vw; 
+    border: 0.08vw solid rgba(0, 243, 255, 0.4); 
+    text-shadow: 0 0 0.6vw rgba(0, 243, 255, 0.6); 
+}
+
+#slide-overview .overview-card-icon { 
+    width: 2.2vw; 
+    height: 2.2vw; 
+    color: #00f3ff; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    filter: drop-shadow(0 0 0.5vw #00f3ff); 
+}
+
+#slide-overview .overview-card-icon svg { 
+    width: 100%; 
+    height: 100%; 
+}
+
+#slide-overview .overview-card-body { 
+    flex-grow: 1; 
+    display: flex; 
+    align-items: center; 
+    padding: 1vh 0; 
+}
+
+#slide-overview .overview-card-text { 
+    font-family: 'Chakra Petch', sans-serif; 
+    font-size: 1.6vw; 
+    line-height: 1.6; 
+    color: #e2e8f0; 
+    letter-spacing: 0.01vw; 
+}
+
+#slide-overview .overview-card-text strong { 
+    color: #00f3ff; 
+    font-weight: 700; 
+}
+
+#slide-overview .overview-card-status { 
+    margin-top: 1.5vh; 
+    font-family: 'Consolas', monospace; 
+    font-size: 0.75vw; 
+    color: rgba(255, 255, 255, 0.5); 
+    letter-spacing: 0.1vw; 
+    display: flex; 
+    align-items: center; 
+    gap: 0.5vw; 
+}
+
+#slide-overview .overview-status-dot { 
+    width: 0.4vw; 
+    height: 0.4vw; 
+    background-color: #00f3ff; 
+    border-radius: 50%; 
+    box-shadow: 0 0 0.4vw #00f3ff; 
+}
+
+@keyframes fadeInUp { 
+    from { opacity: 0; transform: translateY(20px); } 
+    to { opacity: 1; transform: translateY(0); } 
+}
+
+/* ======================================================= */
+/* 8. SLIDE QUESTION 02 (TERMINAL CONSOLE) */
+#slide-question-2 { 
+    width: 100vw; 
+    height: 100vh; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    box-sizing: border-box; 
+    padding: 3vh 4vw; 
+}
+
+#slide-question-2 .slide-container { 
+    width: 82vw; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+}
+
+#slide-question-2 .q2-grid { 
+    display: grid; 
+    grid-template-columns: 1.8fr 1fr; 
+    gap: 3vw; 
+    width: 100%; 
+    align-items: center; 
+}
+
+#slide-question-2 .q2-main-panel { 
+    background: rgba(10, 20, 32, 0.85); 
+    border: 0.12vw solid rgba(0, 243, 255, 0.35); 
+    border-radius: 0.8vw; 
+    overflow: hidden; 
+    box-shadow: 0 1vw 2.5vw rgba(0, 0, 0, 0.6), inset 0 0 1.5vw rgba(0, 243, 255, 0.05); 
+    backdrop-filter: blur(12px); 
+    opacity: 0; 
+    transform: scale(0.96) translateY(20px); 
+    transition: opacity 0.8s ease, transform 0.8s ease; 
+}
+
+.slide.active#slide-question-2 .q2-main-panel,
+#slide-question-2.active .q2-main-panel { 
+    opacity: 1; 
+    transform: scale(1) translateY(0); 
+}
+
+#slide-question-2 .q2-terminal-header { 
+    background: rgba(0, 15, 28, 0.9); 
+    padding: 1vh 1.2vw; 
+    display: flex; 
+    align-items: center; 
+    border-bottom: 0.08vw solid rgba(0, 243, 255, 0.2); 
+}
+
+#slide-question-2 .q2-terminal-dots { 
+    display: flex; 
+    gap: 0.4vw; 
+}
+
+#slide-question-2 .q2-dot { 
+    width: 0.6vw; 
+    height: 0.6vw; 
+    border-radius: 50%; 
+}
+
+#slide-question-2 .q2-dot.red { background-color: #ff5f56; }
+#slide-question-2 .q2-dot.yellow { background-color: #ffbd2e; }
+#slide-question-2 .q2-dot.green { background-color: #27c93f; }
+
+#slide-question-2 .q2-terminal-title { 
+    font-family: 'Consolas', monospace; 
+    font-size: 0.85vw; 
+    color: rgba(0, 243, 255, 0.7); 
+    letter-spacing: 0.1vw; 
+    margin-left: 1vw; 
+}
+
+#slide-question-2 .q2-terminal-body { 
+    padding: 2vw; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 1.8vh; 
+}
+
+#slide-question-2 .q2-question-box { 
+    display: flex; 
+    gap: 0.8vw; 
+    align-items: flex-start; 
+    opacity: 0; 
+    transform: translateX(-15px); 
+    transition: opacity 0.6s ease 0.3s, transform 0.6s ease 0.3s; 
+}
+
+.slide.active#slide-question-2 .q2-question-box,
+#slide-question-2.active .q2-question-box { 
+    opacity: 1; 
+    transform: translateX(0); 
+}
+
+#slide-question-2 .q2-prompt-symbol { 
+    font-family: 'Consolas', monospace; 
+    font-size: 1.3vw; 
+    color: #00f3ff; 
+    font-weight: 700; 
+    line-height: 1.4; 
+}
+
+#slide-question-2 .q2-question-text { 
+    font-family: 'Chakra Petch', sans-serif; 
+    font-size: 1.2vw; 
+    line-height: 1.65; 
+    color: #e2e8f0; 
+    margin: 0; 
+}
+
+#slide-question-2 .q2-action-area { 
+    margin-top: 0.5vh; 
+    opacity: 0; 
+    transform: translateY(10px); 
+    transition: opacity 0.6s ease 0.5s, transform 0.6s ease 0.5s; 
+}
+
+.slide.active#slide-question-2 .q2-action-area,
+#slide-question-2.active .q2-action-area { 
+    opacity: 1; 
+    transform: translateY(0); 
+}
+
+#slide-question-2 .q2-hud-btn { 
+    background: rgba(0, 243, 255, 0.08); 
+    border: 0.1vw solid #00f3ff; 
+    color: #00f3ff; 
+    padding: 0.7vw 1.4vw; 
+    font-family: 'Chakra Petch', sans-serif; 
+    font-size: 0.85vw; 
+    font-weight: 700; 
+    letter-spacing: 0.1vw; 
+    border-radius: 0.4vw; 
+    cursor: pointer; 
+    transition: all 0.3s ease; 
+    box-shadow: 0 0 1vw rgba(0, 243, 255, 0.2); 
+}
+
+#slide-question-2 .q2-hud-btn:hover { 
+    background: #00f3ff; 
+    color: #050b14; 
+    box-shadow: 0 0 1.5vw rgba(0, 243, 255, 0.6); 
+}
+
+#slide-question-2 .q2-answer-output { 
+    display: none; 
+    flex-direction: column; 
+    background: rgba(0, 243, 255, 0.04); 
+    border: 0.1vw solid rgba(0, 243, 255, 0.25); 
+    border-left: 0.3vw solid #00f3ff; 
+    border-radius: 0.4vw; 
+    padding: 1vw 1.2vw; 
+    margin-top: 1vh; 
+    box-shadow: inset 0 0 1vw rgba(0, 243, 255, 0.05), 0 0.5vw 1.5vw rgba(0, 0, 0, 0.4); 
+}
+
+#slide-question-2 .q2-answer-output.show { 
+    display: flex; 
+    animation: fadeInTerminal 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards; 
+}
+
+@keyframes fadeInTerminal { 
+    from { opacity: 0; transform: translateY(10px); } 
+    to { opacity: 1; transform: translateY(0); } 
+}
+
+#slide-question-2 .q2-ans-header { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    border-bottom: 0.08vw solid rgba(0, 243, 255, 0.15); 
+    padding-bottom: 0.6vh; 
+    margin-bottom: 1vh; 
+}
+
+#slide-question-2 .q2-ans-badge { 
+    font-family: 'Consolas', monospace; 
+    font-size: 0.8vw; 
+    color: #00f3ff; 
+    font-weight: 700; 
+    letter-spacing: 0.1vw; 
+    text-shadow: 0 0 0.5vw rgba(0, 243, 255, 0.5); 
+}
+
+#slide-question-2 .q2-ans-status { 
+    font-family: 'Consolas', monospace; 
+    font-size: 0.7vw; 
+    color: rgba(0, 243, 255, 0.5); 
+    letter-spacing: 0.08vw; 
+}
+
+#slide-question-2 .q2-ans-body { 
+    display: flex; 
+    gap: 0.8vw; 
+    align-items: flex-start; 
+}
+
+#slide-question-2 .q2-ans-text { 
+    font-family: 'Chakra Petch', sans-serif; 
+    font-size: 1.15vw; 
+    line-height: 1.65; 
+    color: #e2e8f0; 
+    margin: 0; 
+    font-weight: 500; 
+}
+
+#slide-question-2 .q2-ans-text strong { 
+    color: #00f3ff; 
+    font-weight: 700; 
+}
+
+#slide-question-2 .q2-side-panel { 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+}
+
+#slide-question-2 .q2-badge-box { 
+    background: rgba(10, 20, 32, 0.6); 
+    border: 0.1vw solid rgba(0, 243, 255, 0.25); 
+    border-radius: 0.8vw; 
+    padding: 2vw; 
+    position: relative; 
+    backdrop-filter: blur(8px); 
+}
+
+#slide-question-2 .q2-subtitle { 
+    font-family: 'Consolas', monospace; 
+    font-size: 1.1vw; 
+    color: #00f3ff; 
+    letter-spacing: 0.15vw; 
+    display: block; 
+    margin-bottom: 0.5vw; 
+}
+
+#slide-question-2 .q2-title { 
+    font-family: 'Chakra Petch', sans-serif; 
+    font-size: 3.5vw; 
+    font-weight: 800; 
+    color: #ffffff; 
+    margin: 0 0 1vw 0; 
+    text-shadow: 0 0 1vw rgba(0, 243, 255, 0.4); 
+}
+
+#slide-question-2 .q2-glow-bar { 
+    width: 100%; 
+    height: 0.2vw; 
+    background: linear-gradient(90deg, #00f3ff, transparent); 
+}
+
+/* ======================================================= */
+/* 9. FREESTYLE SLIDE CÁC MÔ HÌNH CSDL BASIC */
+.slide-mohinh {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-color: transparent !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 2vh 3vw;
+}
+
+.mohinh-container {
+    position: relative;
+    z-index: 2;
+    width: 88vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mohinh-header {
+    text-align: center;
+    margin-bottom: 2.5vw;
+}
+
+.mohinh-tag {
+    font-family: 'Consolas', monospace;
+    font-size: 1.1vw;
+    font-weight: 700;
+    color: #4cfdff;
+    letter-spacing: 0.15vw;
+    display: block;
+    margin-bottom: 0.4vw;
+}
+
+.mohinh-title {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 4.5vw;
+    font-weight: 800;
+    color: #c6f8ff;
+    margin: 0;
+    line-height: 1;
+    letter-spacing: 0.08vw;
+    text-transform: uppercase;
+    text-shadow: 0 0 2vw rgba(76, 253, 255, 0.45);
+}
+
+.mohinh-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.2vw;
+    width: 100%;
+}
+
+.model-card {
+    position: relative;
+    background: rgba(8, 20, 32, 0.75);
+    border: 1px solid rgba(76, 253, 255, 0.28);
+    border-radius: 1vw;
+    padding: 1.6vw 1.8vw 1.8vw 1.8vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    backdrop-filter: blur(14px);
+    box-shadow: 0 1vw 2.5vw rgba(0, 0, 0, 0.6), inset 0 0 1.2vw rgba(76, 253, 255, 0.05);
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.4s, box-shadow 0.4s;
+    overflow: hidden;
+}
+
+.model-card:hover {
+    transform: translateY(-0.5vw);
+    border-color: #4cfdff;
+    box-shadow: 0 1.2vw 3vw rgba(76, 253, 255, 0.3), inset 0 0 1.5vw rgba(76, 253, 255, 0.12);
+}
+
+.card-glow-top {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 0.2vw;
+    background: linear-gradient(90deg, transparent, #4cfdff, transparent);
+    opacity: 0.6;
+}
+
+.card-hud-corner {
+    position: absolute;
+    width: 0.8vw; height: 0.8vw;
+    border-color: #4cfdff;
+    border-style: solid;
+    pointer-events: none;
+}
+.card-hud-corner.top-left { top: 0.4vw; left: 0.4vw; border-width: 0.15vw 0 0 0.15vw; }
+.card-hud-corner.bottom-right { bottom: 0.4vw; right: 0.4vw; border-width: 0 0.15vw 0.15vw 0; }
+
+.model-card-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1vw;
+    border-bottom: 1px solid rgba(76, 253, 255, 0.15);
+    padding-bottom: 0.5vw;
+}
+
+.model-badge {
+    font-family: 'Consolas', monospace;
+    font-size: 0.85vw;
+    font-weight: 700;
+    color: #000000;
+    background: #4cfdff;
+    padding: 0.2vw 0.6vw;
+    border-radius: 0.3vw;
+    box-shadow: 0 0 0.8vw rgba(76, 253, 255, 0.5);
+}
+
+.model-type {
+    font-family: 'Consolas', monospace;
+    font-size: 0.8vw;
+    font-weight: 700;
+    color: rgba(76, 253, 255, 0.7);
+}
+
+.svg-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.5vw 0;
+}
+
+.model-svg {
+    width: 100%;
+    height: auto;
+    overflow: visible;
+}
+
+.node-title {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    fill: #ffffff;
+    text-anchor: middle;
+    letter-spacing: 0.5px;
+}
+
+.node-title-inner {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    fill: #4cfdff;
+    text-anchor: middle;
+}
+
+.node-sub-inner {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    fill: #d1e8ef;
+    text-anchor: middle;
+}
+
+.label-tech {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    fill: #c6f8ff;
+    text-anchor: middle;
+    letter-spacing: 0.5px;
+}
+
+.path-base {
+    fill: none;
+    stroke: rgba(76, 253, 255, 0.4);
+    stroke-width: 2;
+    stroke-linecap: round;
+}
+
+.path-flow {
+    fill: none;
+    stroke: #ffffff;
+    stroke-width: 2.5;
+    stroke-dasharray: 8, 12;
+    stroke-linecap: round;
+    filter: drop-shadow(0 0 5px #4cfdff);
+    animation: flowPulse 0.8s linear infinite;
+}
+
+@keyframes flowPulse {
+    from { stroke-dashoffset: 20; }
+    to { stroke-dashoffset: 0; }
+}
+
+.model-info-footer {
+    width: 100%;
+    margin-top: 1vw;
+    text-align: center;
+    border-top: 1px solid rgba(76, 253, 255, 0.15);
+    padding-top: 0.8vw;
+}
+
+.model-caption {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 1.15vw;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: 0.05vw;
+    margin: 0 0 0.4vw 0;
+    text-transform: uppercase;
+}
+
+.model-desc {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 0.88vw;
+    line-height: 1.5;
+    color: #a8c2d1;
+    margin: 0;
+}
+
+.model-desc strong {
+    color: #4cfdff;
+    font-weight: 700;
+}
+
+.slide-mohinh .animate-mohinh {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.slide-mohinh.active .mohinh-header { opacity: 1; transform: translateY(0); transition-delay: 0.15s; }
+.slide-mohinh.active .card-single-tier { opacity: 1; transform: translateY(0); transition-delay: 0.3s; }
+.slide-mohinh.active .card-client-server { opacity: 1; transform: translateY(0); transition-delay: 0.45s; }
+
+.slide-app-software {
+    position: relative;
+    padding: 3rem 4rem;
+    color: #e2e8f0;
+    overflow: hidden;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.freestyle-bg-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.25;
+    pointer-events: none;
+    z-index: 0;
+}
+.glow-cyan { top: -10%; right: -5%; width: 450px; height: 450px; background: #4cfdff; }
+.glow-magenta { bottom: -10%; left: -5%; width: 400px; height: 400px; background: #ff007f; }
+
+/* --- HEADER FREESTYLE --- */
+.slide-header-freestyle {
+    z-index: 2;
+    margin-bottom: 2.5rem;
+}
+.cyber-tag {
+    font-family: monospace;
+    color: #4cfdff;
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+    opacity: 0.9;
+}
+.giant-glitch-title {
+    font-size: 2.8rem;
+    font-weight: 900;
+    line-height: 1.1;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.neon-text-cyan {
+    color: #4cfdff;
+    text-shadow: 0 0 15px rgba(76, 253, 255, 0.6);
+}
+.title-laser-line {
+    width: 140px;
+    height: 3px;
+    background: linear-gradient(90deg, #4cfdff, #ff007f, transparent);
+    margin-top: 1rem;
+    border-radius: 2px;
+}
+
+/* --- FREESTYLE CONTAINER --- */
+.freestyle-container {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    z-index: 2;
+}
+
+/* --- LEFT TEXT STREAM --- */
+.concept-text-stream {
+    position: relative;
+    padding-left: 1.5rem;
+    border-left: 2px solid rgba(76, 253, 255, 0.3);
+}
+.quote-mark {
+    position: absolute;
+    top: -35px;
+    left: -10px;
+    font-size: 5rem;
+    color: rgba(76, 253, 255, 0.15);
+    user-select: none;
+}
+.main-definition-paragraph {
+    font-size: 1.35rem;
+    line-height: 1.8;
+    color: #cbd5e1;
+    font-weight: 300;
+}
+.highlight-cyan { color: #4cfdff; text-shadow: 0 0 8px rgba(76, 253, 255, 0.4); }
+.highlight-magenta { color: #ff55a3; text-shadow: 0 0 8px rgba(255, 0, 127, 0.4); }
+.highlight-white { color: #ffffff; text-decoration: underline decoration-color-4cfdff; }
+.highlight-yellow { color: #ffe600; text-shadow: 0 0 10px rgba(255, 230, 0, 0.5); }
+
+.api-badge {
+    display: inline-block;
+    padding: 0.1rem 0.6rem;
+    background: rgba(76, 253, 255, 0.12);
+    border: 1px stroke rgba(76, 253, 255, 0.4);
+    border-radius: 4px;
+    color: #4cfdff;
+    font-size: 1.1rem;
+    margin: 0 0.2rem;
+}
+
+.core-conclusion {
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: linear-gradient(90deg, rgba(255, 230, 0, 0.08), transparent);
+    padding: 1rem 1.2rem;
+    border-radius: 0 8px 8px 0;
+    border-left: 3px solid #ffe600;
+}
+.core-conclusion p {
+    margin: 0;
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+.pulse-indicator {
+    width: 10px;
+    height: 10px;
+    background-color: #ffe600;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #ffe600;
+    animation: pulseGlow 1.5s infinite alternate;
+}
+
+/* --- RIGHT ORBIT VISUAL --- */
+.visual-node-orbit {
+    position: relative;
+    height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.orbit-connect-svg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+.path-pulse {
+    animation: dashMove 20s linear infinite;
+}
+
+/* NODES THẢ TỰ DO (KHÔNG KHUNG) */
+.orbit-node {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: rgba(10, 20, 32, 0.75);
+    backdrop-filter: blur(8px);
+    padding: 0.6rem 1.2rem;
+    border-radius: 30px;
+    border: 1px solid rgba(76, 253, 255, 0.3);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+.orbit-node:hover {
+    transform: translateY(-4px) scale(1.05);
+    border-color: #4cfdff;
+}
+.node-top-left { top: 10px; left: 10px; }
+.node-top-right { top: 20px; right: 10px; }
+.node-bottom-center { bottom: 15px; border-color: rgba(255, 230, 0, 0.5); }
+
+.node-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(76, 253, 255, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #4cfdff;
+    font-size: 0.9rem;
+}
+.node-text {
+    display: flex;
+    flex-direction: column;
+}
+.node-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+}
+.node-desc {
+    font-size: 0.78rem;
+    color: #94a3b8;
+}
+.text-yellow { color: #ffe600 !important; }
+
+.cyber-core-ring {
+    width: 40px;
+    height: 40px;
+    border: 2px stroke #ff007f;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 15px rgba(255, 0, 127, 0.5);
+}
+.core-dot {
+    width: 12px;
+    height: 12px;
+    background: #ff007f;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #ff007f;
+}
+
+/* ANIMATIONS */
+@keyframes dashMove {
+    to { stroke-dashoffset: -100; }
+}
+@keyframes pulseGlow {
+    from { opacity: 0.4; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1.3); }
+}
+
+/* ======================================================= */
+/* 10. SLIDE PHẦN MỀM ỨNG DỤNG CSDL */
+#slide-app-csdl { 
+    width: 100vw; 
+    height: 100vh; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    box-sizing: border-box; 
+    padding: 2vh 4vw; 
+}
+
+#slide-app-csdl .app-slide-container { 
+    width: 88vw; 
+    display: grid; 
+    grid-template-columns: 1.2fr 1fr; 
+    gap: 4vw; 
+    align-items: center; 
+}
+
+#slide-app-csdl .app-slide-left { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 1.2vw; 
+}
+
+#slide-app-csdl .app-tech-card { 
+    background: rgba(5, 18, 30, 0.8); 
+    border: 1px solid rgba(76, 253, 255, 0.25); 
+    border-radius: 1vw; 
+    padding: 1.8vw; 
+    backdrop-filter: blur(12px); 
+    box-shadow: 0 0.8vw 2vw rgba(0, 0, 0, 0.5); 
+    transition: transform 0.3s ease, border-color 0.3s ease; 
+}
+
+#slide-app-csdl .app-tech-card.highlight-card { 
+    border-color: #4cfdff; 
+    background: rgba(10, 30, 50, 0.85); 
+    box-shadow: 0 0 2vw rgba(76, 253, 255, 0.25); 
+}
+
+#slide-app-csdl .card-tech-header { 
+    display: flex; 
+    align-items: center; 
+    gap: 1vw; 
+    margin-bottom: 0.8vw; 
+}
+
+#slide-app-csdl .tech-step-badge { 
+    font-family: 'Teko', sans-serif; 
+    font-size: 2vw; 
+    font-weight: 800; 
+    color: #000000; 
+    background: #4cfdff; 
+    padding: 0.1vw 0.8vw; 
+    border-radius: 0.3vw; 
+    line-height: 1; 
+}
+
+#slide-app-csdl .tech-step-badge.accent { 
+    background: #c6f8ff; 
+    box-shadow: 0 0 1vw rgba(76, 253, 255, 0.8); 
+}
+
+#slide-app-csdl .tech-step-title { 
+    font-family: 'Chakra Petch', sans-serif; 
+    font-size: 1.2vw; 
+    font-weight: 700; 
+    color: #ffffff; 
+}
+
+#slide-app-csdl .tech-step-title.accent { 
+    color: #4cfdff; 
+}
+
+#slide-app-csdl .card-body-text { 
+    font-family: 'Chakra Petch', sans-serif; 
+    font-size: 1.1vw; 
+    line-height: 1.6; 
+    color: #d1e8ef; 
+    margin: 0; 
+}
+
+#slide-app-csdl .code-pill { 
+    font-family: 'Consolas', monospace; 
+    font-size: 0.95vw; 
+    color: #4cfdff; 
+    background: rgba(76, 253, 255, 0.15); 
+    padding: 0.2vw 0.6vw; 
+    border-radius: 0.3vw; 
+    border: 1px solid rgba(76, 253, 255, 0.3); 
+}
+
+#slide-app-csdl .text-glow { 
+    text-shadow: 0 0 1vw rgba(76, 253, 255, 0.4); 
+}
+
+#slide-app-csdl .text-glow strong { 
+    color: #4cfdff; 
+}
+
+#slide-app-csdl .app-connector { 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    position: relative; 
+    height: 1.5vw; 
+}
+
+#slide-app-csdl .connector-line { 
+    width: 2px; 
+    height: 100%; 
+    background: rgba(76, 253, 255, 0.4); 
+}
+
+#slide-app-csdl .connector-dot { 
+    width: 8px; 
+    height: 8px; 
+    background: #4cfdff; 
+    border-radius: 50%; 
+    position: absolute; 
+    box-shadow: 0 0 0.8vw #4cfdff; 
+}
+
+#slide-app-csdl .app-slide-right { 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+}
+
+#slide-app-csdl .title-tech-wrapper { 
+    position: relative; 
+}
+
+#slide-app-csdl .tech-tag-top { 
+    font-family: 'Consolas', monospace; 
+    font-size: 1.2vw; 
+    color: #4cfdff; 
+    margin-bottom: 1vw; 
+    letter-spacing: 0.1vw; 
+}
+
+#slide-app-csdl .app-main-title { 
+    font-family: 'Chakra Petch', sans-serif; 
+    font-size: 4.5vw; 
+    font-weight: 800; 
+    line-height: 1.1; 
+    color: #ffffff; 
+    margin: 0; 
+    text-transform: uppercase; 
+}
+
+#slide-app-csdl .title-cyan-purple { 
+    color: #4cfdff; 
+    text-shadow: 0 0 2vw rgba(76, 253, 255, 0.6); 
+}
+
+#slide-app-csdl .title-tech-decoration { 
+    display: flex; 
+    align-items: center; 
+    gap: 1vw; 
+    margin-top: 1.5vw; 
+}
+
+#slide-app-csdl .dec-line { 
+    height: 2px; 
+    width: 120px; 
+    background: linear-gradient(90deg, #4cfdff, transparent); 
+}
+
+#slide-app-csdl .dec-box { 
+    width: 10px; 
+    height: 10px; 
+    border: 2px solid #4cfdff; 
+    transform: rotate(45deg); 
+}
+
+/* ======================================================= */
+/* 11. SLIDE HỆ CSDL GỒM NHỮNG GÌ */
+#slide-he-csdl { 
+    width: 100vw; 
+    height: 100vh; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    box-sizing: border-box; 
+    padding: 2vh 4vw; 
+}
+
+#slide-he-csdl .he-csdl-container { 
+    width: 88vw; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+}
+
+#slide-he-csdl .he-csdl-header { 
+    text-align: center; 
+    margin-bottom: 2.5vw; 
+}
+
+#slide-he-csdl .he-csdl-header .tech-tag { 
+    font-family: 'Consolas', monospace; 
+    font-size: 1.1vw; 
+    color: #4cfdff; 
+    letter-spacing: 0.15vw; 
+    display: block; 
+}
+
+#slide-he-csdl .he-csdl-title { 
+    font-family: 'Chakra Petch', sans-serif; 
+    font-size: 3.8vw; 
+    font-weight: 800; 
+    color: #ffffff; 
+    margin: 0.5vw 0; 
+    text-shadow: 0 0 1.5vw rgba(76, 253, 255, 0.45); 
+    text-transform: uppercase; 
+}
+
+#slide-he-csdl .he-csdl-subtitle { 
+    font-family: 'Chakra Petch', sans-serif; 
+    font-size: 1.1vw; 
+    color: #8a9ea8; 
+    margin: 0; 
+}
+
+#slide-he-csdl .he-csdl-pipeline { 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 1.2vw; 
+    width: 100%; 
+}
+
+#slide-he-csdl .pipe-card { 
+    flex: 1; 
+    background: rgba(5, 18, 30, 0.8); 
+    border: 1px solid rgba(76, 253, 255, 0.25); 
+    border-radius: 1vw; 
+    padding: 2vw 1.5vw; 
+    position: relative; 
+    backdrop-filter: blur(12px); 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; 
+    transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease; 
+}
+
+#slide-he-csdl .pipe-card:hover { 
+    transform: translateY(-0.4vw); 
+    border-color: #4cfdff; 
+}
+
+#slide-he-csdl .pipe-card.highlight-core { 
+    border-color: #4cfdff; 
+    background: rgba(12, 32, 55, 0.9); 
+    box-shadow: 0 0 2.5vw rgba(76, 253, 255, 0.3); 
+    transform: scale(1.04); 
+}
+
+#slide-he-csdl .pipe-card.highlight-core:hover { 
+    transform: scale(1.06) translateY(-0.4vw); 
+}
+
+#slide-he-csdl .card-hud-corner { 
+    position: absolute; 
+    width: 0.8vw; 
+    height: 0.8vw; 
+    border-color: #4cfdff; 
+    border-style: solid; 
+    pointer-events: none; 
+}
+
+#slide-he-csdl .card-hud-corner.top-left { 
+    top: -0.1vw; 
+    left: -0.1vw; 
+    border-width: 0.15vw 0 0 0.15vw; 
+    border-top-left-radius: 0.8vw; 
+}
+
+#slide-he-csdl .card-hud-corner.bottom-right { 
+    bottom: -0.1vw; 
+    right: -0.1vw; 
+    border-width: 0 0.15vw 0.15vw 0; 
+    border-bottom-right-radius: 0.8vw; 
+}
+
+#slide-he-csdl .pipe-card .card-badge { 
+    font-family: 'Consolas', monospace; 
+    font-size: 0.8vw; 
+    color: #4cfdff; 
+    background: rgba(76, 253, 255, 0.1); 
+    padding: 0.3vw 0.8vw; 
+    border-radius: 0.4vw; 
+    margin-bottom: 1vw; 
+    letter-spacing: 0.05vw; 
+}
+
+#slide-he-csdl .pipe-card .card-badge.accent { 
+    background: #4cfdff; 
+    color: #000000; 
+    font-weight: 700; 
+}
+
+#slide-he-csdl .icon-wrapper { 
+    width: 3.5vw; 
+    height: 3.5vw; 
+    border-radius: 50%; 
+    background: rgba(76, 253, 255, 0.1); 
+    border: 1px solid rgba(76, 253, 255, 0.3); 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    margin-bottom: 1vw; 
+}
+
+#slide-he-csdl .icon-wrapper.accent { 
+    background: rgba(76, 253, 255, 0.25); 
+    border-color: #4cfdff; 
+    box-shadow: 0 0 1.5vw rgba(76, 253, 255, 0.5); 
+}
+
+#slide-he-csdl .pipe-icon { 
+    width: 2vw; 
+    height: 2vw; 
+    color: #4cfdff; 
+}
+
+#slide-he-csdl .card-status-pill { 
+    font-family: 'Consolas', monospace; 
+    font-size: 0.75vw; 
+    color: #8a9ea8; 
+    margin-bottom: 0.8vw; 
+    letter-spacing: 0.05vw; 
+}
+
+#slide-he-csdl .card-status-pill.accent { 
+    color: #4cfdff; 
+    font-weight: 700; 
+}
+
+#slide-he-csdl .pipe-card .card-title { 
+    font-family: 'Chakra Petch', sans-serif; 
+    font-size: 1.3vw; 
+    font-weight: 700; 
+    color: #ffffff; 
+    margin: 0 0 0.8vw 0; 
+}
+
+#slide-he-csdl .pipe-card .card-desc { 
+    font-family: 'Chakra Petch', sans-serif; 
+    font-size: 0.95vw; 
+    line-height: 1.5; 
+    color: #d1e8ef; 
+    margin: 0; 
+}
+
+#slide-he-csdl .pipe-card .card-desc strong { 
+    color: #4cfdff; 
+}
+
+#slide-he-csdl .flow-connector { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    color: #4cfdff; 
+    position: relative; 
+    width: 3vw; 
+}
+
+#slide-he-csdl .flow-line { 
+    width: 100%; 
+    height: 2px; 
+    background: linear-gradient(90deg, rgba(76, 253, 255, 0.2), #4cfdff, rgba(76, 253, 255, 0.2)); 
+}
+
+#slide-he-csdl .flow-arrow { 
+    width: 1.8vw; 
+    height: 1.8vw; 
+    stroke: #4cfdff; 
+}
