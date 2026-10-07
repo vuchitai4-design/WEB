@@ -1535,3 +1535,162 @@ body.hover-active .cursor-follower {
     height: 1.8vw; 
     stroke: #4cfdff; 
 }
+/* Container chính - Làm mờ xuyên thấu nền bên dưới */
+.slide-summary {
+  width: 92vw;
+  height: 88vh;
+  margin: 0 auto;
+  background-color: rgba(8, 10, 16, 0.75); /* Trong suốt nhẹ để ăn theo màu nền dưới */
+  backdrop-filter: blur(2vw);
+  -webkit-backdrop-filter: blur(2vw);
+  color: #f8fafc;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  border-radius: 2vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2vw 5vw rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-sizing: border-box;
+}
+
+/* Wrapper chứa toàn bộ nội dung */
+.summary-wrapper {
+  width: 85%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3vh;
+  z-index: 2;
+}
+
+/* Header Zone */
+.summary-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2vh;
+}
+
+.tag-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5vw;
+  padding: 0.5vh 1vw;
+  width: fit-content;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #38bdf8;
+  font-size: clamp(0.7rem, 0.9vw, 1.2rem);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.tag-badge svg {
+  width: 1vw;
+  height: 1vw;
+  min-width: 12px;
+  min-height: 12px;
+}
+
+.summary-title {
+  font-size: 4vw;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+
+.summary-lead {
+  font-size: 1.5vw;
+  color: #94a3b8;
+  margin: 0;
+  font-weight: 400;
+}
+
+/* Layout 2 Card */
+.summary-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5vw;
+  align-items: stretch;
+}
+
+/* Card Styling Minimalist - Blur nhẹ và xuyên thấu */
+.summary-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(1.5vw);
+  -webkit-backdrop-filter: blur(1.5vw);
+  border-radius: 1.5vw;
+  padding: 2.2vw;
+  display: flex;
+  flex-direction: column;
+  gap: 1.8vh;
+  transition: all 0.3s ease;
+}
+
+.summary-card:hover {
+  transform: translateY(-0.4vw);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 1vw 2.5vw rgba(0, 0, 0, 0.3);
+}
+
+/* Icon Box */
+.card-icon {
+  width: 3.5vw;
+  height: 3.5vw;
+  min-width: 40px;
+  min-height: 40px;
+  border-radius: 0.8vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-icon svg {
+  width: 55%;
+  height: 55%;
+}
+
+.card-client .card-icon {
+  background: rgba(56, 189, 248, 0.1);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+.card-server .card-icon {
+  background: rgba(129, 140, 248, 0.1);
+  color: #818cf8;
+  border: 1px solid rgba(129, 140, 248, 0.2);
+}
+
+/* Nội dung Card */
+.card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8vh;
+}
+
+.card-label {
+  font-size: 1vw;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #64748b;
+}
+
+.card-text {
+  font-size: 1.5vw;
+  line-height: 1.6;
+  color: #cbd5e1;
+  margin: 0;
+}
+
+.card-text strong {
+  color: #ffffff;
+  font-weight: 600;
+}
