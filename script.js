@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     animateCursor();
 
-    const interactiveSelector = 'button, a, .bai12-box, .thanh-vien-item, .member-card, .design-by, .robot-puller, .req-card, .tinh-nang-card, .tong-quan-card, .q2-hud-card, .hud-reveal-btn, .feature-card, .centralized-card, .role-chip, .diagram-user-node, .diagram-app-node, .diagram-dbms-node, .diagram-storage-node, .distrib-card, .app-compare-box, .station-card, .hub-cloud-body, .comp-card, .comp-item, .features-note-card, .recap-pill, .master-card, .tier-pill';
+    const interactiveSelector = 'button, a, .bai12-box, .thanh-vien-item, .member-card, .design-by, .robot-puller, .req-card, .tinh-nang-card, .tong-quan-card, .q2-hud-card, .hud-reveal-btn, .feature-card, .centralized-card, .role-chip, .diagram-user-node, .diagram-app-node, .diagram-dbms-node, .diagram-storage-node, .distrib-card, .app-compare-box, .station-card, .hub-cloud-body, .comp-card, .comp-item, .features-note-card, .recap-pill, .master-card, .tier-pill, .team-name, .footer-text, .detail-item';
     
     document.addEventListener('mouseover', (e) => {
         if (e.target.closest(interactiveSelector)) {
@@ -182,3 +182,24 @@ function toggleQ2Answer() {
         btn.classList.toggle('active');
     }
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    const particlesContainer = document.getElementById('thankyou-particles');
+    if (particlesContainer) {
+        const particleCount = 20;
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('span');
+            particle.classList.add('thankyou-particle');
+            const size = Math.random() * 0.25 + 0.1;
+            particle.style.width = `${size}vw`;
+            particle.style.height = `${size}vw`;
+            particle.style.left = `${Math.random() * 100}vw`;
+            particle.style.top = `${Math.random() * 100}vh`;
+            particle.style.animationName = 'tyParticleFloat';
+            particle.style.animationDuration = `${Math.random() * 8 + 8}s`;
+            particle.style.animationDelay = `${Math.random() * 5}s`;
+            particle.style.boxShadow = `0 0 ${size * 2}vw rgba(76, 253, 255, ${Math.random() * 0.4 + 0.2})`;
+            particlesContainer.appendChild(particle);
+        }
+    }
+});
