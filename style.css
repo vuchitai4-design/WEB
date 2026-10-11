@@ -1694,3 +1694,3432 @@ body.hover-active .cursor-follower {
   color: #ffffff;
   font-weight: 600;
 }
+
+/* ======================================================= */
+/* 13. SLIDE a) HỆ CSDL TẬP TRUNG */
+#slide-he-csdl-tap-trung {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-color: transparent;
+    padding: 0 4vw;
+    box-sizing: border-box;
+    overflow: hidden;
+    scroll-snap-align: start;
+}
+
+#slide-he-csdl-tap-trung .centralized-container {
+    width: 92vw;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3vw;
+    z-index: 2;
+}
+
+/* --- CỘT TRÁI: NỘI DUNG LÝ THUYẾT --- */
+#slide-he-csdl-tap-trung .centralized-left {
+    flex: 1.15;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5vw;
+    opacity: 0;
+    transform: translateX(-2.5vw);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.slide.active#slide-he-csdl-tap-trung .centralized-left,
+.slide.active #slide-he-csdl-tap-trung .centralized-left,
+#slide-he-csdl-tap-trung.active .centralized-left {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Header */
+#slide-he-csdl-tap-trung .centralized-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5vw;
+}
+
+#slide-he-csdl-tap-trung .centralized-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6vw;
+    font-family: 'Consolas', monospace;
+    font-size: 0.85vw;
+    letter-spacing: 0.1vw;
+    color: #4cfdff;
+}
+
+#slide-he-csdl-tap-trung .tag-pulse-dot {
+    width: 0.55vw;
+    height: 0.55vw;
+    border-radius: 50%;
+    background-color: #4cfdff;
+    box-shadow: 0 0 0.8vw #4cfdff;
+    animation: pulseDot 1.8s infinite ease-in-out;
+}
+
+@keyframes pulseDot {
+    0%, 100% { transform: scale(1); opacity: 0.7; }
+    50% { transform: scale(1.4); opacity: 1; }
+}
+
+#slide-he-csdl-tap-trung .centralized-title {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 3vw;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0;
+    letter-spacing: 0.02vw;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 0.8vw;
+    text-shadow: 0 0 2vw rgba(76, 253, 255, 0.35);
+}
+
+#slide-he-csdl-tap-trung .title-cyan-letter {
+    color: #4cfdff;
+    text-shadow: 0 0 1.5vw rgba(76, 253, 255, 0.8);
+}
+
+/* Cards Wrapper */
+#slide-he-csdl-tap-trung .centralized-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2vw;
+}
+
+/* Centralized Card chung */
+#slide-he-csdl-tap-trung .centralized-card {
+    background: rgba(8, 20, 36, 0.75);
+    border: 0.1vw solid rgba(76, 253, 255, 0.22);
+    border-radius: 1.2vw;
+    padding: 1.4vw 1.8vw;
+    position: relative;
+    backdrop-filter: blur(1.5vw);
+    -webkit-backdrop-filter: blur(1.5vw);
+    box-shadow: 0 1vw 3vw rgba(0, 0, 0, 0.45);
+    transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+#slide-he-csdl-tap-trung .centralized-card:hover {
+    transform: translateY(-0.25vw);
+    border-color: rgba(76, 253, 255, 0.55);
+    box-shadow: 0 1.2vw 3.5vw rgba(76, 253, 255, 0.18);
+}
+
+/* Card HUD Corners */
+#slide-he-csdl-tap-trung .card-hud-corner {
+    position: absolute;
+    width: 0.8vw;
+    height: 0.8vw;
+    border-color: #4cfdff;
+    border-style: solid;
+    pointer-events: none;
+}
+
+#slide-he-csdl-tap-trung .card-hud-corner.top-left {
+    top: -0.1vw;
+    left: -0.1vw;
+    border-width: 0.15vw 0 0 0.15vw;
+    border-top-left-radius: 1.2vw;
+}
+
+#slide-he-csdl-tap-trung .card-hud-corner.bottom-right {
+    bottom: -0.1vw;
+    right: -0.1vw;
+    border-width: 0 0.15vw 0.15vw 0;
+    border-bottom-right-radius: 1.2vw;
+}
+
+/* Card Meta (Badge + Tech ID) */
+#slide-he-csdl-tap-trung .card-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.8vw;
+}
+
+#slide-he-csdl-tap-trung .card-pill {
+    font-family: 'Consolas', monospace;
+    font-size: 0.75vw;
+    font-weight: 700;
+    letter-spacing: 0.08vw;
+    color: #4cfdff;
+    background: rgba(76, 253, 255, 0.12);
+    border: 0.08vw solid rgba(76, 253, 255, 0.3);
+    padding: 0.25vw 0.75vw;
+    border-radius: 0.4vw;
+}
+
+#slide-he-csdl-tap-trung .card-pill.accent {
+    color: #38bdf8;
+    background: rgba(56, 189, 248, 0.12);
+    border-color: rgba(56, 189, 248, 0.35);
+}
+
+#slide-he-csdl-tap-trung .card-tech-id {
+    font-family: 'Consolas', monospace;
+    font-size: 0.75vw;
+    color: #64748b;
+    letter-spacing: 0.08vw;
+}
+
+/* Text bên trong Card */
+#slide-he-csdl-tap-trung .card-main-text {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 1.25vw;
+    line-height: 1.6;
+    color: #e2e8f0;
+    margin: 0;
+}
+
+#slide-he-csdl-tap-trung .highlight-term {
+    color: #4cfdff;
+    font-weight: 700;
+    text-shadow: 0 0 1vw rgba(76, 253, 255, 0.4);
+}
+
+#slide-he-csdl-tap-trung .highlight-term em {
+    font-style: italic;
+    color: #4cfdff;
+}
+
+#slide-he-csdl-tap-trung .card-desc-text {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 1.05vw;
+    line-height: 1.6;
+    color: #cbd5e1;
+    margin: 0 0 1.2vw 0;
+}
+
+#slide-he-csdl-tap-trung .access-highlight {
+    color: #fbbf24;
+    font-weight: 600;
+}
+
+/* Grid 3 Vai Trò Tích Hợp */
+#slide-he-csdl-tap-trung .user-roles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.8vw;
+}
+
+#slide-he-csdl-tap-trung .role-chip {
+    background: rgba(15, 30, 52, 0.7);
+    border: 0.08vw solid rgba(76, 253, 255, 0.18);
+    border-radius: 0.8vw;
+    padding: 0.8vw;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5vw;
+    transition: all 0.3s ease;
+}
+
+#slide-he-csdl-tap-trung .role-chip:hover {
+    background: rgba(20, 42, 70, 0.9);
+    border-color: #4cfdff;
+    transform: translateY(-0.2vw);
+    box-shadow: 0 0.5vw 1.5vw rgba(76, 253, 255, 0.15);
+}
+
+#slide-he-csdl-tap-trung .role-icon-box {
+    width: 2vw;
+    height: 2vw;
+    border-radius: 0.5vw;
+    background: rgba(76, 253, 255, 0.12);
+    color: #4cfdff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#slide-he-csdl-tap-trung .role-icon-box svg {
+    width: 1.1vw;
+    height: 1.1vw;
+}
+
+#slide-he-csdl-tap-trung .role-icon-box.accent {
+    background: rgba(56, 189, 248, 0.15);
+    color: #38bdf8;
+}
+
+#slide-he-csdl-tap-trung .role-icon-box.success {
+    background: rgba(52, 211, 153, 0.15);
+    color: #34d399;
+}
+
+#slide-he-csdl-tap-trung .role-text-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25vw;
+}
+
+#slide-he-csdl-tap-trung .role-num {
+    font-family: 'Consolas', monospace;
+    font-size: 0.7vw;
+    font-weight: 700;
+    color: #4cfdff;
+    letter-spacing: 0.05vw;
+}
+
+#slide-he-csdl-tap-trung .role-num.accent {
+    color: #38bdf8;
+}
+
+#slide-he-csdl-tap-trung .role-num.success {
+    color: #34d399;
+}
+
+#slide-he-csdl-tap-trung .role-desc {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 0.85vw;
+    line-height: 1.4;
+    color: #cbd5e1;
+    font-weight: 500;
+}
+
+/* --- CỘT PHẢI: SƠ ĐỒ HỆ CSDL TẬP TRUNG (DIAGRAM) --- */
+#slide-he-csdl-tap-trung .centralized-right {
+    flex: 0.95;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateX(2.5vw);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.slide.active#slide-he-csdl-tap-trung .centralized-right,
+.slide.active #slide-he-csdl-tap-trung .centralized-right,
+#slide-he-csdl-tap-trung.active .centralized-right {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+#slide-he-csdl-tap-trung .centralized-diagram-panel {
+    width: 38vw;
+    background: rgba(6, 16, 30, 0.8);
+    border: 0.1vw solid rgba(76, 253, 255, 0.25);
+    border-radius: 1.5vw;
+    padding: 1.6vw 1.8vw;
+    backdrop-filter: blur(2vw);
+    -webkit-backdrop-filter: blur(2vw);
+    box-shadow: 0 1.5vw 4vw rgba(0, 0, 0, 0.6), inset 0 0 2vw rgba(76, 253, 255, 0.04);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+/* Diagram Header */
+#slide-he-csdl-tap-trung .diagram-hud-bar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.6vw;
+    margin-bottom: 1.2vw;
+    padding-bottom: 0.8vw;
+    border-bottom: 0.08vw solid rgba(76, 253, 255, 0.15);
+}
+
+#slide-he-csdl-tap-trung .hud-led {
+    width: 0.6vw;
+    height: 0.6vw;
+    border-radius: 50%;
+    background-color: #34d399;
+    box-shadow: 0 0 0.8vw #34d399;
+}
+
+#slide-he-csdl-tap-trung .hud-title {
+    font-family: 'Consolas', monospace;
+    font-size: 0.85vw;
+    font-weight: 700;
+    color: #4cfdff;
+    letter-spacing: 0.1vw;
+    text-transform: uppercase;
+}
+
+/* 1. Hàng Người Dùng */
+#slide-he-csdl-tap-trung .diagram-users-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3.5vw;
+    width: 100%;
+}
+
+#slide-he-csdl-tap-trung .diagram-user-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5vw;
+    transition: transform 0.3s ease;
+}
+
+#slide-he-csdl-tap-trung .diagram-user-node:hover {
+    transform: translateY(-0.25vw);
+}
+
+#slide-he-csdl-tap-trung .user-avatar-glow {
+    width: 3.6vw;
+    height: 3.6vw;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(52, 211, 153, 0.25) 0%, rgba(15, 32, 50, 0.9) 70%);
+    border: 0.12vw solid #34d399;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #34d399;
+    box-shadow: 0 0 1.2vw rgba(52, 211, 153, 0.35);
+    transition: all 0.3s ease;
+}
+
+#slide-he-csdl-tap-trung .diagram-user-node:hover .user-avatar-glow {
+    border-color: #4cfdff;
+    color: #4cfdff;
+    box-shadow: 0 0 1.8vw rgba(76, 253, 255, 0.6);
+}
+
+#slide-he-csdl-tap-trung .user-avatar-glow svg {
+    width: 2vw;
+    height: 2vw;
+}
+
+#slide-he-csdl-tap-trung .user-title {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 0.95vw;
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: 0.02vw;
+}
+
+/* 2. Mũi Tên Hai Chiều (Bi-directional Arrow) */
+#slide-he-csdl-tap-trung .diagram-bidirectional-arrow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 3.2vw;
+    width: 2vw;
+    color: #4cfdff;
+    margin: 0.2vw 0;
+}
+
+#slide-he-csdl-tap-trung .diagram-bidirectional-arrow.mini {
+    height: 2.4vw;
+}
+
+#slide-he-csdl-tap-trung .arrow-head-up,
+#slide-he-csdl-tap-trung .arrow-head-down {
+    width: 1vw;
+    height: 0.8vw;
+    filter: drop-shadow(0 0 0.4vw #4cfdff);
+}
+
+#slide-he-csdl-tap-trung .arrow-shaft {
+    width: 0.15vw;
+    flex: 1;
+    background: linear-gradient(180deg, #4cfdff, rgba(76, 253, 255, 0.4), #4cfdff);
+    box-shadow: 0 0 0.6vw #4cfdff;
+    position: relative;
+}
+
+/* Luồng hạt sáng di chuyển hai chiều */
+#slide-he-csdl-tap-trung .arrow-beam-track {
+    position: absolute;
+    width: 0.15vw;
+    top: 0.6vw;
+    bottom: 0.6vw;
+    pointer-events: none;
+}
+
+#slide-he-csdl-tap-trung .beam-particle {
+    position: absolute;
+    width: 0.35vw;
+    height: 0.35vw;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 0 0 0.8vw #ffffff, 0 0 1.2vw #4cfdff;
+    left: -0.1vw;
+}
+
+#slide-he-csdl-tap-trung .beam-particle.down {
+    animation: beamTravelDown 2.2s infinite ease-in-out;
+}
+
+#slide-he-csdl-tap-trung .beam-particle.up {
+    animation: beamTravelUp 2.2s infinite ease-in-out 1.1s;
+}
+
+@keyframes beamTravelDown {
+    0% { top: 0%; opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { top: 100%; opacity: 0; }
+}
+
+@keyframes beamTravelUp {
+    0% { bottom: 0%; opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { bottom: 100%; opacity: 0; }
+}
+
+/* 3. Khối Phần Mềm Ứng Dụng CSDL */
+#slide-he-csdl-tap-trung .diagram-app-node {
+    width: 25vw;
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.18) 0%, rgba(217, 119, 6, 0.28) 100%);
+    border: 0.12vw solid #f59e0b;
+    border-radius: 1vw;
+    padding: 1vw 1.5vw;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 0.8vw 2.5vw rgba(245, 158, 11, 0.22);
+    backdrop-filter: blur(1vw);
+    transition: all 0.3s ease;
+}
+
+#slide-he-csdl-tap-trung .diagram-app-node:hover {
+    transform: scale(1.02);
+    border-color: #fbbf24;
+    box-shadow: 0 1vw 3vw rgba(245, 158, 11, 0.35);
+}
+
+#slide-he-csdl-tap-trung .app-node-hud-corner {
+    position: absolute;
+    width: 0.6vw;
+    height: 0.6vw;
+    border-color: #fbbf24;
+    border-style: solid;
+    pointer-events: none;
+}
+
+#slide-he-csdl-tap-trung .app-node-hud-corner.top-left {
+    top: -0.08vw;
+    left: -0.08vw;
+    border-width: 0.12vw 0 0 0.12vw;
+    border-top-left-radius: 1vw;
+}
+
+#slide-he-csdl-tap-trung .app-node-hud-corner.bottom-right {
+    bottom: -0.08vw;
+    right: -0.08vw;
+    border-width: 0 0.12vw 0.12vw 0;
+    border-bottom-right-radius: 1vw;
+}
+
+#slide-he-csdl-tap-trung .app-node-tag {
+    font-family: 'Consolas', monospace;
+    font-size: 0.68vw;
+    font-weight: 700;
+    color: #fbbf24;
+    letter-spacing: 0.1vw;
+    display: block;
+    margin-bottom: 0.3vw;
+}
+
+#slide-he-csdl-tap-trung .app-node-heading {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 1.25vw;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+    text-shadow: 0 0 1vw rgba(245, 158, 11, 0.5);
+}
+
+/* 4. Khung Máy Tính Lưu Trữ Tập Trung */
+#slide-he-csdl-tap-trung .diagram-central-box {
+    width: 29vw;
+    background: rgba(14, 38, 64, 0.45);
+    border: 0.15vw solid rgba(76, 253, 255, 0.4);
+    border-radius: 1.4vw;
+    padding: 1.2vw 1.5vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 1vw 3vw rgba(0, 0, 0, 0.5), inset 0 0 2.5vw rgba(76, 253, 255, 0.08);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#slide-he-csdl-tap-trung .diagram-central-box:hover {
+    border-color: #4cfdff;
+    box-shadow: 0 1.2vw 3.5vw rgba(76, 253, 255, 0.2), inset 0 0 3vw rgba(76, 253, 255, 0.12);
+}
+
+#slide-he-csdl-tap-trung .central-box-banner {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5vw;
+    background: rgba(76, 253, 255, 0.1);
+    border: 0.08vw solid rgba(76, 253, 255, 0.25);
+    border-radius: 999vw;
+    padding: 0.3vw 0.9vw;
+    margin-bottom: 1vw;
+}
+
+#slide-he-csdl-tap-trung .central-box-icon {
+    width: 0.9vw;
+    height: 0.9vw;
+    color: #4cfdff;
+}
+
+#slide-he-csdl-tap-trung .central-box-title {
+    font-family: 'Consolas', monospace;
+    font-size: 0.72vw;
+    font-weight: 700;
+    color: #4cfdff;
+    letter-spacing: 0.06vw;
+}
+
+/* 5. Khối Hệ QTCSDL bên trong máy */
+#slide-he-csdl-tap-trung .diagram-dbms-node {
+    width: 22vw;
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.15) 0%, rgba(251, 191, 36, 0.2) 100%);
+    border: 0.1vw solid rgba(251, 191, 36, 0.6);
+    border-radius: 0.8vw;
+    padding: 0.8vw 1vw;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+#slide-he-csdl-tap-trung .diagram-dbms-node:hover {
+    transform: scale(1.02);
+    border-color: #fbbf24;
+    box-shadow: 0 0.5vw 2vw rgba(251, 191, 36, 0.3);
+}
+
+#slide-he-csdl-tap-trung .dbms-node-badge {
+    font-family: 'Consolas', monospace;
+    font-size: 0.65vw;
+    font-weight: 700;
+    color: #fbbf24;
+    letter-spacing: 0.08vw;
+    display: block;
+    margin-bottom: 0.2vw;
+}
+
+#slide-he-csdl-tap-trung .dbms-node-heading {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 1.2vw;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+}
+
+/* 6. Khối CSDL (Database Cylinder) */
+#slide-he-csdl-tap-trung .diagram-storage-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4vw;
+    transition: transform 0.3s ease;
+}
+
+#slide-he-csdl-tap-trung .diagram-storage-node:hover {
+    transform: scale(1.04);
+}
+
+#slide-he-csdl-tap-trung .db-cylinder-icon {
+    width: 5.5vw;
+    height: 4.2vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: drop-shadow(0 0 1.2vw rgba(52, 211, 153, 0.45));
+    animation: dbGlowBreathe 3s infinite ease-in-out;
+}
+
+@keyframes dbGlowBreathe {
+    0%, 100% { filter: drop-shadow(0 0 1vw rgba(52, 211, 153, 0.4)); }
+    50% { filter: drop-shadow(0 0 1.8vw rgba(52, 211, 153, 0.7)); }
+}
+
+#slide-he-csdl-tap-trung .db-cylinder-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+#slide-he-csdl-tap-trung .db-node-heading {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 1.15vw;
+    font-weight: 700;
+    color: #34d399;
+    letter-spacing: 0.06vw;
+    text-shadow: 0 0 1vw rgba(52, 211, 153, 0.6);
+}
+
+/* ======================================================= */
+/* 14. SLIDE b) HỆ CSDL PHÂN TÁN */
+#slide-he-csdl-phan-tan {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-color: transparent;
+    padding: 0 4vw;
+    box-sizing: border-box;
+    overflow: hidden;
+    scroll-snap-align: start;
+}
+
+#slide-he-csdl-phan-tan .distrib-container {
+    width: 92vw;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3vw;
+    z-index: 2;
+}
+
+/* --- CỘT TRÁI: TÓM TẮT LÝ THUYẾT --- */
+#slide-he-csdl-phan-tan .distrib-left {
+    flex: 1.1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.2vw;
+    opacity: 0;
+    transform: translateX(-2.5vw);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.slide.active#slide-he-csdl-phan-tan .distrib-left,
+.slide.active #slide-he-csdl-phan-tan .distrib-left,
+#slide-he-csdl-phan-tan.active .distrib-left {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Header */
+#slide-he-csdl-phan-tan .distrib-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4vw;
+}
+
+#slide-he-csdl-phan-tan .distrib-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6vw;
+    font-family: 'Consolas', monospace;
+    font-size: 0.85vw;
+    letter-spacing: 0.1vw;
+    color: #4cfdff;
+}
+
+#slide-he-csdl-phan-tan .tag-pulse-dot {
+    width: 0.55vw;
+    height: 0.55vw;
+    border-radius: 50%;
+    background-color: #4cfdff;
+    box-shadow: 0 0 0.8vw #4cfdff;
+    animation: pulseDot 1.8s infinite ease-in-out;
+}
+
+#slide-he-csdl-phan-tan .distrib-title {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 3vw;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0;
+    letter-spacing: 0.02vw;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 0.8vw;
+    text-shadow: 0 0 2vw rgba(76, 253, 255, 0.35);
+}
+
+#slide-he-csdl-phan-tan .title-cyan-letter {
+    color: #4cfdff;
+    text-shadow: 0 0 1.5vw rgba(76, 253, 255, 0.8);
+}
+
+/* Cards Wrapper */
+#slide-he-csdl-phan-tan .distrib-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1vw;
+}
+
+/* Card chung */
+#slide-he-csdl-phan-tan .distrib-card {
+    background: rgba(8, 20, 36, 0.75);
+    border: 0.1vw solid rgba(76, 253, 255, 0.22);
+    border-radius: 1.2vw;
+    padding: 1.2vw 1.6vw;
+    position: relative;
+    backdrop-filter: blur(1.5vw);
+    -webkit-backdrop-filter: blur(1.5vw);
+    box-shadow: 0 1vw 3vw rgba(0, 0, 0, 0.45);
+    transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+#slide-he-csdl-phan-tan .distrib-card:hover {
+    transform: translateY(-0.25vw);
+    border-color: rgba(76, 253, 255, 0.55);
+    box-shadow: 0 1.2vw 3.5vw rgba(76, 253, 255, 0.18);
+}
+
+/* HUD Corners */
+#slide-he-csdl-phan-tan .card-hud-corner {
+    position: absolute;
+    width: 0.8vw;
+    height: 0.8vw;
+    border-color: #4cfdff;
+    border-style: solid;
+    pointer-events: none;
+}
+
+#slide-he-csdl-phan-tan .card-hud-corner.top-left {
+    top: -0.1vw;
+    left: -0.1vw;
+    border-width: 0.15vw 0 0 0.15vw;
+    border-top-left-radius: 1.2vw;
+}
+
+#slide-he-csdl-phan-tan .card-hud-corner.bottom-right {
+    bottom: -0.1vw;
+    right: -0.1vw;
+    border-width: 0 0.15vw 0.15vw 0;
+    border-bottom-right-radius: 1.2vw;
+}
+
+/* Meta Pill */
+#slide-he-csdl-phan-tan .card-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.6vw;
+}
+
+#slide-he-csdl-phan-tan .card-pill {
+    font-family: 'Consolas', monospace;
+    font-size: 0.75vw;
+    font-weight: 700;
+    letter-spacing: 0.08vw;
+    color: #4cfdff;
+    background: rgba(76, 253, 255, 0.12);
+    border: 0.08vw solid rgba(76, 253, 255, 0.3);
+    padding: 0.25vw 0.75vw;
+    border-radius: 0.4vw;
+}
+
+#slide-he-csdl-phan-tan .card-pill.accent {
+    color: #38bdf8;
+    background: rgba(56, 189, 248, 0.12);
+    border-color: rgba(56, 189, 248, 0.35);
+}
+
+#slide-he-csdl-phan-tan .card-pill.success {
+    color: #34d399;
+    background: rgba(52, 211, 153, 0.12);
+    border-color: rgba(52, 211, 153, 0.35);
+}
+
+#slide-he-csdl-phan-tan .card-tech-id {
+    font-family: 'Consolas', monospace;
+    font-size: 0.75vw;
+    color: #64748b;
+    letter-spacing: 0.08vw;
+}
+
+#slide-he-csdl-phan-tan .card-main-text {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 1.15vw;
+    line-height: 1.6;
+    color: #e2e8f0;
+    margin: 0;
+}
+
+#slide-he-csdl-phan-tan .text-highlight {
+    color: #4cfdff;
+    font-weight: 700;
+    text-shadow: 0 0 0.8vw rgba(76, 253, 255, 0.4);
+}
+
+#slide-he-csdl-phan-tan .term-cyan {
+    color: #38bdf8;
+    font-weight: 700;
+}
+
+/* Grid So Sánh 2 Loại Ứng Dụng */
+#slide-he-csdl-phan-tan .apps-compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.9vw;
+    margin-top: 0.4vw;
+}
+
+#slide-he-csdl-phan-tan .app-compare-box {
+    background: rgba(14, 30, 52, 0.65);
+    border-radius: 0.8vw;
+    padding: 0.9vw 1vw;
+    border: 0.08vw solid rgba(76, 253, 255, 0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 0.4vw;
+    transition: all 0.3s ease;
+}
+
+#slide-he-csdl-phan-tan .app-compare-box:hover {
+    transform: translateY(-0.2vw);
+    box-shadow: 0 0.5vw 1.5vw rgba(0, 0, 0, 0.4);
+}
+
+#slide-he-csdl-phan-tan .app-compare-box.local-box {
+    border-color: rgba(52, 211, 153, 0.3);
+}
+
+#slide-he-csdl-phan-tan .app-compare-box.local-box:hover {
+    border-color: #34d399;
+    box-shadow: 0 0.5vw 2vw rgba(52, 211, 153, 0.15);
+}
+
+#slide-he-csdl-phan-tan .app-compare-box.global-box {
+    border-color: rgba(56, 189, 248, 0.3);
+}
+
+#slide-he-csdl-phan-tan .app-compare-box.global-box:hover {
+    border-color: #38bdf8;
+    box-shadow: 0 0.5vw 2vw rgba(56, 189, 248, 0.15);
+}
+
+#slide-he-csdl-phan-tan .app-box-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#slide-he-csdl-phan-tan .app-type-badge {
+    font-family: 'Consolas', monospace;
+    font-size: 0.68vw;
+    font-weight: 700;
+    padding: 0.2vw 0.55vw;
+    border-radius: 0.3vw;
+}
+
+#slide-he-csdl-phan-tan .app-type-badge.local {
+    background: rgba(52, 211, 153, 0.18);
+    color: #34d399;
+    border: 0.06vw solid rgba(52, 211, 153, 0.4);
+}
+
+#slide-he-csdl-phan-tan .app-type-badge.global {
+    background: rgba(56, 189, 248, 0.18);
+    color: #38bdf8;
+    border: 0.06vw solid rgba(56, 189, 248, 0.4);
+}
+
+#slide-he-csdl-phan-tan .app-target-tag {
+    font-family: 'Consolas', monospace;
+    font-size: 0.7vw;
+    font-weight: 700;
+    color: #fbbf24;
+}
+
+#slide-he-csdl-phan-tan .app-type-title {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 1.05vw;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+}
+
+#slide-he-csdl-phan-tan .app-type-desc {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 0.88vw;
+    line-height: 1.45;
+    color: #cbd5e1;
+    margin: 0;
+}
+
+#slide-he-csdl-phan-tan .app-type-desc strong {
+    color: #ffffff;
+}
+
+/* Card Ví dụ */
+#slide-he-csdl-phan-tan .example-content {
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+}
+
+#slide-he-csdl-phan-tan .example-icon-wrap {
+    width: 2.8vw;
+    height: 2.8vw;
+    min-width: 2.8vw;
+    border-radius: 0.7vw;
+    background: rgba(52, 211, 153, 0.12);
+    border: 0.08vw solid rgba(52, 211, 153, 0.3);
+    color: #34d399;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#slide-he-csdl-phan-tan .example-icon-wrap svg {
+    width: 1.5vw;
+    height: 1.5vw;
+}
+
+#slide-he-csdl-phan-tan .example-text {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 0.95vw;
+    line-height: 1.5;
+    color: #d1e8ef;
+    margin: 0;
+}
+
+#slide-he-csdl-phan-tan .example-text strong {
+    color: #4cfdff;
+}
+
+/* --- CỘT PHẢI: SƠ ĐỒ TOPOLOGY 4 TRẠM (HÌNH 12.5) --- */
+#slide-he-csdl-phan-tan .distrib-right {
+    flex: 1.05;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateX(2.5vw);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.slide.active#slide-he-csdl-phan-tan .distrib-right,
+.slide.active #slide-he-csdl-phan-tan .distrib-right,
+#slide-he-csdl-phan-tan.active .distrib-right {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+#slide-he-csdl-phan-tan .distrib-topology-panel {
+    width: 44vw;
+    height: 38vw;
+    background: rgba(6, 16, 30, 0.82);
+    border: 0.1vw solid rgba(76, 253, 255, 0.25);
+    border-radius: 1.5vw;
+    padding: 1.2vw 1.5vw;
+    backdrop-filter: blur(2vw);
+    -webkit-backdrop-filter: blur(2vw);
+    box-shadow: 0 1.5vw 4vw rgba(0, 0, 0, 0.6), inset 0 0 2vw rgba(76, 253, 255, 0.04);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+#slide-he-csdl-phan-tan .topology-hud-bar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.6vw;
+    padding-bottom: 0.6vw;
+    border-bottom: 0.08vw solid rgba(76, 253, 255, 0.15);
+}
+
+#slide-he-csdl-phan-tan .hud-led.pulse {
+    width: 0.6vw;
+    height: 0.6vw;
+    border-radius: 50%;
+    background-color: #38bdf8;
+    box-shadow: 0 0 0.8vw #38bdf8;
+    animation: pulseDot 1.5s infinite ease-in-out;
+}
+
+#slide-he-csdl-phan-tan .hud-title {
+    font-family: 'Consolas', monospace;
+    font-size: 0.82vw;
+    font-weight: 700;
+    color: #4cfdff;
+    letter-spacing: 0.08vw;
+}
+
+/* Canvas sơ đồ 4 hướng */
+#slide-he-csdl-phan-tan .topology-canvas {
+    flex: 1;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* SVG Các đường dây kết nối chuẩn xác 100% không bị hở */
+#slide-he-csdl-phan-tan .topology-svg-connections {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 3;
+}
+
+#slide-he-csdl-phan-tan .topo-line.base-line {
+    stroke: rgba(76, 253, 255, 0.45);
+    stroke-width: 0.08vw;
+}
+
+#slide-he-csdl-phan-tan .topo-line.pulse-line {
+    stroke: #ffffff;
+    stroke-width: 0.05vw;
+    stroke-dasharray: 3 10;
+    stroke-linecap: round;
+    animation: laserFlowCycle 1.6s linear infinite;
+}
+
+@keyframes laserFlowCycle {
+    0% { stroke-dashoffset: 26; }
+    100% { stroke-dashoffset: 0; }
+}
+
+#slide-he-csdl-phan-tan .topo-port-node {
+    fill: #ffffff;
+    stroke: #4cfdff;
+    stroke-width: 0.01vw;
+    filter: drop-shadow(0 0 0.25vw #4cfdff);
+}
+
+/* Trung tâm: Mạng máy tính Hub - Đặt chính xác giữa 50% 50% */
+#slide-he-csdl-phan-tan .topology-center-hub {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 9.5vw;
+    height: 9.5vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+}
+
+#slide-he-csdl-phan-tan .hub-radar-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 0.12vw dashed rgba(76, 253, 255, 0.4);
+    animation: rotateHubRing 20s linear infinite;
+}
+
+@keyframes rotateHubRing {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#slide-he-csdl-phan-tan .hub-cloud-body {
+    width: 7.2vw;
+    height: 7.2vw;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(56, 189, 248, 0.3) 0%, rgba(10, 30, 56, 0.95) 75%);
+    border: 0.12vw solid #38bdf8;
+    box-shadow: 0 0 2vw rgba(56, 189, 248, 0.45);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3vw;
+    z-index: 2;
+    transition: transform 0.3s ease;
+}
+
+#slide-he-csdl-phan-tan .hub-cloud-body:hover {
+    transform: scale(1.06);
+    box-shadow: 0 0 2.5vw rgba(76, 253, 255, 0.7);
+}
+
+#slide-he-csdl-phan-tan .cloud-svg {
+    width: 2.2vw;
+    height: 2.2vw;
+    color: #4cfdff;
+    filter: drop-shadow(0 0 0.5vw #4cfdff);
+}
+
+#slide-he-csdl-phan-tan .hub-label {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 0.8vw;
+    font-weight: 700;
+    color: #ffffff;
+    text-align: center;
+    line-height: 1.1;
+    letter-spacing: 0.02vw;
+}
+
+/* 4 Trạm Định Vị Tọa Độ Tuyệt Đối */
+#slide-he-csdl-phan-tan .station-node {
+    position: absolute;
+    width: 14vw;
+    z-index: 6;
+    transition: transform 0.3s ease;
+}
+
+#slide-he-csdl-phan-tan .station-node:hover {
+    transform: translateY(-0.25vw);
+}
+
+/* Tọa độ 4 trạm cân đối */
+#slide-he-csdl-phan-tan .node-hanoi {
+    top: 0.8vw;
+    left: 0.8vw;
+}
+
+#slide-he-csdl-phan-tan .node-cantho {
+    top: 0.8vw;
+    right: 0.8vw;
+}
+
+#slide-he-csdl-phan-tan .node-danang {
+    bottom: 0.8vw;
+    left: 0.8vw;
+}
+
+#slide-he-csdl-phan-tan .node-hcm {
+    bottom: 0.8vw;
+    right: 0.8vw;
+}
+
+/* Station Card Styling */
+#slide-he-csdl-phan-tan .station-card {
+    background: rgba(12, 28, 50, 0.85);
+    border: 0.1vw solid rgba(76, 253, 255, 0.25);
+    border-radius: 0.9vw;
+    padding: 0.7vw 0.9vw;
+    box-shadow: 0 0.8vw 2vw rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(1vw);
+    transition: all 0.3s ease;
+}
+
+#slide-he-csdl-phan-tan .station-node:hover .station-card {
+    border-color: #4cfdff;
+    box-shadow: 0 1vw 2.5vw rgba(76, 253, 255, 0.25);
+}
+
+#slide-he-csdl-phan-tan .station-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.5vw;
+    border-bottom: 0.06vw solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 0.3vw;
+}
+
+#slide-he-csdl-phan-tan .station-location {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 1.05vw;
+    font-weight: 800;
+    color: #ff6b81;
+    text-shadow: 0 0 0.8vw rgba(255, 107, 129, 0.5);
+}
+
+#slide-he-csdl-phan-tan .station-role-badge {
+    font-family: 'Consolas', monospace;
+    font-size: 0.6vw;
+    font-weight: 700;
+    color: #4cfdff;
+    background: rgba(76, 253, 255, 0.1);
+    padding: 0.15vw 0.4vw;
+    border-radius: 0.3vw;
+}
+
+#slide-he-csdl-phan-tan .station-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4vw;
+}
+
+#slide-he-csdl-phan-tan .station-user-app {
+    display: flex;
+    align-items: center;
+    gap: 0.4vw;
+    background: rgba(255, 255, 255, 0.04);
+    padding: 0.25vw 0.5vw;
+    border-radius: 0.4vw;
+}
+
+#slide-he-csdl-phan-tan .mini-icon.user-icon {
+    width: 1vw;
+    height: 1vw;
+    color: #34d399;
+}
+
+#slide-he-csdl-phan-tan .station-pill.app-pill {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 0.75vw;
+    font-weight: 600;
+    color: #f1f5f9;
+}
+
+#slide-he-csdl-phan-tan .station-system {
+    display: flex;
+    align-items: center;
+    gap: 0.6vw;
+}
+
+#slide-he-csdl-phan-tan .station-server-icon {
+    width: 2vw;
+    height: 2.4vw;
+    color: #4cfdff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#slide-he-csdl-phan-tan .station-server-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+#slide-he-csdl-phan-tan .station-db-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2vw;
+    flex: 1;
+}
+
+#slide-he-csdl-phan-tan .db-layer {
+    font-family: 'Consolas', monospace;
+    font-size: 0.68vw;
+    font-weight: 700;
+    padding: 0.15vw 0.4vw;
+    border-radius: 0.25vw;
+    text-align: center;
+}
+
+#slide-he-csdl-phan-tan .db-layer.qt {
+    background: rgba(245, 158, 11, 0.2);
+    color: #fbbf24;
+    border: 0.06vw solid rgba(245, 158, 11, 0.4);
+}
+
+#slide-he-csdl-phan-tan .db-layer.local {
+    background: rgba(16, 185, 129, 0.2);
+    color: #34d399;
+    border: 0.06vw solid rgba(16, 185, 129, 0.4);
+}
+
+/* ======================================================= */
+/* 15. SLIDE ĐẶC TRƯNG & ƯU THẾ HỆ CSDL PHÂN TÁN */
+#slide-dac-trung-csdl {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-color: transparent;
+    padding: 0 4vw;
+    box-sizing: border-box;
+    overflow: hidden;
+    scroll-snap-align: start;
+}
+
+#slide-dac-trung-csdl .features-container {
+    width: 92vw;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.2vw;
+    z-index: 2;
+    opacity: 0;
+    transform: translateY(2vw);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.slide.active#slide-dac-trung-csdl .features-container,
+.slide.active #slide-dac-trung-csdl .features-container,
+#slide-dac-trung-csdl.active .features-container {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Header */
+#slide-dac-trung-csdl .features-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4vw;
+}
+
+#slide-dac-trung-csdl .features-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6vw;
+    font-family: 'Consolas', monospace;
+    font-size: 0.85vw;
+    letter-spacing: 0.1vw;
+    color: #4cfdff;
+}
+
+#slide-dac-trung-csdl .features-title {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 2.5vw;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0;
+    letter-spacing: 0.02vw;
+    text-transform: uppercase;
+    text-shadow: 0 0 1.8vw rgba(76, 253, 255, 0.3);
+}
+
+#slide-dac-trung-csdl .title-cyan-text {
+    color: #4cfdff;
+    text-shadow: 0 0 1.5vw rgba(76, 253, 255, 0.7);
+}
+
+/* Recap Bar */
+#slide-dac-trung-csdl .recap-bar {
+    display: flex;
+    align-items: center;
+    gap: 1.5vw;
+    background: rgba(8, 22, 40, 0.6);
+    border: 0.08vw solid rgba(76, 253, 255, 0.18);
+    border-radius: 999vw;
+    padding: 0.4vw 1.2vw;
+    backdrop-filter: blur(1vw);
+    margin-top: 0.2vw;
+}
+
+#slide-dac-trung-csdl .recap-pill {
+    display: flex;
+    align-items: center;
+    gap: 0.8vw;
+}
+
+#slide-dac-trung-csdl .recap-badge {
+    font-family: 'Consolas', monospace;
+    font-size: 0.72vw;
+    font-weight: 700;
+    padding: 0.2vw 0.6vw;
+    border-radius: 999vw;
+    letter-spacing: 0.05vw;
+}
+
+#slide-dac-trung-csdl .recap-badge.centralized {
+    background: rgba(56, 189, 248, 0.18);
+    color: #38bdf8;
+    border: 0.06vw solid rgba(56, 189, 248, 0.4);
+}
+
+#slide-dac-trung-csdl .recap-badge.distributed {
+    background: rgba(129, 140, 248, 0.18);
+    color: #818cf8;
+    border: 0.06vw solid rgba(129, 140, 248, 0.4);
+}
+
+#slide-dac-trung-csdl .recap-desc {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 0.88vw;
+    color: #cbd5e1;
+}
+
+#slide-dac-trung-csdl .recap-desc strong {
+    color: #ffffff;
+}
+
+#slide-dac-trung-csdl .recap-divider {
+    width: 0.08vw;
+    height: 1.2vw;
+    background: rgba(76, 253, 255, 0.2);
+}
+
+/* Comparison Grid */
+#slide-dac-trung-csdl .comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5vw;
+    flex: 1;
+}
+
+#slide-dac-trung-csdl .comp-card {
+    background: rgba(8, 20, 36, 0.78);
+    border-radius: 1.2vw;
+    padding: 1.2vw 1.5vw;
+    position: relative;
+    backdrop-filter: blur(1.5vw);
+    -webkit-backdrop-filter: blur(1.5vw);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+#slide-dac-trung-csdl .comp-card:hover {
+    transform: translateY(-0.25vw);
+}
+
+#slide-dac-trung-csdl .card-pros {
+    border: 0.1vw solid rgba(52, 211, 153, 0.28);
+    box-shadow: 0 1vw 3vw rgba(0, 0, 0, 0.45);
+}
+
+#slide-dac-trung-csdl .card-pros:hover {
+    border-color: rgba(52, 211, 153, 0.65);
+    box-shadow: 0 1.2vw 3.5vw rgba(52, 211, 153, 0.18);
+}
+
+#slide-dac-trung-csdl .card-cons {
+    border: 0.1vw solid rgba(251, 113, 133, 0.28);
+    box-shadow: 0 1vw 3vw rgba(0, 0, 0, 0.45);
+}
+
+#slide-dac-trung-csdl .card-cons:hover {
+    border-color: rgba(251, 113, 133, 0.65);
+    box-shadow: 0 1.2vw 3.5vw rgba(251, 113, 133, 0.18);
+}
+
+#slide-dac-trung-csdl .comp-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.8vw;
+    border-bottom: 0.08vw solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 0.5vw;
+}
+
+#slide-dac-trung-csdl .comp-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5vw;
+    font-family: 'Consolas', monospace;
+    font-size: 0.8vw;
+    font-weight: 700;
+    letter-spacing: 0.08vw;
+    padding: 0.25vw 0.8vw;
+    border-radius: 0.4vw;
+}
+
+#slide-dac-trung-csdl .comp-badge.pros {
+    background: rgba(52, 211, 153, 0.15);
+    color: #34d399;
+    border: 0.08vw solid rgba(52, 211, 153, 0.35);
+}
+
+#slide-dac-trung-csdl .comp-badge.cons {
+    background: rgba(251, 113, 133, 0.15);
+    color: #fb7185;
+    border: 0.08vw solid rgba(251, 113, 133, 0.35);
+}
+
+#slide-dac-trung-csdl .comp-badge-icon {
+    width: 0.9vw;
+    height: 0.9vw;
+}
+
+#slide-dac-trung-csdl .comp-tech-id {
+    font-family: 'Consolas', monospace;
+    font-size: 0.72vw;
+    color: #64748b;
+    letter-spacing: 0.08vw;
+}
+
+/* Items List */
+#slide-dac-trung-csdl .comp-items-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8vw;
+}
+
+#slide-dac-trung-csdl .comp-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.9vw;
+    background: rgba(14, 30, 52, 0.5);
+    border: 0.06vw solid rgba(255, 255, 255, 0.06);
+    border-radius: 0.8vw;
+    padding: 0.75vw 0.9vw;
+    transition: all 0.3s ease;
+}
+
+#slide-dac-trung-csdl .comp-item:hover {
+    background: rgba(18, 38, 66, 0.75);
+    transform: translateX(0.2vw);
+}
+
+#slide-dac-trung-csdl .comp-item-icon {
+    width: 2.2vw;
+    height: 2.2vw;
+    min-width: 2.2vw;
+    border-radius: 0.55vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#slide-dac-trung-csdl .comp-item-icon svg {
+    width: 1.2vw;
+    height: 1.2vw;
+}
+
+#slide-dac-trung-csdl .comp-item-icon.pros {
+    background: rgba(52, 211, 153, 0.15);
+    color: #34d399;
+    border: 0.06vw solid rgba(52, 211, 153, 0.3);
+}
+
+#slide-dac-trung-csdl .comp-item-icon.cons {
+    background: rgba(251, 113, 133, 0.15);
+    color: #fb7185;
+    border: 0.06vw solid rgba(251, 113, 133, 0.3);
+}
+
+#slide-dac-trung-csdl .comp-item-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25vw;
+}
+
+#slide-dac-trung-csdl .comp-item-title {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 0.98vw;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+}
+
+#slide-dac-trung-csdl .comp-item-desc {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 0.85vw;
+    line-height: 1.45;
+    color: #cbd5e1;
+    margin: 0;
+}
+
+#slide-dac-trung-csdl .comp-item-desc strong {
+    color: #ffffff;
+}
+
+/* Note Card: File Server vs Phân Tán */
+#slide-dac-trung-csdl .features-note-card {
+    background: rgba(12, 24, 44, 0.85);
+    border: 0.1vw solid rgba(251, 191, 36, 0.3);
+    border-radius: 1vw;
+    padding: 0.9vw 1.4vw;
+    position: relative;
+    backdrop-filter: blur(1.5vw);
+    -webkit-backdrop-filter: blur(1.5vw);
+    box-shadow: 0 0.8vw 2.5vw rgba(0, 0, 0, 0.4);
+}
+
+#slide-dac-trung-csdl .note-header-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.9vw;
+    margin-bottom: 0.6vw;
+    border-bottom: 0.06vw solid rgba(251, 191, 36, 0.2);
+    padding-bottom: 0.4vw;
+}
+
+#slide-dac-trung-csdl .note-badge {
+    font-family: 'Consolas', monospace;
+    font-size: 0.72vw;
+    font-weight: 700;
+    color: #fbbf24;
+    background: rgba(251, 191, 36, 0.15);
+    border: 0.06vw solid rgba(251, 191, 36, 0.4);
+    padding: 0.2vw 0.6vw;
+    border-radius: 0.3vw;
+    letter-spacing: 0.08vw;
+}
+
+#slide-dac-trung-csdl .note-subtitle {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 0.88vw;
+    font-weight: 600;
+    color: #e2e8f0;
+}
+
+#slide-dac-trung-csdl .note-body-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 1.2vw;
+}
+
+#slide-dac-trung-csdl .note-concept-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25vw;
+}
+
+#slide-dac-trung-csdl .concept-tag {
+    font-family: 'Consolas', monospace;
+    font-size: 0.68vw;
+    font-weight: 700;
+    letter-spacing: 0.06vw;
+}
+
+#slide-dac-trung-csdl .concept-tag.accent {
+    color: #fbbf24;
+}
+
+#slide-dac-trung-csdl .concept-tag.cyan {
+    color: #4cfdff;
+}
+
+#slide-dac-trung-csdl .concept-text {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 0.82vw;
+    line-height: 1.45;
+    color: #cbd5e1;
+    margin: 0;
+}
+
+#slide-dac-trung-csdl .concept-text strong {
+    color: #ffffff;
+}
+
+/* ======================================================= */
+/* 16. SLIDE TỔNG KẾT BÀI HỌC (MASTER SUMMARY) */
+#slide-master-summary {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-color: transparent;
+    padding: 0 4vw;
+    box-sizing: border-box;
+    overflow: hidden;
+    scroll-snap-align: start;
+}
+
+#slide-master-summary .master-summary-container {
+    width: 92vw;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1vw;
+    z-index: 2;
+    opacity: 0;
+    transform: translateY(2vw);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.slide.active#slide-master-summary .master-summary-container,
+.slide.active #slide-master-summary .master-summary-container,
+#slide-master-summary.active .master-summary-container {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Header */
+#slide-master-summary .master-summary-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3vw;
+}
+
+#slide-master-summary .master-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6vw;
+    font-family: 'Consolas', monospace;
+    font-size: 0.8vw;
+    letter-spacing: 0.1vw;
+    color: #4cfdff;
+}
+
+#slide-master-summary .master-title {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 3vw;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0;
+    letter-spacing: 0.02vw;
+    text-transform: uppercase;
+    text-shadow: 0 0 1.8vw rgba(76, 253, 255, 0.3);
+}
+
+#slide-master-summary .master-subtitle {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 0.9vw;
+    color: #94a3b8;
+    margin: 0;
+}
+
+/* Grid 4 Trụ Cột (2x2) */
+#slide-master-summary .master-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2vw;
+    flex: 1;
+}
+
+#slide-master-summary .master-card {
+    background: rgba(8, 20, 36, 0.78);
+    border: 0.1vw solid rgba(76, 253, 255, 0.22);
+    border-radius: 1.1vw;
+    padding: 0.9vw 1.2vw;
+    position: relative;
+    backdrop-filter: blur(1.5vw);
+    -webkit-backdrop-filter: blur(1.5vw);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 0.4vw;
+    box-shadow: 0 1vw 3vw rgba(0, 0, 0, 0.45);
+    transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+#slide-master-summary .card-pillar-1 { border-color: rgba(76, 253, 255, 0.28); }
+#slide-master-summary .card-pillar-2 { border-color: rgba(56, 189, 248, 0.28); }
+#slide-master-summary .card-pillar-3 { border-color: rgba(245, 158, 11, 0.28); }
+#slide-master-summary .card-pillar-4 { border-color: rgba(52, 211, 153, 0.28); }
+
+#slide-master-summary .master-card:hover {
+    transform: translateY(-0.25vw);
+    box-shadow: 0 1.2vw 3.5vw rgba(76, 253, 255, 0.18);
+}
+
+#slide-master-summary .card-pillar-1:hover {
+    border-color: #4cfdff;
+    box-shadow: 0 1.2vw 3.5vw rgba(76, 253, 255, 0.25);
+}
+
+#slide-master-summary .card-pillar-2:hover {
+    border-color: #38bdf8;
+    box-shadow: 0 1.2vw 3.5vw rgba(56, 189, 248, 0.25);
+}
+
+#slide-master-summary .card-pillar-3:hover {
+    border-color: #fbbf24;
+    box-shadow: 0 1.2vw 3.5vw rgba(245, 158, 11, 0.25);
+}
+
+#slide-master-summary .card-pillar-4:hover {
+    border-color: #34d399;
+    box-shadow: 0 1.2vw 3.5vw rgba(52, 211, 153, 0.25);
+}
+
+#slide-master-summary .master-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.6vw;
+    padding-bottom: 0.4vw;
+    border-bottom: 0.06vw solid rgba(255, 255, 255, 0.08);
+}
+
+#slide-master-summary .pillar-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.6vw;
+}
+
+#slide-master-summary .pillar-num {
+    font-family: 'Consolas', monospace;
+    font-size: 0.75vw;
+    font-weight: 800;
+    color: #000000;
+    background: #4cfdff;
+    padding: 0.15vw 0.5vw;
+    border-radius: 0.3vw;
+}
+
+#slide-master-summary .pillar-name {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 1.3vw;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: 0.04vw;
+}
+
+#slide-master-summary .pillar-icon-box {
+    width: 2vw;
+    height: 2vw;
+    border-radius: 0.5vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#slide-master-summary .pillar-icon-box svg {
+    width: 1.2vw;
+    height: 1.2vw;
+}
+
+#slide-master-summary .pillar-icon-box.cyan {
+    background: rgba(76, 253, 255, 0.15);
+    color: #4cfdff;
+    border: 0.06vw solid rgba(76, 253, 255, 0.3);
+}
+
+#slide-master-summary .pillar-icon-box.blue {
+    background: rgba(56, 189, 248, 0.15);
+    color: #38bdf8;
+    border: 0.06vw solid rgba(56, 189, 248, 0.3);
+}
+
+#slide-master-summary .pillar-icon-box.amber {
+    background: rgba(245, 158, 11, 0.15);
+    color: #fbbf24;
+    border: 0.06vw solid rgba(245, 158, 11, 0.3);
+}
+
+#slide-master-summary .pillar-icon-box.emerald {
+    background: rgba(52, 211, 153, 0.15);
+    color: #34d399;
+    border: 0.06vw solid rgba(52, 211, 153, 0.3);
+}
+
+#slide-master-summary .card-hud-corner {
+    position: absolute;
+    width: 0.8vw;
+    height: 0.8vw;
+    border-color: #4cfdff;
+    border-style: solid;
+    pointer-events: none;
+}
+
+#slide-master-summary .card-hud-corner.top-left {
+    top: -0.1vw;
+    left: -0.1vw;
+    border-width: 0.15vw 0 0 0.15vw;
+    border-top-left-radius: 1.1vw;
+}
+
+#slide-master-summary .card-hud-corner.bottom-right {
+    bottom: -0.1vw;
+    right: -0.1vw;
+    border-width: 0 0.15vw 0.15vw 0;
+    border-bottom-right-radius: 1.1vw;
+}
+
+#slide-master-summary .card-pillar-1 .card-hud-corner { border-color: #4cfdff; }
+#slide-master-summary .card-pillar-2 .card-hud-corner { border-color: #38bdf8; }
+#slide-master-summary .card-pillar-3 .card-hud-corner { border-color: #fbbf24; }
+#slide-master-summary .card-pillar-4 .card-hud-corner { border-color: #34d399; }
+
+#slide-master-summary .card-pillar-1 .pillar-num { background: #4cfdff; color: #020c1b; }
+#slide-master-summary .card-pillar-2 .pillar-num { background: #38bdf8; color: #020c1b; }
+#slide-master-summary .card-pillar-3 .pillar-num { background: #fbbf24; color: #1a0f00; }
+#slide-master-summary .card-pillar-4 .pillar-num { background: #34d399; color: #021a11; }
+
+/* Pillar Content */
+#slide-master-summary .pillar-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 0.35vw;
+    flex: 1;
+}
+
+#slide-master-summary .pillar-lead {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 1.5vw;
+    line-height: 1.45;
+    color: #e2e8f0;
+    margin: 0;
+}
+
+#slide-master-summary .pillar-lead strong {
+    color: #4cfdff;
+}
+
+#slide-master-summary .pillar-sub-head {
+    font-family: 'Consolas', monospace;
+    font-size: 1.3vw;
+    font-weight: 700;
+    color: #94a3b8;
+    margin: 0.15vw 0 0.1vw 0;
+    letter-spacing: 0.04vw;
+    text-transform: uppercase;
+}
+
+#slide-master-summary .summary-bullet-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35vw;
+}
+
+#slide-master-summary .summary-bullet-list.full-spacing {
+    gap: 0.7vw;
+}
+
+#slide-master-summary .summary-bullet-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.45vw;
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 1.1vw;
+    line-height: 1.38;
+    color: #cbd5e1;
+}
+
+#slide-master-summary .summary-bullet-list li strong {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+#slide-master-summary .bullet-dot {
+    width: 0.38vw;
+    height: 0.38vw;
+    min-width: 0.38vw;
+    border-radius: 50%;
+    margin-top: 0.38vw;
+}
+
+#slide-master-summary .bullet-dot.cyan {
+    background: #4cfdff;
+    box-shadow: 0 0 0.45vw #4cfdff;
+}
+
+#slide-master-summary .bullet-dot.blue {
+    background: #38bdf8;
+    box-shadow: 0 0 0.45vw #38bdf8;
+}
+
+#slide-master-summary .bullet-dot.amber {
+    background: #fbbf24;
+    box-shadow: 0 0 0.45vw #fbbf24;
+}
+
+#slide-master-summary .bullet-dot.emerald {
+    background: #34d399;
+    box-shadow: 0 0 0.45vw #34d399;
+}
+
+#slide-master-summary .pillar-box-note {
+    background: rgba(56, 189, 248, 0.09);
+    border: 0.06vw solid rgba(56, 189, 248, 0.28);
+    border-radius: 0.5vw;
+    padding: 0.4vw 0.6vw;
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 0.9vw;
+    line-height: 1.35;
+    color: #d1e8ef;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.45vw;
+    margin-top: 0.2vw;
+}
+
+#slide-master-summary .pillar-box-note strong {
+    color: #38bdf8;
+}
+
+#slide-master-summary .note-icon {
+    color: #38bdf8;
+    font-weight: 700;
+    font-size: 0.85vw;
+    line-height: 1;
+    margin-top: 0.05vw;
+}
+
+#slide-master-summary .pillar-single-note {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 0.85vw;
+    color: #7dd3fc;
+    line-height: 1.35;
+    font-style: italic;
+    margin: 0.1vw 0 0 0;
+}
+
+
+/* ======================================================= */
+/* 17. CYBER QUEST - QUIZ GAME */
+/* ======================================================= */
+
+#slide-quiz-game {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-color: transparent;
+    box-sizing: border-box;
+    overflow: hidden;
+    scroll-snap-align: start;
+}
+
+#slide-quiz-game .quiz-wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 2;
+}
+
+/* --- QG SCREENS BASE --- */
+#slide-quiz-game .qg-screen {
+    position: absolute;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#slide-quiz-game .qg-screen.active {
+    display: flex;
+}
+
+/* ========== START SCREEN ========== */
+#slide-quiz-game .qg-start-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.6vw;
+    position: relative;
+    z-index: 2;
+    max-width: 50vw;
+    text-align: center;
+}
+
+/* Scanlines decorative overlay */
+#slide-quiz-game .qg-scanlines {
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 0.15vw,
+        rgba(76, 253, 255, 0.015) 0.15vw,
+        rgba(76, 253, 255, 0.015) 0.3vw
+    );
+    pointer-events: none;
+    z-index: 1;
+}
+
+#slide-quiz-game .qg-start-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6vw;
+    font-family: 'Consolas', monospace;
+    font-size: 0.85vw;
+    font-weight: 700;
+    letter-spacing: 0.25vw;
+    color: #4cfdff;
+    background: rgba(76, 253, 255, 0.08);
+    border: 0.08vw solid rgba(76, 253, 255, 0.3);
+    padding: 0.35vw 1.2vw;
+    border-radius: 999vw;
+}
+
+#slide-quiz-game .qg-start-badge .badge-dot {
+    width: 0.5vw;
+    height: 0.5vw;
+    border-radius: 50%;
+    background: #4cfdff;
+    box-shadow: 0 0 0.6vw #4cfdff;
+    animation: pulseDot 1.8s infinite ease-in-out;
+}
+
+#slide-quiz-game .qg-start-title {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 3.5vw;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0;
+    line-height: 1.15;
+    text-transform: uppercase;
+    text-shadow: 0 0 2.5vw rgba(76, 253, 255, 0.3);
+}
+
+#slide-quiz-game .qg-title-sub {
+    display: block;
+    font-size: 1.1vw;
+    font-weight: 700;
+    color: #94a3b8;
+    letter-spacing: 0.15vw;
+    margin-bottom: 0.3vw;
+    text-shadow: none;
+}
+
+#slide-quiz-game .qg-start-desc {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 1vw;
+    line-height: 1.55;
+    color: #94a3b8;
+    margin: 0;
+    max-width: 38vw;
+}
+
+#slide-quiz-game .qg-start-desc strong {
+    color: #4cfdff;
+}
+
+/* Rules Grid */
+#slide-quiz-game .qg-rules-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8vw;
+    width: 100%;
+    margin-top: 0.5vw;
+}
+
+#slide-quiz-game .qg-rule-card {
+    display: flex;
+    align-items: center;
+    gap: 0.7vw;
+    background: rgba(8, 20, 36, 0.7);
+    border: 0.06vw solid rgba(76, 253, 255, 0.15);
+    border-radius: 0.7vw;
+    padding: 0.7vw 1vw;
+    transition: all 0.3s ease;
+}
+
+#slide-quiz-game .qg-rule-card:hover {
+    border-color: rgba(76, 253, 255, 0.4);
+    background: rgba(12, 28, 50, 0.85);
+}
+
+#slide-quiz-game .rule-icon {
+    font-size: 1.4vw;
+    line-height: 1;
+    width: 2.2vw;
+    text-align: center;
+}
+
+#slide-quiz-game .rule-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1vw;
+}
+
+#slide-quiz-game .rule-label {
+    font-family: 'Consolas', monospace;
+    font-size: 0.62vw;
+    font-weight: 700;
+    color: #64748b;
+    letter-spacing: 0.08vw;
+}
+
+#slide-quiz-game .rule-value {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 0.82vw;
+    color: #e2e8f0;
+    font-weight: 600;
+}
+
+/* Start Button */
+#slide-quiz-game .qg-btn-start {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7vw;
+    background: linear-gradient(135deg, rgba(76, 253, 255, 0.2), rgba(56, 189, 248, 0.25));
+    border: 0.1vw solid #4cfdff;
+    color: #ffffff;
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 1.1vw;
+    font-weight: 700;
+    padding: 0.8vw 2.5vw;
+    border-radius: 0.8vw;
+    cursor: pointer;
+    letter-spacing: 0.06vw;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    margin-top: 0.5vw;
+    box-shadow: 0 0 1.5vw rgba(76, 253, 255, 0.2);
+}
+
+#slide-quiz-game .qg-btn-start:hover {
+    background: linear-gradient(135deg, rgba(76, 253, 255, 0.35), rgba(56, 189, 248, 0.4));
+    box-shadow: 0 0 2.5vw rgba(76, 253, 255, 0.4);
+    transform: translateY(-0.15vw);
+}
+
+#slide-quiz-game .btn-start-icon {
+    font-size: 0.9vw;
+    color: #4cfdff;
+}
+
+/* ========== PLAY SCREEN ========== */
+#slide-quiz-game .qg-play {
+    flex-direction: column;
+    padding: 2vw 4vw;
+    gap: 0;
+}
+
+/* Game HUD Bar */
+#slide-quiz-game .game-hud {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(6, 14, 28, 0.85);
+    border: 0.06vw solid rgba(76, 253, 255, 0.18);
+    border-radius: 0.8vw;
+    padding: 0.6vw 1.5vw;
+    backdrop-filter: blur(1vw);
+    margin-bottom: 1.5vw;
+    box-shadow: 0 0.5vw 2vw rgba(0, 0, 0, 0.5);
+}
+
+#slide-quiz-game .hud-section {
+    display: flex;
+    align-items: center;
+    gap: 0.5vw;
+}
+
+#slide-quiz-game .hud-left {
+    flex: 1;
+}
+
+#slide-quiz-game .hud-center {
+    flex: 1.5;
+    justify-content: center;
+    gap: 0.7vw;
+}
+
+#slide-quiz-game .hud-right {
+    flex: 1;
+    justify-content: flex-end;
+    gap: 1vw;
+}
+
+/* Hearts */
+#slide-quiz-game .hud-hearts {
+    display: flex;
+    gap: 0.35vw;
+}
+
+#slide-quiz-game .heart {
+    font-size: 1.4vw;
+    transition: all 0.4s ease;
+    filter: grayscale(0);
+}
+
+#slide-quiz-game .heart.active {
+    color: #fb7185;
+    text-shadow: 0 0 0.6vw rgba(251, 113, 133, 0.6);
+    filter: grayscale(0);
+}
+
+#slide-quiz-game .heart.lost {
+    color: #334155;
+    text-shadow: none;
+    filter: grayscale(1);
+    opacity: 0.4;
+}
+
+#slide-quiz-game .heart.shake {
+    animation: heartShake 0.5s ease;
+}
+
+@keyframes heartShake {
+    0%, 100% { transform: scale(1); }
+    25% { transform: scale(1.3) rotate(-10deg); }
+    50% { transform: scale(0.8) rotate(5deg); }
+    75% { transform: scale(1.1) rotate(-3deg); }
+}
+
+/* Mission / Progress */
+#slide-quiz-game .hud-mission-label {
+    font-family: 'Consolas', monospace;
+    font-size: 0.65vw;
+    font-weight: 700;
+    color: #64748b;
+    letter-spacing: 0.12vw;
+}
+
+#slide-quiz-game .hud-qnum {
+    font-family: 'Consolas', monospace;
+    font-size: 0.85vw;
+    font-weight: 700;
+    color: #4cfdff;
+    letter-spacing: 0.06vw;
+}
+
+#slide-quiz-game .hud-progress-bar {
+    width: 10vw;
+    height: 0.35vw;
+    background: rgba(76, 253, 255, 0.1);
+    border-radius: 999vw;
+    overflow: hidden;
+}
+
+#slide-quiz-game .hud-progress-fill {
+    height: 100%;
+    width: 10%;
+    background: linear-gradient(90deg, #4cfdff, #38bdf8);
+    border-radius: 999vw;
+    transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 0 0.5vw #4cfdff;
+}
+
+/* XP */
+#slide-quiz-game .hud-xp-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.3vw;
+}
+
+#slide-quiz-game .hud-xp-icon {
+    font-size: 1vw;
+}
+
+#slide-quiz-game .hud-xp-value {
+    font-family: 'Consolas', monospace;
+    font-size: 1.1vw;
+    font-weight: 800;
+    color: #fbbf24;
+    min-width: 3vw;
+    text-align: right;
+    transition: all 0.3s ease;
+}
+
+#slide-quiz-game .hud-xp-value.pulse {
+    animation: xpPulse 0.5s ease;
+}
+
+@keyframes xpPulse {
+    0% { transform: scale(1); color: #fbbf24; }
+    50% { transform: scale(1.35); color: #ffffff; text-shadow: 0 0 1vw #fbbf24; }
+    100% { transform: scale(1); color: #fbbf24; }
+}
+
+#slide-quiz-game .hud-xp-label {
+    font-family: 'Consolas', monospace;
+    font-size: 0.65vw;
+    font-weight: 700;
+    color: #64748b;
+    letter-spacing: 0.06vw;
+}
+
+/* Combo */
+#slide-quiz-game .hud-combo-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.2vw;
+    background: rgba(251, 191, 36, 0.12);
+    border: 0.06vw solid rgba(251, 191, 36, 0.3);
+    border-radius: 0.4vw;
+    padding: 0.2vw 0.6vw;
+}
+
+#slide-quiz-game .hud-combo-fire {
+    font-size: 0.85vw;
+}
+
+#slide-quiz-game .hud-combo-value {
+    font-family: 'Consolas', monospace;
+    font-size: 0.85vw;
+    font-weight: 800;
+    color: #fbbf24;
+}
+
+/* ========== QUESTION AREA ========== */
+#slide-quiz-game .qg-question-area {
+    width: 72vw;
+    max-width: 72vw;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5vw;
+    opacity: 1;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+#slide-quiz-game .qg-question-area.fade-out {
+    opacity: 0;
+    transform: translateY(1vw);
+}
+
+#slide-quiz-game .q-header-row {
+    display: flex;
+    align-items: center;
+    gap: 0.8vw;
+    width: 100%;
+    justify-content: center;
+}
+
+#slide-quiz-game .q-category {
+    font-family: 'Consolas', monospace;
+    font-size: 0.72vw;
+    font-weight: 700;
+    color: #4cfdff;
+    letter-spacing: 0.1vw;
+    background: rgba(76, 253, 255, 0.1);
+    border: 0.06vw solid rgba(76, 253, 255, 0.25);
+    padding: 0.2vw 0.8vw;
+    border-radius: 0.35vw;
+}
+
+#slide-quiz-game .q-type-badge {
+    font-family: 'Consolas', monospace;
+    font-size: 0.65vw;
+    font-weight: 700;
+    color: #fbbf24;
+    letter-spacing: 0.08vw;
+    background: rgba(251, 191, 36, 0.1);
+    border: 0.06vw solid rgba(251, 191, 36, 0.25);
+    padding: 0.2vw 0.6vw;
+    border-radius: 0.35vw;
+}
+
+#slide-quiz-game .q-text {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 1.35vw;
+    font-weight: 700;
+    color: #e2e8f0;
+    text-align: center;
+    line-height: 1.5;
+    margin: 0;
+    max-width: 60vw;
+}
+
+/* Options Container */
+#slide-quiz-game .q-options-container {
+    display: grid;
+    gap: 0.7vw;
+    width: 100%;
+    max-width: 60vw;
+}
+
+/* MC Options: 2x2 Grid */
+#slide-quiz-game .q-options-container.mc-grid {
+    grid-template-columns: 1fr 1fr;
+}
+
+/* TF Options: 2 columns */
+#slide-quiz-game .q-options-container.tf-grid {
+    grid-template-columns: 1fr 1fr;
+    max-width: 40vw;
+}
+
+/* Multi Options: single column */
+#slide-quiz-game .q-options-container.multi-list {
+    grid-template-columns: 1fr;
+    max-width: 50vw;
+}
+
+/* Fill: single column */
+#slide-quiz-game .q-options-container.fill-input {
+    grid-template-columns: 1fr;
+    max-width: 40vw;
+}
+
+/* Option Card (MC) */
+#slide-quiz-game .opt-card {
+    display: flex;
+    align-items: center;
+    gap: 0.8vw;
+    background: rgba(8, 20, 40, 0.75);
+    border: 0.08vw solid rgba(76, 253, 255, 0.18);
+    border-radius: 0.8vw;
+    padding: 1vw 1.2vw;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+#slide-quiz-game .opt-card:hover:not(.disabled) {
+    border-color: rgba(76, 253, 255, 0.5);
+    background: rgba(12, 30, 55, 0.9);
+    transform: translateY(-0.12vw);
+    box-shadow: 0 0.4vw 1.5vw rgba(76, 253, 255, 0.12);
+}
+
+#slide-quiz-game .opt-card.selected {
+    border-color: #38bdf8;
+    background: rgba(56, 189, 248, 0.15);
+}
+
+#slide-quiz-game .opt-card.correct {
+    border-color: #34d399 !important;
+    background: rgba(52, 211, 153, 0.18) !important;
+    box-shadow: 0 0 1.5vw rgba(52, 211, 153, 0.25) !important;
+}
+
+#slide-quiz-game .opt-card.wrong {
+    border-color: #fb7185 !important;
+    background: rgba(251, 113, 133, 0.15) !important;
+    box-shadow: 0 0 1.5vw rgba(251, 113, 133, 0.2) !important;
+}
+
+#slide-quiz-game .opt-card.disabled {
+    cursor: default;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+#slide-quiz-game .opt-letter {
+    width: 2vw;
+    height: 2vw;
+    min-width: 2vw;
+    border-radius: 0.5vw;
+    background: rgba(76, 253, 255, 0.12);
+    border: 0.06vw solid rgba(76, 253, 255, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Consolas', monospace;
+    font-size: 0.85vw;
+    font-weight: 800;
+    color: #4cfdff;
+    transition: all 0.25s ease;
+}
+
+#slide-quiz-game .opt-card.correct .opt-letter {
+    background: #34d399;
+    border-color: #34d399;
+    color: #020c1b;
+}
+
+#slide-quiz-game .opt-card.wrong .opt-letter {
+    background: #fb7185;
+    border-color: #fb7185;
+    color: #1a0000;
+}
+
+#slide-quiz-game .opt-text {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 0.92vw;
+    font-weight: 600;
+    color: #cbd5e1;
+    line-height: 1.4;
+    flex: 1;
+}
+
+/* TF Buttons */
+#slide-quiz-game .tf-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5vw;
+    background: rgba(8, 20, 40, 0.75);
+    border: 0.1vw solid rgba(255, 255, 255, 0.12);
+    border-radius: 1vw;
+    padding: 1.8vw 1vw;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+#slide-quiz-game .tf-btn:hover:not(.disabled) {
+    transform: translateY(-0.15vw);
+}
+
+#slide-quiz-game .tf-btn.tf-true {
+    border-color: rgba(52, 211, 153, 0.3);
+}
+
+#slide-quiz-game .tf-btn.tf-true:hover:not(.disabled) {
+    border-color: #34d399;
+    background: rgba(52, 211, 153, 0.12);
+    box-shadow: 0 0.5vw 2vw rgba(52, 211, 153, 0.15);
+}
+
+#slide-quiz-game .tf-btn.tf-false {
+    border-color: rgba(251, 113, 133, 0.3);
+}
+
+#slide-quiz-game .tf-btn.tf-false:hover:not(.disabled) {
+    border-color: #fb7185;
+    background: rgba(251, 113, 133, 0.12);
+    box-shadow: 0 0.5vw 2vw rgba(251, 113, 133, 0.15);
+}
+
+#slide-quiz-game .tf-icon {
+    font-size: 2.5vw;
+    line-height: 1;
+}
+
+#slide-quiz-game .tf-label {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 1.1vw;
+    font-weight: 700;
+    color: #e2e8f0;
+    letter-spacing: 0.06vw;
+}
+
+#slide-quiz-game .tf-btn.correct {
+    border-color: #34d399 !important;
+    background: rgba(52, 211, 153, 0.2) !important;
+    box-shadow: 0 0 1.5vw rgba(52, 211, 153, 0.3) !important;
+}
+
+#slide-quiz-game .tf-btn.wrong {
+    border-color: #fb7185 !important;
+    background: rgba(251, 113, 133, 0.2) !important;
+    box-shadow: 0 0 1.5vw rgba(251, 113, 133, 0.3) !important;
+}
+
+/* Multi Checkbox Items */
+#slide-quiz-game .multi-item {
+    display: flex;
+    align-items: center;
+    gap: 0.7vw;
+    background: rgba(8, 20, 40, 0.7);
+    border: 0.06vw solid rgba(76, 253, 255, 0.15);
+    border-radius: 0.7vw;
+    padding: 0.7vw 1vw;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+#slide-quiz-game .multi-item:hover:not(.disabled) {
+    border-color: rgba(76, 253, 255, 0.4);
+    background: rgba(12, 28, 50, 0.85);
+}
+
+#slide-quiz-game .multi-item.checked {
+    border-color: #38bdf8;
+    background: rgba(56, 189, 248, 0.12);
+}
+
+#slide-quiz-game .multi-item.correct {
+    border-color: #34d399 !important;
+    background: rgba(52, 211, 153, 0.12) !important;
+}
+
+#slide-quiz-game .multi-item.wrong {
+    border-color: #fb7185 !important;
+    background: rgba(251, 113, 133, 0.12) !important;
+}
+
+#slide-quiz-game .multi-checkbox {
+    width: 1.3vw;
+    height: 1.3vw;
+    min-width: 1.3vw;
+    border: 0.08vw solid rgba(76, 253, 255, 0.35);
+    border-radius: 0.3vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8vw;
+    color: transparent;
+    transition: all 0.2s ease;
+    background: rgba(8, 20, 40, 0.5);
+}
+
+#slide-quiz-game .multi-item.checked .multi-checkbox {
+    background: #38bdf8;
+    border-color: #38bdf8;
+    color: #020c1b;
+}
+
+#slide-quiz-game .multi-text {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 0.88vw;
+    font-weight: 600;
+    color: #cbd5e1;
+    line-height: 1.4;
+}
+
+/* Fill Input */
+#slide-quiz-game .fill-input-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8vw;
+    width: 100%;
+}
+
+#slide-quiz-game .fill-text-input {
+    width: 100%;
+    background: rgba(8, 20, 40, 0.8);
+    border: 0.1vw solid rgba(76, 253, 255, 0.3);
+    border-radius: 0.7vw;
+    padding: 1vw 1.2vw;
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 1.1vw;
+    font-weight: 600;
+    color: #ffffff;
+    outline: none;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+    text-align: center;
+    letter-spacing: 0.04vw;
+}
+
+#slide-quiz-game .fill-text-input::placeholder {
+    color: #475569;
+    font-weight: 500;
+}
+
+#slide-quiz-game .fill-text-input:focus {
+    border-color: #4cfdff;
+    box-shadow: 0 0 1.5vw rgba(76, 253, 255, 0.2);
+}
+
+/* Submit Button (for multi / fill) */
+#slide-quiz-game .qg-btn-submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5vw;
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(76, 253, 255, 0.2));
+    border: 0.08vw solid #38bdf8;
+    color: #ffffff;
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 0.95vw;
+    font-weight: 700;
+    padding: 0.65vw 2vw;
+    border-radius: 0.6vw;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 0.05vw;
+}
+
+#slide-quiz-game .qg-btn-submit:hover {
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.35), rgba(76, 253, 255, 0.35));
+    box-shadow: 0 0 1.5vw rgba(56, 189, 248, 0.3);
+    transform: translateY(-0.1vw);
+}
+
+/* ========== FEEDBACK OVERLAY ========== */
+#slide-quiz-game .qg-feedback-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(0.8vw);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+#slide-quiz-game .qg-feedback-overlay.active {
+    display: flex;
+}
+
+#slide-quiz-game .qg-feedback-card {
+    background: rgba(8, 18, 34, 0.95);
+    border: 0.1vw solid rgba(76, 253, 255, 0.3);
+    border-radius: 1.4vw;
+    padding: 2.5vw 3.5vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1vw;
+    max-width: 35vw;
+    text-align: center;
+    box-shadow: 0 1.5vw 5vw rgba(0, 0, 0, 0.6);
+    animation: feedbackPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes feedbackPop {
+    0% { opacity: 0; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+#slide-quiz-game .feedback-icon-wrap {
+    width: 5vw;
+    height: 5vw;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5vw;
+}
+
+#slide-quiz-game .feedback-icon-wrap.correct-icon {
+    background: rgba(52, 211, 153, 0.15);
+    border: 0.12vw solid #34d399;
+    color: #34d399;
+    box-shadow: 0 0 2.5vw rgba(52, 211, 153, 0.3);
+}
+
+#slide-quiz-game .feedback-icon-wrap.wrong-icon {
+    background: rgba(251, 113, 133, 0.15);
+    border: 0.12vw solid #fb7185;
+    color: #fb7185;
+    box-shadow: 0 0 2.5vw rgba(251, 113, 133, 0.3);
+}
+
+#slide-quiz-game .feedback-icon-wrap svg {
+    width: 2.5vw;
+    height: 2.5vw;
+}
+
+#slide-quiz-game .feedback-title {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 20vw !important;
+    font-weight: 800;
+    margin: 0;
+    letter-spacing: 0.08vw;
+}
+
+#slide-quiz-game .feedback-title.correct-text {
+    color: #34d399;
+    text-shadow: 0 0 1.5vw rgba(52, 211, 153, 0.4);
+}
+
+#slide-quiz-game .feedback-title.wrong-text {
+    color: #fb7185;
+    text-shadow: 0 0 1.5vw rgba(251, 113, 133, 0.4);
+}
+
+#slide-quiz-game .feedback-xp-row {
+    display: flex;
+    align-items: center;
+    gap: 0.4vw;
+}
+
+#slide-quiz-game .feedback-xp-icon {
+    font-size: 2vw;
+}
+
+#slide-quiz-game .feedback-xp-value {
+    font-family: 'Consolas', monospace;
+    font-size: 2vw;
+    font-weight: 800;
+    color: #fbbf24;
+}
+
+#slide-quiz-game .feedback-xp-value.zero {
+    color: #64748b;
+}
+
+#slide-quiz-game .feedback-explain {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 1.5vw;
+    line-height: 1.55;
+    color: #94a3b8;
+    margin: 0;
+}
+
+#slide-quiz-game .feedback-explain strong {
+    color: #e2e8f0;
+}
+
+/* Next Button */
+#slide-quiz-game .qg-btn-next {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5vw;
+    background: rgba(76, 253, 255, 0.1);
+    border: 0.08vw solid rgba(76, 253, 255, 0.3);
+    color: #4cfdff;
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 0.95vw;
+    font-weight: 700;
+    padding: 0.6vw 1.8vw;
+    border-radius: 0.6vw;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 0.05vw;
+    margin-top: 0.5vw;
+}
+
+#slide-quiz-game .qg-btn-next:hover {
+    background: rgba(76, 253, 255, 0.2);
+    border-color: #4cfdff;
+    box-shadow: 0 0 1.2vw rgba(76, 253, 255, 0.25);
+}
+
+#slide-quiz-game .btn-arrow {
+    font-size: 1.1vw;
+    transition: transform 0.3s ease;
+}
+
+#slide-quiz-game .qg-btn-next:hover .btn-arrow {
+    transform: translateX(0.2vw);
+}
+
+/* ========== RESULT SCREEN ========== */
+#slide-quiz-game .qg-result-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5vw;
+}
+
+#slide-quiz-game .result-badge-label {
+    font-family: 'Consolas', monospace;
+    font-size: 0.8vw;
+    font-weight: 700;
+    letter-spacing: 0.2vw;
+    color: #4cfdff;
+    background: rgba(76, 253, 255, 0.08);
+    border: 0.06vw solid rgba(76, 253, 255, 0.25);
+    padding: 0.3vw 1.2vw;
+    border-radius: 999vw;
+}
+
+#slide-quiz-game .result-grade-ring {
+    width: 9vw;
+    height: 9vw;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(76, 253, 255, 0.1) 0%, transparent 70%);
+    border: 0.2vw solid #4cfdff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 3vw rgba(76, 253, 255, 0.3), inset 0 0 2vw rgba(76, 253, 255, 0.1);
+    animation: gradeGlow 2s infinite ease-in-out;
+}
+
+@keyframes gradeGlow {
+    0%, 100% { box-shadow: 0 0 2.5vw rgba(76, 253, 255, 0.25), inset 0 0 1.5vw rgba(76, 253, 255, 0.08); }
+    50% { box-shadow: 0 0 4vw rgba(76, 253, 255, 0.5), inset 0 0 2.5vw rgba(76, 253, 255, 0.15); }
+}
+
+#slide-quiz-game .result-grade-ring.grade-s { border-color: #fbbf24; box-shadow: 0 0 3vw rgba(251, 191, 36, 0.4); }
+#slide-quiz-game .result-grade-ring.grade-a { border-color: #4cfdff; }
+#slide-quiz-game .result-grade-ring.grade-b { border-color: #34d399; }
+#slide-quiz-game .result-grade-ring.grade-c { border-color: #38bdf8; }
+#slide-quiz-game .result-grade-ring.grade-d { border-color: #94a3b8; }
+#slide-quiz-game .result-grade-ring.grade-f { border-color: #fb7185; }
+
+#slide-quiz-game .result-grade-letter {
+    font-family: 'Teko', sans-serif;
+    font-size: 5vw;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1;
+    text-shadow: 0 0 2vw rgba(76, 253, 255, 0.5);
+}
+
+#slide-quiz-game .result-grade-label {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 1.3vw;
+    font-weight: 700;
+    color: #94a3b8;
+    letter-spacing: 0.15vw;
+    text-transform: uppercase;
+}
+
+#slide-quiz-game .result-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.9vw;
+}
+
+#slide-quiz-game .result-stat-card {
+    background: rgba(8, 20, 36, 0.75);
+    border: 0.06vw solid rgba(76, 253, 255, 0.15);
+    border-radius: 0.8vw;
+    padding: 1vw 1.5vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3vw;
+    min-width: 9vw;
+}
+
+#slide-quiz-game .stat-icon {
+    font-size: 1.5vw;
+    line-height: 1;
+}
+
+#slide-quiz-game .stat-value {
+    font-family: 'Consolas', monospace;
+    font-size: 1.3vw;
+    font-weight: 800;
+    color: #ffffff;
+}
+
+#slide-quiz-game .stat-label {
+    font-family: 'Consolas', monospace;
+    font-size: 0.6vw;
+    font-weight: 700;
+    color: #64748b;
+    letter-spacing: 0.06vw;
+    text-transform: uppercase;
+}
+
+/* Retry Button */
+#slide-quiz-game .qg-btn-retry {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6vw;
+    background: linear-gradient(135deg, rgba(76, 253, 255, 0.15), rgba(56, 189, 248, 0.2));
+    border: 0.08vw solid #4cfdff;
+    color: #ffffff;
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 1vw;
+    font-weight: 700;
+    padding: 0.7vw 2vw;
+    border-radius: 0.7vw;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 0.05vw;
+    margin-top: 0.5vw;
+}
+
+#slide-quiz-game .qg-btn-retry:hover {
+    background: linear-gradient(135deg, rgba(76, 253, 255, 0.3), rgba(56, 189, 248, 0.35));
+    box-shadow: 0 0 2vw rgba(76, 253, 255, 0.3);
+    transform: translateY(-0.12vw);
+}
+
+#slide-quiz-game .btn-retry-icon {
+    font-size: 1.2vw;
+    color: #4cfdff;
+}
+
+/* ======================================================= */
+/* CYBER QUEST QUIZ GAME - FIX CSS LỰA CHỌN CÂU HỎI */
+/* ======================================================= */
+
+.qg-mc-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2vw;
+    width: 100%;
+    max-width: 65vw;
+    margin: 0 auto;
+}
+
+.qg-mc-card {
+    position: relative;
+    background: rgba(10, 22, 38, 0.75);
+    border: 0.1vw solid rgba(76, 253, 255, 0.25);
+    border-radius: 1vw;
+    padding: 1.2vw 1.5vw;
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+    cursor: pointer;
+    backdrop-filter: blur(1vw);
+    -webkit-backdrop-filter: blur(1vw);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    text-align: left;
+    box-shadow: 0 0.8vw 2vw rgba(0, 0, 0, 0.4);
+}
+
+.qg-mc-card:hover:not(:disabled) {
+    background: rgba(15, 35, 58, 0.9);
+    border-color: #4cfdff;
+    transform: translateY(-0.25vw);
+    box-shadow: 0 1vw 2.5vw rgba(76, 253, 255, 0.25);
+}
+
+.qg-mc-card.selected {
+    border-color: #38bdf8;
+    background: rgba(56, 189, 248, 0.18);
+}
+
+.qg-mc-card.correct {
+    border-color: #34d399 !important;
+    background: rgba(52, 211, 153, 0.22) !important;
+    box-shadow: 0 0 2vw rgba(52, 211, 153, 0.35) !important;
+}
+
+.qg-mc-card.wrong {
+    border-color: #fb7185 !important;
+    background: rgba(251, 113, 133, 0.2) !important;
+    box-shadow: 0 0 2vw rgba(251, 113, 133, 0.3) !important;
+}
+
+.qg-mc-card:disabled {
+    cursor: default;
+    opacity: 0.75;
+}
+
+.qg-card-hud-corner {
+    position: absolute;
+    width: 0.6vw;
+    height: 0.6vw;
+    border-color: #4cfdff;
+    border-style: solid;
+    pointer-events: none;
+}
+.qg-card-hud-corner.top-left {
+    top: -0.05vw; left: -0.05vw;
+    border-width: 0.12vw 0 0 0.12vw;
+    border-top-left-radius: 1vw;
+}
+.qg-card-hud-corner.bottom-right {
+    bottom: -0.05vw; right: -0.05vw;
+    border-width: 0 0.12vw 0.12vw 0;
+    border-bottom-right-radius: 1vw;
+}
+
+.qg-mc-letter {
+    width: 2.2vw;
+    height: 2.2vw;
+    min-width: 2.2vw;
+    border-radius: 0.6vw;
+    background: rgba(76, 253, 255, 0.12);
+    border: 0.08vw solid rgba(76, 253, 255, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Consolas', monospace;
+    font-size: 0.95vw;
+    font-weight: 800;
+    color: #4cfdff;
+    transition: all 0.3s ease;
+}
+
+.qg-mc-card.correct .qg-mc-letter {
+    background: #34d399;
+    border-color: #34d399;
+    color: #020c1b;
+}
+
+.qg-mc-card.wrong .qg-mc-letter {
+    background: #fb7185;
+    border-color: #fb7185;
+    color: #1a0000;
+}
+
+.qg-mc-text {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 1.05vw;
+    font-weight: 600;
+    color: #e2e8f0;
+    line-height: 1.45;
+    flex: 1;
+}
+
+/* True / False Grid */
+.qg-tf-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2vw;
+    width: 100%;
+    max-width: 48vw;
+    margin: 0 auto;
+}
+
+.qg-tf-btn {
+    background: rgba(10, 22, 38, 0.8);
+    border: 0.12vw solid rgba(76, 253, 255, 0.25);
+    border-radius: 1.2vw;
+    padding: 2vw 1.5vw;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    backdrop-filter: blur(1.2vw);
+    box-shadow: 0 1vw 2.5vw rgba(0, 0, 0, 0.45);
+}
+
+.qg-tf-btn.qg-tf-true {
+    border-color: rgba(52, 211, 153, 0.35);
+}
+.qg-tf-btn.qg-tf-true:hover:not(:disabled) {
+    border-color: #34d399;
+    background: rgba(52, 211, 153, 0.15);
+    box-shadow: 0 1.2vw 3vw rgba(52, 211, 153, 0.25);
+    transform: translateY(-0.3vw);
+}
+
+.qg-tf-btn.qg-tf-false {
+    border-color: rgba(251, 113, 133, 0.35);
+}
+.qg-tf-btn.qg-tf-false:hover:not(:disabled) {
+    border-color: #fb7185;
+    background: rgba(251, 113, 133, 0.15);
+    box-shadow: 0 1.2vw 3vw rgba(251, 113, 133, 0.25);
+    transform: translateY(-0.3vw);
+}
+
+.qg-tf-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6vw;
+}
+
+.qg-tf-icon {
+    font-size: 2.8vw;
+    line-height: 1;
+}
+
+.qg-tf-true .qg-tf-icon { color: #34d399; }
+.qg-tf-false .qg-tf-icon { color: #fb7185; }
+
+.qg-tf-label {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 1.4vw;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: 0.08vw;
+}
+
+.qg-tf-sub {
+    font-family: 'Consolas', monospace;
+    font-size: 0.75vw;
+    font-weight: 700;
+    color: #94a3b8;
+    letter-spacing: 0.12vw;
+}
+
+.qg-tf-btn.correct {
+    border-color: #34d399 !important;
+    background: rgba(52, 211, 153, 0.25) !important;
+    box-shadow: 0 0 2.5vw rgba(52, 211, 153, 0.4) !important;
+}
+
+.qg-tf-btn.wrong {
+    border-color: #fb7185 !important;
+    background: rgba(251, 113, 133, 0.22) !important;
+    box-shadow: 0 0 2.5vw rgba(251, 113, 133, 0.35) !important;
+}
+
+.qg-tf-btn:disabled {
+    cursor: default;
+    opacity: 0.75;
+}
+
+/* Multi-Select List */
+.qg-multi-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8vw;
+    width: 100%;
+    max-width: 60vw;
+    margin: 0 auto;
+}
+
+.qg-multi-item {
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+    background: rgba(10, 22, 38, 0.75);
+    border: 0.08vw solid rgba(76, 253, 255, 0.2);
+    border-radius: 0.8vw;
+    padding: 1vw 1.3vw;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.qg-multi-item:hover {
+    border-color: rgba(76, 253, 255, 0.5);
+    background: rgba(15, 35, 58, 0.9);
+}
+
+.qg-multi-item.checked {
+    border-color: #38bdf8;
+    background: rgba(56, 189, 248, 0.15);
+}
+
+.qg-multi-item.correct {
+    border-color: #34d399 !important;
+    background: rgba(52, 211, 153, 0.2) !important;
+}
+
+.qg-multi-item.wrong {
+    border-color: #fb7185 !important;
+    background: rgba(251, 113, 133, 0.18) !important;
+}
+
+.qg-multi-checkbox {
+    display: none;
+}
+
+.qg-multi-box {
+    width: 1.5vw;
+    height: 1.5vw;
+    min-width: 1.5vw;
+    border-radius: 0.4vw;
+    border: 0.1vw solid rgba(76, 253, 255, 0.4);
+    background: rgba(6, 14, 28, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+}
+
+.qg-multi-item.checked .qg-multi-box {
+    background: #38bdf8;
+    border-color: #38bdf8;
+}
+
+.qg-multi-check-svg {
+    width: 85%;
+    height: 85%;
+    stroke: #020c1b;
+    stroke-width: 3.5;
+    opacity: 0;
+    transform: scale(0.6);
+    transition: all 0.2s ease;
+}
+
+.qg-multi-item.checked .qg-multi-check-svg {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.qg-multi-text {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 1.05vw;
+    font-weight: 600;
+    color: #e2e8f0;
+    line-height: 1.4;
+    flex: 1;
+}
+
+/* Fill in the blank Wrapper */
+.qg-fill-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+    width: 100%;
+    max-width: 50vw;
+    margin: 0 auto;
+}
+
+.qg-fill-prompt-bar {
+    display: flex;
+    align-items: center;
+    background: rgba(6, 14, 28, 0.9);
+    border: 0.12vw solid rgba(76, 253, 255, 0.35);
+    border-radius: 0.8vw;
+    padding: 0.5vw 1.2vw;
+    box-shadow: inset 0 0 1.5vw rgba(0, 0, 0, 0.6);
+}
+
+.qg-fill-term-symbol {
+    font-family: 'Consolas', monospace;
+    font-size: 1.4vw;
+    font-weight: 800;
+    color: #4cfdff;
+    margin-right: 1vw;
+}
+
+.qg-fill-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 1.2vw;
+    font-weight: 600;
+    color: #ffffff;
+    padding: 0.8vw 0;
+}
+
+.qg-fill-input::placeholder {
+    color: #64748b;
+    font-weight: 500;
+}
+
+.qg-fill-input.correct {
+    color: #34d399;
+}
+
+.qg-fill-input.wrong {
+    color: #fb7185;
+}
+
+.qg-fill-correct-hint {
+    background: rgba(52, 211, 153, 0.12);
+    border: 0.08vw solid rgba(52, 211, 153, 0.35);
+    border-radius: 0.6vw;
+    padding: 0.8vw 1.2vw;
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 1vw;
+    color: #34d399;
+    display: flex;
+    align-items: center;
+    gap: 0.6vw;
+}
+
+.qg-fill-correct-hint strong {
+    color: #ffffff;
+}

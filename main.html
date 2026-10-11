@@ -879,7 +879,1051 @@
             </div>
         </div>
     </section>
+
+    <!-- SLIDE 12: a) HỆ CSDL TẬP TRUNG -->
+    <section class="slide slide-centralized" id="slide-he-csdl-tap-trung">
+        <div class="centralized-container">
+            <!-- Cột trái: Nội dung lý thuyết & Phân tích vai trò -->
+            <div class="centralized-left">
+                <div class="centralized-header">
+                    <div class="centralized-tag">
+                        <span class="tag-pulse-dot"></span>
+                        <span class="tag-text">// KIẾN TRÚC PHÂN CẤP CƠ SỞ DỮ LIỆU</span>
+                    </div>
+                    <h2 class="centralized-title">
+                        <span class="title-cyan-letter">a)</span> HỆ CSDL TẬP TRUNG
+                    </h2>
+                </div>
+
+                <div class="centralized-cards">
+                    <!-- Card 1: Khái niệm cốt lõi -->
+                    <div class="centralized-card card-concept">
+                        <div class="card-hud-corner top-left"></div>
+                        <div class="card-hud-corner bottom-right"></div>
+                        
+                        <div class="card-meta">
+                            <span class="card-pill">KHÁI NIỆM</span>
+                            <span class="card-tech-id">DEF.01</span>
+                        </div>
+
+                        <p class="card-main-text">
+                            Hệ CSDL mà CSDL được lưu trữ tập trung trên một máy tính được gọi là 
+                            <span class="highlight-term"><em>hệ cơ sở dữ liệu tập trung</em></span>.
+                        </p>
+                    </div>
+
+                    <!-- Card 2: Đặc điểm và các vai trò tích hợp -->
+                    <div class="centralized-card card-details">
+                        <div class="card-hud-corner top-left"></div>
+                        <div class="card-hud-corner bottom-right"></div>
+                        
+                        <div class="card-meta">
+                            <span class="card-pill accent">ĐẶC ĐIỂM & VAI TRÒ</span>
+                            <span class="card-tech-id">MS.ACCESS</span>
+                        </div>
+
+                        <p class="card-desc-text">
+                            Hệ CSDL tập trung bao gồm cả những CSDL một người dùng trên một máy 
+                            <span class="access-highlight">(như các CSDL của Microsoft Access)</span>; 
+                            người dùng vừa là người thiết kế, tạo lập và bảo trì CSDL, vừa là người viết phần mềm ứng dụng CSDL, vừa là người dùng đầu cuối hệ thống, khai thác thông tin theo những mục tiêu đã được đặt ra.
+                        </p>
+
+                        <!-- 3 Vai trò tích hợp của người dùng -->
+                        <div class="user-roles-grid">
+                            <div class="role-chip">
+                                <div class="role-icon-box">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                                    </svg>
+                                </div>
+                                <div class="role-text-wrap">
+                                    <span class="role-num">01</span>
+                                    <span class="role-desc">Người thiết kế, tạo lập và bảo trì CSDL</span>
+                                </div>
+                            </div>
+
+                            <div class="role-chip">
+                                <div class="role-icon-box accent">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="16 18 22 12 16 6"/>
+                                        <polyline points="8 6 2 12 8 18"/>
+                                    </svg>
+                                </div>
+                                <div class="role-text-wrap">
+                                    <span class="role-num accent">02</span>
+                                    <span class="role-desc">Người viết phần mềm ứng dụng CSDL</span>
+                                </div>
+                            </div>
+
+                            <div class="role-chip">
+                                <div class="role-icon-box success">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                        <circle cx="9" cy="7" r="4"/>
+                                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                                    </svg>
+                                </div>
+                                <div class="role-text-wrap">
+                                    <span class="role-num success">03</span>
+                                    <span class="role-desc">Người dùng đầu cuối hệ thống, khai thác thông tin</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cột phải: Sơ đồ kiến trúc động (Diagram) -->
+            <div class="centralized-right">
+                <div class="centralized-diagram-panel">
+                    <div class="diagram-hud-bar">
+                        <span class="hud-led"></span>
+                        <span class="hud-title">SƠ ĐỒ HỆ CSDL TẬP TRUNG</span>
+                    </div>
+
+                    <!-- Khối Người Dùng (Users) -->
+                    <div class="diagram-users-row">
+                        <div class="diagram-user-node">
+                            <div class="user-avatar-glow">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="12" cy="7" r="4"/>
+                                </svg>
+                            </div>
+                            <span class="user-title">Người dùng</span>
+                        </div>
+
+                        <div class="diagram-user-node">
+                            <div class="user-avatar-glow">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="12" cy="7" r="4"/>
+                                </svg>
+                            </div>
+                            <span class="user-title">Người dùng</span>
+                        </div>
+                    </div>
+
+                    <!-- Mũi tên tương tác 2 chiều User <-> Ứng dụng -->
+                    <div class="diagram-bidirectional-arrow">
+                        <div class="arrow-beam-track">
+                            <span class="beam-particle down"></span>
+                            <span class="beam-particle up"></span>
+                        </div>
+                        <svg class="arrow-head-up" viewBox="0 0 24 24" fill="currentColor">
+                            <polygon points="12,4 4,16 20,16"/>
+                        </svg>
+                        <div class="arrow-shaft"></div>
+                        <svg class="arrow-head-down" viewBox="0 0 24 24" fill="currentColor">
+                            <polygon points="12,20 4,8 20,8"/>
+                        </svg>
+                    </div>
+
+                    <!-- Khối Phần mềm ứng dụng CSDL -->
+                    <div class="diagram-app-node">
+                        <div class="app-node-hud-corner top-left"></div>
+                        <div class="app-node-hud-corner bottom-right"></div>
+                        <div class="app-node-content">
+                            <span class="app-node-tag">APPLICATION LAYER</span>
+                            <h4 class="app-node-heading">Phần mềm ứng dụng CSDL</h4>
+                        </div>
+                    </div>
+
+                    <!-- Mũi tên tương tác 2 chiều Ứng dụng <-> Máy tính tập trung -->
+                    <div class="diagram-bidirectional-arrow">
+                        <div class="arrow-beam-track">
+                            <span class="beam-particle down"></span>
+                            <span class="beam-particle up"></span>
+                        </div>
+                        <svg class="arrow-head-up" viewBox="0 0 24 24" fill="currentColor">
+                            <polygon points="12,4 4,16 20,16"/>
+                        </svg>
+                        <div class="arrow-shaft"></div>
+                        <svg class="arrow-head-down" viewBox="0 0 24 24" fill="currentColor">
+                            <polygon points="12,20 4,8 20,8"/>
+                        </svg>
+                    </div>
+
+                    <!-- Khung Máy tính lưu trữ tập trung bao bọc Hệ QTCSDL và CSDL -->
+                    <div class="diagram-central-box">
+                        <div class="central-box-banner">
+                            <svg class="central-box-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="2" width="20" height="8" rx="2"/>
+                                <rect x="2" y="14" width="20" height="8" rx="2"/>
+                                <line x1="6" y1="6" x2="6.01" y2="6"/>
+                                <line x1="6" y1="18" x2="6.01" y2="18"/>
+                            </svg>
+                            <span class="central-box-title">LƯU TRỮ TẬP TRUNG TRÊN MỘT MÁY TÍNH</span>
+                        </div>
+
+                        <!-- Khối Hệ QTCSDL -->
+                        <div class="diagram-dbms-node">
+                            <div class="dbms-node-inner">
+                                <span class="dbms-node-badge">CORE DBMS</span>
+                                <h4 class="dbms-node-heading">Hệ QTCSDL</h4>
+                            </div>
+                        </div>
+
+                        <!-- Mũi tên tương tác 2 chiều Hệ QTCSDL <-> CSDL -->
+                        <div class="diagram-bidirectional-arrow mini">
+                            <div class="arrow-beam-track mini">
+                                <span class="beam-particle down"></span>
+                                <span class="beam-particle up"></span>
+                            </div>
+                            <svg class="arrow-head-up" viewBox="0 0 24 24" fill="currentColor">
+                                <polygon points="12,4 4,16 20,16"/>
+                            </svg>
+                            <div class="arrow-shaft"></div>
+                            <svg class="arrow-head-down" viewBox="0 0 24 24" fill="currentColor">
+                                <polygon points="12,20 4,8 20,8"/>
+                            </svg>
+                        </div>
+
+                        <!-- Khối CSDL (Database Cylinder) -->
+                        <div class="diagram-storage-node">
+                            <div class="db-cylinder-icon">
+                                <svg viewBox="0 0 70 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <ellipse cx="35" cy="14" rx="30" ry="10" fill="rgba(16, 185, 129, 0.35)" stroke="#34d399" stroke-width="2"/>
+                                    <path d="M5 14V30C5 35.5 18.5 40 35 40C51.5 40 65 35.5 65 30V14" fill="rgba(16, 185, 129, 0.22)" stroke="#34d399" stroke-width="2"/>
+                                    <path d="M5 26V42C5 47.5 18.5 52 35 52C51.5 52 65 47.5 65 42V26" fill="rgba(5, 150, 105, 0.35)" stroke="#34d399" stroke-width="2"/>
+                                    <ellipse cx="35" cy="28" rx="30" ry="10" fill="none" stroke="#34d399" stroke-width="1.2" stroke-dasharray="3,3"/>
+                                </svg>
+                            </div>
+                            <span class="db-node-heading">CSDL</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 13: b) HỆ CSDL PHÂN TÁN -->
+    <section class="slide slide-distributed" id="slide-he-csdl-phan-tan">
+        <div class="distrib-container">
+            <!-- Cột trái: Tóm tắt lý thuyết & Cơ chế hoạt động -->
+            <div class="distrib-left">
+                <div class="distrib-header">
+                    <div class="distrib-tag">
+                        <span class="tag-pulse-dot"></span>
+                        <span class="tag-text">// KIẾN TRÚC PHÂN CẤP CƠ SỞ DỮ LIỆU</span>
+                    </div>
+                    <h2 class="distrib-title">
+                        <span class="title-cyan-letter">b)</span> HỆ CSDL PHÂN TÁN
+                    </h2>
+                </div>
+
+                <div class="distrib-cards">
+                    <!-- Card 1: Khái niệm cốt lõi -->
+                    <div class="distrib-card card-concept">
+                        <div class="card-hud-corner top-left"></div>
+                        <div class="card-hud-corner bottom-right"></div>
+                        
+                        <div class="card-meta">
+                            <span class="card-pill">KHÁI NIỆM CỐT LÕI</span>
+                            <span class="card-tech-id">DEF.02</span>
+                        </div>
+
+                        <p class="card-main-text">
+                            Dữ liệu được phân tán và lưu trữ trên <strong class="text-highlight">nhiều máy tính (trạm)</strong> trong mạng. Mỗi trạm quản lý một <span class="term-cyan">CSDL cục bộ</span> và hệ QTCSDL riêng, cho phép người dùng truy cập dữ liệu đa điểm.
+                        </p>
+                    </div>
+
+                    <!-- Card 2: 2 Loại Ứng Dụng Then Chốt -->
+                    <div class="distrib-card card-apps">
+                        <div class="card-hud-corner top-left"></div>
+                        <div class="card-hud-corner bottom-right"></div>
+
+                        <div class="card-meta">
+                            <span class="card-pill accent">2 LOẠI ỨNG DỤNG THEN CHỐT</span>
+                            <span class="card-tech-id">APP.TYPES</span>
+                        </div>
+
+                        <div class="apps-compare-grid">
+                            <!-- Ứng dụng Cục bộ -->
+                            <div class="app-compare-box local-box">
+                                <div class="app-box-head">
+                                    <div class="app-type-badge local">CỤC BỘ (LOCAL)</div>
+                                    <span class="app-target-tag">1 TRẠM</span>
+                                </div>
+                                <h4 class="app-type-title">Ứng dụng cục bộ</h4>
+                                <p class="app-type-desc">
+                                    Chạy tại <strong>một trạm</strong> và <strong>chỉ sử dụng dữ liệu cục bộ</strong> của trạm đó để cho ra kết quả cuối cùng.
+                                </p>
+                            </div>
+
+                            <!-- Ứng dụng Toàn cục -->
+                            <div class="app-compare-box global-box">
+                                <div class="app-box-head">
+                                    <div class="app-type-badge global">TOÀN CỤC (GLOBAL)</div>
+                                    <span class="app-target-tag">≥ 2 TRẠM</span>
+                                </div>
+                                <h4 class="app-type-title">Ứng dụng toàn cục (phân tán)</h4>
+                                <p class="app-type-desc">
+                                    Chạy tại một trạm nhưng <strong>sử dụng dữ liệu của ít nhất hai trạm</strong> trong mạng để đưa ra kết quả cuối cùng.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Ví dụ thực tế mô hình 4 trạm -->
+                    <div class="distrib-card card-example">
+                        <div class="card-hud-corner top-left"></div>
+                        <div class="card-hud-corner bottom-right"></div>
+
+                        <div class="card-meta">
+                            <span class="card-pill success">MÔ HÌNH DOANH NGHIỆP THỰC TẾ</span>
+                            <span class="card-tech-id">TOPOLOGY.EX</span>
+                        </div>
+
+                        <div class="example-content">
+                            <div class="example-icon-wrap">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                                    <polyline points="9 22 9 12 15 12 15 22"/>
+                                </svg>
+                            </div>
+                            <p class="example-text">
+                                Doanh nghiệp có trụ sở chính tại <strong>Hà Nội</strong> và các chi nhánh tại <strong>Đà Nẵng, TP. Hồ Chí Minh, Cần Thơ</strong>. Mỗi chi nhánh là một trạm độc lập, liên kết chặt chẽ qua mạng máy tính.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cột phải: Sơ đồ mạng lưới phân tán 4 trạm (Interactive Topology) -->
+            <div class="distrib-right">
+                <div class="distrib-topology-panel">
+                    <div class="topology-hud-bar">
+                        <span class="hud-led pulse"></span>
+                        <span class="hud-title">SƠ ĐỒ HỆ CSDL PHÂN TÁN (HÌNH 12.5)</span>
+                    </div>
+
+                    <div class="topology-canvas">
+                        <!-- SVG Các đường dây kết nối chuẩn xác 100% -->
+                        <svg class="topology-svg-connections" viewBox="0 0 100 100" preserveAspectRatio="none">
+                            <defs>
+                                <filter id="glow-laser" x="-20%" y="-20%" width="140%" height="140%">
+                                    <feGaussianBlur stdDeviation="0.3" result="blur" />
+                                    <feMerge>
+                                        <feMergeNode in="blur" />
+                                        <feMergeNode in="SourceGraphic" />
+                                    </feMerge>
+                                </filter>
+                            </defs>
+
+                            <!-- Đường kết nối cơ sở (Base Lines) dính chặt từ 4 trạm vào Mạng máy tính -->
+                            <line x1="36" y1="27" x2="50" y2="50" class="topo-line base-line" />
+                            <line x1="64" y1="27" x2="50" y2="50" class="topo-line base-line" />
+                            <line x1="36" y1="73" x2="50" y2="50" class="topo-line base-line" />
+                            <line x1="64" y1="73" x2="50" y2="50" class="topo-line base-line" />
+
+                            <!-- Luồng xung dữ liệu ánh sáng laser chạy dọc dây hai chiều (Animated Flow Lines) -->
+                            <line x1="36" y1="27" x2="50" y2="50" class="topo-line pulse-line" filter="url(#glow-laser)" />
+                            <line x1="64" y1="27" x2="50" y2="50" class="topo-line pulse-line" filter="url(#glow-laser)" />
+                            <line x1="36" y1="73" x2="50" y2="50" class="topo-line pulse-line" filter="url(#glow-laser)" />
+                            <line x1="64" y1="73" x2="50" y2="50" class="topo-line pulse-line" filter="url(#glow-laser)" />
+
+                            <!-- Các cổng kết nối phát sáng ở 4 góc trạm (Connection Ports) -->
+                            <circle cx="36" cy="27" r="0.8" class="topo-port-node" />
+                            <circle cx="64" cy="27" r="0.8" class="topo-port-node" />
+                            <circle cx="36" cy="73" r="0.8" class="topo-port-node" />
+                            <circle cx="64" cy="73" r="0.8" class="topo-port-node" />
+                        </svg>
+
+                        <!-- Hub trung tâm: Mạng máy tính -->
+                        <div class="topology-center-hub">
+                            <div class="hub-radar-ring"></div>
+                            <div class="hub-cloud-body">
+                                <svg class="cloud-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                    <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>
+                                </svg>
+                                <span class="hub-label">Mạng máy tính</span>
+                            </div>
+                        </div>
+
+                        <!-- Trạm 1: Hà Nội (Top-Left) -->
+                        <div class="station-node node-hanoi">
+                            <div class="station-card">
+                                <div class="station-header">
+                                    <span class="station-location text-hn">Hà Nội</span>
+                                    <span class="station-role-badge">TRỤ SỞ</span>
+                                </div>
+                                <div class="station-body">
+                                    <div class="station-user-app">
+                                        <svg class="mini-icon user-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                            <circle cx="12" cy="7" r="4"/>
+                                        </svg>
+                                        <span class="station-pill app-pill">Ứng dụng</span>
+                                    </div>
+                                    <div class="station-system">
+                                        <div class="station-server-icon">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                                <rect x="4" y="2" width="16" height="20" rx="2"/>
+                                                <line x1="8" y1="6" x2="16" y2="6"/>
+                                                <line x1="8" y1="10" x2="16" y2="10"/>
+                                                <circle cx="8" cy="16" r="1"/>
+                                            </svg>
+                                        </div>
+                                        <div class="station-db-stack">
+                                            <span class="db-layer qt">Hệ QTCSDL</span>
+                                            <span class="db-layer local">CSDL cục bộ</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Trạm 2: Cần Thơ (Top-Right) -->
+                        <div class="station-node node-cantho">
+                            <div class="station-card">
+                                <div class="station-header">
+                                    <span class="station-location text-ct">Cần Thơ</span>
+                                    <span class="station-role-badge">CHI NHÁNH</span>
+                                </div>
+                                <div class="station-body">
+                                    <div class="station-user-app">
+                                        <svg class="mini-icon user-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                            <circle cx="12" cy="7" r="4"/>
+                                        </svg>
+                                        <span class="station-pill app-pill">Ứng dụng</span>
+                                    </div>
+                                    <div class="station-system">
+                                        <div class="station-server-icon">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                                <rect x="4" y="2" width="16" height="20" rx="2"/>
+                                                <line x1="8" y1="6" x2="16" y2="6"/>
+                                                <line x1="8" y1="10" x2="16" y2="10"/>
+                                                <circle cx="8" cy="16" r="1"/>
+                                            </svg>
+                                        </div>
+                                        <div class="station-db-stack">
+                                            <span class="db-layer qt">Hệ QTCSDL</span>
+                                            <span class="db-layer local">CSDL cục bộ</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Trạm 3: Đà Nẵng (Bottom-Left) -->
+                        <div class="station-node node-danang">
+                            <div class="station-card">
+                                <div class="station-header">
+                                    <span class="station-location text-dn">Đà Nẵng</span>
+                                    <span class="station-role-badge">CHI NHÁNH</span>
+                                </div>
+                                <div class="station-body">
+                                    <div class="station-user-app">
+                                        <svg class="mini-icon user-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                            <circle cx="12" cy="7" r="4"/>
+                                        </svg>
+                                        <span class="station-pill app-pill">Ứng dụng</span>
+                                    </div>
+                                    <div class="station-system">
+                                        <div class="station-server-icon">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                                <rect x="4" y="2" width="16" height="20" rx="2"/>
+                                                <line x1="8" y1="6" x2="16" y2="6"/>
+                                                <line x1="8" y1="10" x2="16" y2="10"/>
+                                                <circle cx="8" cy="16" r="1"/>
+                                            </svg>
+                                        </div>
+                                        <div class="station-db-stack">
+                                            <span class="db-layer qt">Hệ QTCSDL</span>
+                                            <span class="db-layer local">CSDL cục bộ</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Trạm 4: TP. Hồ Chí Minh (Bottom-Right) -->
+                        <div class="station-node node-hcm">
+                            <div class="station-card">
+                                <div class="station-header">
+                                    <span class="station-location text-hcm">TP. Hồ Chí Minh</span>
+                                    <span class="station-role-badge">CHI NHÁNH</span>
+                                </div>
+                                <div class="station-body">
+                                    <div class="station-user-app">
+                                        <svg class="mini-icon user-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                            <circle cx="12" cy="7" r="4"/>
+                                        </svg>
+                                        <span class="station-pill app-pill">Ứng dụng</span>
+                                    </div>
+                                    <div class="station-system">
+                                        <div class="station-server-icon">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                                <rect x="4" y="2" width="16" height="20" rx="2"/>
+                                                <line x1="8" y1="6" x2="16" y2="6"/>
+                                                <line x1="8" y1="10" x2="16" y2="10"/>
+                                                <circle cx="8" cy="16" r="1"/>
+                                            </svg>
+                                        </div>
+                                        <div class="station-db-stack">
+                                            <span class="db-layer qt">Hệ QTCSDL</span>
+                                            <span class="db-layer local">CSDL cục bộ</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 14: ĐẶC TRƯNG & ƯU THẾ HỆ CSDL PHÂN TÁN -->
+    <section class="slide slide-features" id="slide-dac-trung-csdl">
+        <div class="features-container">
+            <!-- Header Section -->
+            <div class="features-header">
+                <div class="features-tag">
+                    <span class="tag-pulse-dot"></span>
+                    <span class="tag-text">// ĐÁNH GIÁ & SO SÁNH KIẾN TRÚC</span>
+                </div>
+                <h2 class="features-title">
+                    ĐẶC TRƯNG & ƯU THẾ <span class="title-cyan-text">HỆ CSDL PHÂN TÁN</span>
+                </h2>
+
+                <!-- Core Recap Bar -->
+                <div class="recap-bar">
+                    <div class="recap-pill">
+                        <span class="recap-badge centralized">HỆ TẬP TRUNG</span>
+                        <span class="recap-desc">CSDL lưu trữ tập trung trên <strong>một máy tính duy nhất</strong>.</span>
+                    </div>
+                    <div class="recap-divider"></div>
+                    <div class="recap-pill">
+                        <span class="recap-badge distributed">HỆ PHÂN TÁN</span>
+                        <span class="recap-desc">Truy cập dữ liệu lưu trữ tại <strong>nhiều trạm trên mạng máy tính</strong>.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Comparison Grid: Ưu điểm vs Hạn chế -->
+            <div class="comparison-grid">
+                <!-- Cột Ưu điểm -->
+                <div class="comp-card card-pros">
+                    <div class="card-hud-corner top-left"></div>
+                    <div class="card-hud-corner bottom-right"></div>
+                    
+                    <div class="comp-card-header">
+                        <div class="comp-badge pros">
+                            <svg class="comp-badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            <span>ƯU ĐIỂM VƯỢT TRỘI</span>
+                        </div>
+                        <span class="comp-tech-id">PROS.01</span>
+                    </div>
+
+                    <div class="comp-items-list">
+                        <div class="comp-item">
+                            <div class="comp-item-icon pros">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="15 3 21 3 21 9"/>
+                                    <polyline points="9 21 3 21 3 15"/>
+                                    <line x1="21" y1="3" x2="14" y2="10"/>
+                                    <line x1="3" y1="21" x2="10" y2="14"/>
+                                </svg>
+                            </div>
+                            <div class="comp-item-content">
+                                <h4 class="comp-item-title">Dễ dàng mở rộng linh hoạt (Scalability)</h4>
+                                <p class="comp-item-desc">
+                                    Luôn có thể <strong>bổ sung thêm trạm dữ liệu mới</strong> khi cần mà không làm ảnh hưởng đến các trạm đang hoạt động.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="comp-item">
+                            <div class="comp-item-icon pros">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                </svg>
+                            </div>
+                            <div class="comp-item-content">
+                                <h4 class="comp-item-title">Độ tin cậy & Tính sẵn sàng cao</h4>
+                                <p class="comp-item-desc">
+                                    Hạn chế tối đa mất mát dữ liệu; hệ thống hoạt động ổn định nhờ cơ chế <strong>sao lưu nhiều bản đặt ở các trạm khác nhau</strong> dù có trạm gặp sự cố.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="comp-item">
+                            <div class="comp-item-icon pros">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <line x1="2" y1="12" x2="22" y2="12"/>
+                                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                                </svg>
+                            </div>
+                            <div class="comp-item-content">
+                                <h4 class="comp-item-title">Tối ưu hiệu năng diện rộng</h4>
+                                <p class="comp-item-desc">
+                                    Giảm tải đường truyền, tối ưu tốc độ truy xuất trên phạm vi toàn cầu như CSDL của <strong>Google, Facebook, Amazon,...</strong>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cột Nhược điểm / Hạn chế -->
+                <div class="comp-card card-cons">
+                    <div class="card-hud-corner top-left"></div>
+                    <div class="card-hud-corner bottom-right"></div>
+                    
+                    <div class="comp-card-header">
+                        <div class="comp-badge cons">
+                            <svg class="comp-badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <circle cx="12" cy="12" r="10"/>
+                                <line x1="12" y1="8" x2="12" y2="12"/>
+                                <line x1="12" y1="16" x2="12.01" y2="16"/>
+                            </svg>
+                            <span>HẠN CHẾ & THÁCH THỨC</span>
+                        </div>
+                        <span class="comp-tech-id">CONS.02</span>
+                    </div>
+
+                    <div class="comp-items-list">
+                        <div class="comp-item">
+                            <div class="comp-item-icon cons">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="3"/>
+                                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                                </svg>
+                            </div>
+                            <div class="comp-item-content">
+                                <h4 class="comp-item-title">Thiết kế & Triển khai phức tạp</h4>
+                                <p class="comp-item-desc">
+                                    Cấu trúc phân tán qua mạng đòi hỏi thuật toán điều phối, giao thức truyền thông và kỹ thuật lập trình tinh vi hơn rất nhiều.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="comp-item">
+                            <div class="comp-item-icon cons">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                                </svg>
+                            </div>
+                            <div class="comp-item-content">
+                                <h4 class="comp-item-title">Khó bảo đảm nhất quán & Bảo mật</h4>
+                                <p class="comp-item-desc">
+                                    Đồng bộ dữ liệu đa trạm theo thời gian thực và kiểm soát an ninh trên mạng diện rộng là bài toán đầy thách thức.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="comp-item">
+                            <div class="comp-item-icon cons">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="12" y1="1" x2="12" y2="23"/>
+                                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                                </svg>
+                            </div>
+                            <div class="comp-item-content">
+                                <h4 class="comp-item-title">Chi phí đầu tư & Duy trì cao</h4>
+                                <p class="comp-item-desc">
+                                    Đòi hỏi chi phí lớn cho hạ tầng thiết bị mạng, máy chủ tại các trạm và đội ngũ nhân sự vận hành chuyên nghiệp.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer: Lưu ý phân biệt quan trọng (File Server) -->
+            <div class="features-note-card">
+                <div class="card-hud-corner top-left"></div>
+                <div class="card-hud-corner bottom-right"></div>
+                
+                <div class="note-header-wrap">
+                    <span class="note-badge">LƯU Ý CẦN PHÂN BIỆT</span>
+                    <span class="note-subtitle">Hệ CSDL Phân Tán vs CSDL Tập Trung xử lý phân tán (Mô hình Máy chủ tệp)</span>
+                </div>
+
+                <div class="note-body-grid">
+                    <div class="note-concept-item">
+                        <span class="concept-tag accent">MÔ HÌNH MÁY CHỦ TỆP (FILE SERVER)</span>
+                        <p class="concept-text">
+                            Toàn bộ CSDL và ứng dụng đặt tại <strong>máy chủ tệp</strong>. Khi có yêu cầu, toàn bộ CSDL và phần mềm được truyền qua mạng nạp vào <strong>bộ nhớ RAM của máy trạm</strong> để xử lý. Kết thúc xử lý, toàn bộ dữ liệu mới được lưu ngược về máy chủ tệp.
+                        </p>
+                    </div>
+                    <div class="note-concept-item">
+                        <span class="concept-tag cyan">BẢN CHẤT KHÁC BIỆT</span>
+                        <p class="concept-text">
+                            Máy chủ tệp là <strong>CSDL tập trung</strong> nhưng xử lý phân tán tại RAM máy trạm, khác hoàn toàn với <strong>Hệ CSDL phân tán thực thụ</strong> (dữ liệu được phân chia, lưu trữ và quản trị tại các trạm độc lập).
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 15: TỔNG KẾT BÀI 12 -->
+    <section class="slide slide-master-summary" id="slide-master-summary">
+        <div class="master-summary-container">
+            <!-- Header Section -->
+            <div class="master-summary-header">
+                <div class="master-tag">
+                    <span class="tag-pulse-dot"></span>
+                    <span class="tag-text">// NỘI DUNG GHI NHỚ TOÀN BÀI</span>
+                </div>
+                <h2 class="master-title">
+                    TỔNG KẾT <span class="title-cyan-text">BÀI 12</span>
+                </h2>
+            </div>
+
+            <!-- 4 Khối Tổng Kết Theo Đúng Nội Dung Ảnh (2x2 Grid) -->
+            <div class="master-grid">
+                <!-- 1. Hệ quản trị cơ sở dữ liệu (Hệ QTCSDL) -->
+                <div class="master-card card-pillar-1">
+                    <div class="card-hud-corner top-left"></div>
+                    <div class="card-hud-corner bottom-right"></div>
+                    
+                    <div class="master-card-top">
+                        <div class="pillar-badge">
+                            <span class="pillar-num">01</span>
+                            <h3 class="pillar-name">1. Hệ quản trị cơ sở dữ liệu (Hệ QTCSDL)</h3>
+                        </div>
+                        <div class="pillar-icon-box cyan">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="4" y="4" width="16" height="16" rx="2"/>
+                                <rect x="9" y="9" width="6" height="6"/>
+                                <line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/>
+                                <line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/>
+                                <line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="15" x2="23" y2="15"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="pillar-content">
+                        <p class="pillar-lead">
+                            Hệ QTCSDL là phần mềm giúp <strong>tạo lập, cập nhật, truy xuất, bảo mật và quản lý dữ liệu</strong> trong CSDL.
+                        </p>
+                        <div class="pillar-sub-head">Gồm 3 nhóm chức năng chính:</div>
+                        <ul class="summary-bullet-list">
+                            <li>
+                                <span class="bullet-dot cyan"></span>
+                                <div><strong>Định nghĩa dữ liệu:</strong> Khai báo cấu trúc CSDL và các ràng buộc.</div>
+                            </li>
+                            <li>
+                                <span class="bullet-dot cyan"></span>
+                                <div><strong>Cập nhật và truy xuất dữ liệu:</strong> Thêm, sửa, xóa, tìm kiếm dữ liệu.</div>
+                            </li>
+                            <li>
+                                <span class="bullet-dot cyan"></span>
+                                <div><strong>Bảo mật và an toàn:</strong> Phân quyền truy cập, bảo vệ dữ liệu và sao lưu dự phòng.</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 2. Hệ cơ sở dữ liệu (Hệ CSDL) -->
+                <div class="master-card card-pillar-2">
+                    <div class="card-hud-corner top-left"></div>
+                    <div class="card-hud-corner bottom-right"></div>
+
+                    <div class="master-card-top">
+                        <div class="pillar-badge">
+                            <span class="pillar-num">02</span>
+                            <h3 class="pillar-name">2. Hệ cơ sở dữ liệu (Hệ CSDL)</h3>
+                        </div>
+                        <div class="pillar-icon-box blue">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+                                <polyline points="2 17 12 22 22 17"/>
+                                <polyline points="2 12 12 17 22 12"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="pillar-content">
+                        <div class="pillar-sub-head">Một hệ CSDL gồm 3 thành phần:</div>
+                        <ul class="summary-bullet-list">
+                            <li>
+                                <span class="bullet-dot blue"></span>
+                                <div><strong>CSDL:</strong> Nơi lưu trữ dữ liệu.</div>
+                            </li>
+                            <li>
+                                <span class="bullet-dot blue"></span>
+                                <div><strong>Hệ QTCSDL:</strong> Phần mềm quản lý và khai thác CSDL.</div>
+                            </li>
+                            <li>
+                                <span class="bullet-dot blue"></span>
+                                <div><strong>Phần mềm ứng dụng CSDL:</strong> Giúp người dùng tương tác, khai thác dữ liệu mà không cần trực tiếp viết lệnh xử lý CSDL.</div>
+                            </li>
+                        </ul>
+
+                        <div class="pillar-box-note">
+                            <span class="note-icon">⇄</span>
+                            <span>Trong mô hình <strong>Khách – Chủ (Client–Server)</strong>, phần mềm khách tiếp nhận yêu cầu của người dùng và gửi đi; phía chủ xử lý yêu cầu, truy xuất dữ liệu rồi trả kết quả.</span>
+                        </div>
+
+                        <p class="pillar-single-note">
+                            • Một CSDL có thể được nhiều phần mềm ứng dụng khác nhau cùng khai thác.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 3. Hệ CSDL tập trung -->
+                <div class="master-card card-pillar-3">
+                    <div class="card-hud-corner top-left"></div>
+                    <div class="card-hud-corner bottom-right"></div>
+
+                    <div class="master-card-top">
+                        <div class="pillar-badge">
+                            <span class="pillar-num">03</span>
+                            <h3 class="pillar-name">3. Hệ CSDL tập trung</h3>
+                        </div>
+                        <div class="pillar-icon-box amber">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="2" width="20" height="8" rx="2"/>
+                                <rect x="2" y="14" width="20" height="8" rx="2"/>
+                                <line x1="6" y1="6" x2="6.01" y2="6"/>
+                                <line x1="6" y1="18" x2="6.01" y2="18"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="pillar-content">
+                        <ul class="summary-bullet-list full-spacing">
+                            <li>
+                                <span class="bullet-dot amber"></span>
+                                <div>CSDL được lưu trữ tập trung trên một máy tính.</div>
+                            </li>
+                            <li>
+                                <span class="bullet-dot amber"></span>
+                                <div>Dễ quản lý, triển khai và kiểm soát dữ liệu.</div>
+                            </li>
+                            <li>
+                                <span class="bullet-dot amber"></span>
+                                <div>Có thể bị hạn chế về khả năng mở rộng và phụ thuộc vào máy tính lưu trữ.</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 4. Hệ CSDL phân tán -->
+                <div class="master-card card-pillar-4">
+                    <div class="card-hud-corner top-left"></div>
+                    <div class="card-hud-corner bottom-right"></div>
+
+                    <div class="master-card-top">
+                        <div class="pillar-badge">
+                            <span class="pillar-num">04</span>
+                            <h3 class="pillar-name">4. Hệ CSDL phân tán</h3>
+                        </div>
+                        <div class="pillar-icon-box emerald">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <line x1="2" y1="12" x2="22" y2="12"/>
+                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="pillar-content">
+                        <ul class="summary-bullet-list full-spacing">
+                            <li>
+                                <span class="bullet-dot emerald"></span>
+                                <div>Dữ liệu được lưu trữ tại nhiều máy tính hoặc địa điểm khác nhau, kết nối qua mạng.</div>
+                            </li>
+                            <li>
+                                <span class="bullet-dot emerald"></span>
+                                <div>Các trạm có thể quản lý CSDL cục bộ và phối hợp khai thác dữ liệu toàn cục.</div>
+                            </li>
+                            <li>
+                                <span class="bullet-dot emerald"></span>
+                                <div>Có khả năng mở rộng và phục vụ nhiều địa điểm, nhưng việc thiết kế, quản lý và bảo mật phức tạp hơn.</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 16: CYBER QUEST - QUIZ GAME -->
+    <section class="slide slide-quiz-game" id="slide-quiz-game">
+        <div class="quiz-wrapper">
+
+            <!-- ========== START SCREEN ========== -->
+            <div class="qg-screen qg-start active" id="qg-start">
+                <div class="qg-start-inner">
+                    <!-- Decorative scan lines -->
+                    <div class="qg-scanlines"></div>
+
+                    <div class="qg-start-badge">
+                        <span class="badge-dot"></span>
+                        <span>CYBER QUEST</span>
+                    </div>
+
+                    <h2 class="qg-start-title">
+                        <span class="qg-title-sub">BÀI 12 //</span>
+                        KIỂM TRA KIẾN THỨC
+                    </h2>
+
+                    <p class="qg-start-desc">
+                        Hoàn thành <strong>10 nhiệm vụ</strong> để chứng minh bạn đã nắm vững kiến thức về Hệ quản trị CSDL và Hệ CSDL. Trả lời nhanh, chính xác để đạt combo và điểm cao nhất!
+                    </p>
+
+                    <div class="qg-rules-grid">
+                        <div class="qg-rule-card">
+                            <span class="rule-icon">♥</span>
+                            <div class="rule-info">
+                                <span class="rule-label">MẠNG SỐNG</span>
+                                <span class="rule-value">3 trái tim</span>
+                            </div>
+                        </div>
+                        <div class="qg-rule-card">
+                            <span class="rule-icon">⚡</span>
+                            <div class="rule-info">
+                                <span class="rule-label">ĐIỂM THƯỞNG</span>
+                                <span class="rule-value">+100 × combo XP</span>
+                            </div>
+                        </div>
+                        <div class="qg-rule-card">
+                            <span class="rule-icon">🔥</span>
+                            <div class="rule-info">
+                                <span class="rule-label">COMBO</span>
+                                <span class="rule-value">Trả lời đúng liên tiếp</span>
+                            </div>
+                        </div>
+                        <div class="qg-rule-card">
+                            <span class="rule-icon">🏆</span>
+                            <div class="rule-info">
+                                <span class="rule-label">XẾP HẠNG</span>
+                                <span class="rule-value">S → A → B → C → D → F</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="qg-btn-start" id="btn-start-game">
+                        <span class="btn-start-icon">▶</span>
+                        <span>BẮT ĐẦU NHIỆM VỤ</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- ========== PLAY SCREEN ========== -->
+            <div class="qg-screen qg-play" id="qg-play">
+                <!-- Game HUD -->
+                <div class="game-hud" id="game-hud">
+                    <div class="hud-section hud-left">
+                        <div class="hud-hearts" id="hud-hearts">
+                            <span class="heart active">♥</span>
+                            <span class="heart active">♥</span>
+                            <span class="heart active">♥</span>
+                        </div>
+                    </div>
+                    <div class="hud-section hud-center">
+                        <span class="hud-mission-label">MISSION</span>
+                        <span class="hud-qnum" id="hud-qnum">1 / 10</span>
+                        <div class="hud-progress-bar">
+                            <div class="hud-progress-fill" id="hud-progress-fill"></div>
+                        </div>
+                    </div>
+                    <div class="hud-section hud-right">
+                        <div class="hud-xp-wrap">
+                            <span class="hud-xp-icon">⚡</span>
+                            <span class="hud-xp-value" id="hud-xp">0</span>
+                            <span class="hud-xp-label">XP</span>
+                        </div>
+                        <div class="hud-combo-wrap" id="hud-combo" style="display:none;">
+                            <span class="hud-combo-fire">🔥</span>
+                            <span class="hud-combo-value" id="hud-combo-val">x1</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question Area -->
+                <div class="qg-question-area" id="qg-question-area">
+                    <div class="q-header-row">
+                        <span class="q-category" id="q-category">HỆ QTCSDL</span>
+                        <span class="q-type-badge" id="q-type-badge">TRẮC NGHIỆM</span>
+                    </div>
+                    <h3 class="q-text" id="q-text"></h3>
+                    <div class="q-options-container" id="q-options"></div>
+                    <button class="qg-btn-submit" id="btn-submit-multi" style="display:none;">
+                        <span>XÁC NHẬN</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- ========== FEEDBACK OVERLAY ========== -->
+            <div class="qg-feedback-overlay" id="qg-feedback">
+                <div class="qg-feedback-card">
+                    <div class="feedback-icon-wrap" id="feedback-icon">
+                        <svg class="feedback-svg-correct" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                            <polyline points="20 6 9 17 4 12"/>
+                        </svg>
+                    </div>
+                    <h3 class="feedback-title" id="feedback-title">CHÍNH XÁC!</h3>
+                    <div class="feedback-xp-row" id="feedback-xp">
+                        <span class="feedback-xp-icon">⚡</span>
+                        <span class="feedback-xp-value">+100 XP</span>
+                    </div>
+                    <p class="feedback-explain" id="feedback-explain"></p>
+                    <button class="qg-btn-next" id="btn-next-q">
+                        <span>TIẾP TỤC</span>
+                        <span class="btn-arrow">→</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- ========== RESULT SCREEN ========== -->
+            <div class="qg-screen qg-result" id="qg-result">
+                <div class="qg-result-inner">
+                    <div class="result-badge-label">NHIỆM VỤ HOÀN THÀNH</div>
+
+                    <div class="result-grade-ring">
+                        <div class="result-grade-letter" id="result-grade">S</div>
+                    </div>
+                    <div class="result-grade-label" id="result-grade-label">XUẤT SẮC</div>
+
+                    <div class="result-stats-grid">
+                        <div class="result-stat-card">
+                            <span class="stat-icon">⚡</span>
+                            <span class="stat-value" id="result-xp-final">0</span>
+                            <span class="stat-label">TỔNG XP</span>
+                        </div>
+                        <div class="result-stat-card">
+                            <span class="stat-icon">✓</span>
+                            <span class="stat-value" id="result-correct">0 / 10</span>
+                            <span class="stat-label">CÂU ĐÚNG</span>
+                        </div>
+                        <div class="result-stat-card">
+                            <span class="stat-icon">♥</span>
+                            <span class="stat-value" id="result-hearts">3</span>
+                            <span class="stat-label">MẠNG CÒN</span>
+                        </div>
+                        <div class="result-stat-card">
+                            <span class="stat-icon">🔥</span>
+                            <span class="stat-value" id="result-combo">x1</span>
+                            <span class="stat-label">COMBO CAO NHẤT</span>
+                        </div>
+                    </div>
+
+                    <button class="qg-btn-retry" id="btn-retry">
+                        <span class="btn-retry-icon">↻</span>
+                        <span>CHƠI LẠI</span>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
     <!-- File Script -->
     <script src="script.js"></script>
+    <script src="game.js"></script>
 </body>
 </html>

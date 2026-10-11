@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     animateCursor();
 
-    const interactiveSelector = 'button, a, .bai12-box, .thanh-vien-item, .member-card, .design-by, .robot-puller, .req-card, .tinh-nang-card, .tong-quan-card, .q2-hud-card, .hud-reveal-btn, .feature-card';
+    const interactiveSelector = 'button, a, .bai12-box, .thanh-vien-item, .member-card, .design-by, .robot-puller, .req-card, .tinh-nang-card, .tong-quan-card, .q2-hud-card, .hud-reveal-btn, .feature-card, .centralized-card, .role-chip, .diagram-user-node, .diagram-app-node, .diagram-dbms-node, .diagram-storage-node, .distrib-card, .app-compare-box, .station-card, .hub-cloud-body, .comp-card, .comp-item, .features-note-card, .recap-pill, .master-card, .tier-pill';
     
     document.addEventListener('mouseover', (e) => {
         if (e.target.closest(interactiveSelector)) {
