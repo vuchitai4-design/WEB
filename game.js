@@ -131,7 +131,6 @@ document.addEventListener('DOMContentLoaded', () => {
     feedbackOverlay:document.getElementById('qg-feedback'),
     btnStart:       document.getElementById('btn-start-game'),
     hud:            document.getElementById('game-hud'),
-    hudHearts:      document.getElementById('hud-hearts'),
     hudQNum:        document.getElementById('hud-qnum'),
     hudProgressFill:document.getElementById('hud-progress-fill'),
     hudXP:          document.getElementById('hud-xp'),
@@ -150,7 +149,6 @@ document.addEventListener('DOMContentLoaded', () => {
     resultGradeLabel:document.getElementById('result-grade-label'),
     resultXPFinal:  document.getElementById('result-xp-final'),
     resultCorrect:  document.getElementById('result-correct'),
-    resultHearts:   document.getElementById('result-hearts'),
     resultCombo:    document.getElementById('result-combo'),
     btnRetry:       document.getElementById('btn-retry')
   };
@@ -481,16 +479,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     updateHUD();
 
-    // Animate heart loss
-    if (!isCorrect) {
-      const hearts = el.hudHearts.querySelectorAll('.qg-heart');
-      const lostHeart = hearts[game.lives]; // the one that just got lost
-      if (lostHeart) {
-        lostHeart.classList.add('shake');
-        setTimeout(() => lostHeart.classList.remove('shake'), 500);
-      }
-    }
-
     // Animate XP pulse
     if (isCorrect) {
       el.hudXP.classList.add('pulse');
@@ -563,29 +551,17 @@ document.addEventListener('DOMContentLoaded', () => {
     else                { grade = 'F'; gradeLabel = 'CHƯA ĐẠT';      gradeClass = 'grade-f'; }
 
     el.resultGrade.textContent = grade;
-    el.resultGrade.className = 'qg-result-grade ' + gradeClass;
+    el.resultGrade.className = 'result-grade-letter ' + gradeClass;
     el.resultGradeLabel.textContent = gradeLabel;
-    el.resultGradeLabel.className = 'qg-result-grade-label ' + gradeClass;
+    el.resultGradeLabel.className = 'result-grade-label ' + gradeClass;
 
     el.resultXPFinal.textContent = game.xp;
     el.resultCorrect.textContent = game.correct + ' / ' + questions.length;
-    el.resultHearts.textContent = Math.max(game.lives, 0) + ' / 3';
     el.resultCombo.textContent = 'x' + game.maxCombo;
   }
 
   // ── Update HUD ─────────────────────────────────────────────────
   function updateHUD() {
-    // Hearts
-    let heartsHTML = '';
-    for (let i = 0; i < 3; i++) {
-      if (i < game.lives) {
-        heartsHTML += '<span class="qg-heart active">♥</span>';
-      } else {
-        heartsHTML += '<span class="qg-heart lost">♥</span>';
-      }
-    }
-    el.hudHearts.innerHTML = heartsHTML;
-
     // Question number
     el.hudQNum.textContent = 'Câu ' + (game.current + 1) + ' / ' + questions.length;
 
