@@ -66,6 +66,90 @@ document.addEventListener("DOMContentLoaded", () => {
     // 2. TỰ ĐỘNG BẬT HIỆU ỨNG KHI CUỘN NỘI DUNG (SECTION OBSERVER)
     const slides = document.querySelectorAll('.slide');
 
+    // Cấu hình animation cho các slide chưa có hiệu ứng (slide 9-15)
+    // Key có thể là ID hoặc class của slide
+    const slideAnimations = {
+        'slide-app-csdl': [
+            { selector: '.app-tech-card', delay: 0 },
+            { selector: '.app-connector', delay: 150 },
+            { selector: '.title-tech-wrapper', delay: 300 }
+        ],
+        'slide-he-csdl': [
+            { selector: '.he-csdl-header', delay: 0 },
+            { selector: '.pipe-card.card-client', delay: 100 },
+            { selector: '.pipe-card.card-dbms', delay: 200 },
+            { selector: '.pipe-card.card-db', delay: 300 }
+        ],
+        'slide-summary': [
+            { selector: '.summary-header', delay: 0 },
+            { selector: '.summary-card.card-client', delay: 150 },
+            { selector: '.summary-card.card-server', delay: 300 }
+        ],
+        'slide-he-csdl-tap-trung': [
+            { selector: '.centralized-header', delay: 0 },
+            { selector: '.centralized-card.card-concept', delay: 150 },
+            { selector: '.centralized-card.card-details', delay: 300 },
+            { selector: '.centralized-diagram-panel', delay: 450 }
+        ],
+        'slide-he-csdl-phan-tan': [
+            { selector: '.distrib-header', delay: 0 },
+            { selector: '.distrib-card.card-concept', delay: 150 },
+            { selector: '.distrib-card.card-apps', delay: 300 },
+            { selector: '.distrib-card.card-example', delay: 450 },
+            { selector: '.distrib-topology-panel', delay: 600 }
+        ],
+        'slide-dac-trung-csdl': [
+            { selector: '.features-header', delay: 0 },
+            { selector: '.comp-card.card-pros', delay: 150 },
+            { selector: '.comp-card.card-cons', delay: 300 },
+            { selector: '.features-note-card', delay: 450 }
+        ],
+        'slide-master-summary': [
+            { selector: '.master-summary-header', delay: 0 },
+            { selector: '.master-card.card-pillar-1', delay: 150 },
+            { selector: '.master-card.card-pillar-2', delay: 300 },
+            { selector: '.master-card.card-pillar-3', delay: 450 },
+            { selector: '.master-card.card-pillar-4', delay: 600 }
+        ]
+    };
+
+    function getSlideKey(slide) {
+        return slide.id || (slide.classList.contains('slide-summary') ? 'slide-summary' : null);
+    }
+
+    function triggerSlideAnimations(slide) {
+        const slideKey = getSlideKey(slide);
+        const animations = slideAnimations[slideKey];
+        if (!animations) return;
+
+        animations.forEach(({ selector, delay }) => {
+            const elements = slide.querySelectorAll(selector);
+            elements.forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1)';
+                setTimeout(() => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, delay + index * 100);
+            });
+        });
+    }
+
+    function resetSlideAnimations(slide) {
+        const slideKey = getSlideKey(slide);
+        const animations = slideAnimations[slideKey];
+        if (!animations) return;
+
+        animations.forEach(({ selector }) => {
+            const elements = slide.querySelectorAll(selector);
+            elements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+            });
+        });
+    }
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -73,11 +157,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 const wordContainers = entry.target.querySelectorAll('.word-by-word');
                 wordContainers.forEach(container => triggerWordAnimation(container));
+
+                triggerSlideAnimations(entry.target);
             } else {
                 entry.target.classList.remove('active');
 
                 const wordContainers = entry.target.querySelectorAll('.word-by-word');
                 wordContainers.forEach(container => resetWordAnimation(container));
+
+                resetSlideAnimations(entry.target);
 
                 // Khôi phục Robot khi người dùng cuộn ra ngoài slide khác rồi quay lại
                 if (robotPuller && entry.target.contains(robotPuller)) {
